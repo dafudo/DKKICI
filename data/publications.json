@@ -202,29 +202,5 @@
     "cover": "assets/cover-motivation.svg",
     "links": [],
     "readUrl": ""
-  },
-  {
-    "slug": "mente-11",
-    "title": {
-      "en": "MENTE · Issue 11",
-      "pl": "MENTE · Numer 11"
-    },
-    "subtitle": {
-      "en": "A themed issue on motivation",
-      "pl": "Numer tematyczny o motywacji"
-    },
-    "description": {
-      "en": "An editorial project focused on motivation. Verify the publication details, editorial credits and outbound links before launch.",
-      "pl": "Projekt redakcyjny poświęcony motywacji. Przed publikacją należy sprawdzić dane wydawnicze, role redakcyjne i linki."
-    },
-    "year": "2025",
-    "date": "2025-04-01",
-    "kind": "journal",
-    "category": "education",
-    "featured": false,
-    "status": "preview",
-    "cover": "assets/cover-mente.svg",
-    "links": [],
-    "readUrl": ""
   }
 ]
