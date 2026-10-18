@@ -115,3 +115,30 @@ Animacje napisane są natywnie w CSS i JavaScript (IntersectionObserver); nie in
 - Sprawdź stronę z klawiatury oraz na telefonie i komputerze.
 
 **Wszystkie pliki można wykorzystać i modyfikować w Twoim osobistym projekcie.**
+
+
+## Bilingual publications catalogue (October 2026)
+
+The dedicated editorial catalogues are served from:
+
+- English: `/publications/`
+- Polish: `/pl/publikacje/`
+
+Clicking a publication cover opens an animated, keyboard-accessible native dialog with the title, cover, description, year, category, and available outbound reading or retailer links. The dialog also links to the existing static, shareable publication page. The catalogue includes search, subject filters, sorting, deep links using `?publication=<slug>`, mobile layout, and reduced-motion support.
+
+**All publication data is read from `data/publications.json`.** Add verified links to each work, for example:
+
+```json
+"links": [
+  {"label": "Apple Books", "url": "https://books.apple.com/..."},
+  {"label": "Google Play Books", "url": "https://play.google.com/store/books/details/..."},
+  {"label": "Amazon", "url": "https://www.amazon.com/..."},
+  {"label": "Zanando", "url": "https://YOUR-VERIFIED-PUBLICATION-URL"}
+]
+```
+
+Only valid HTTPS links supplied in the JSON file are displayed; do not use search or shop homepages as substitutes for verified book-specific URLs. The existing demo entries have empty `links` arrays.
+
+The listing updates from JSON automatically. For a **new book**, also run `python3 tools/build.py` before committing so the separate English and Polish publication detail pages are generated. The generator preserves and links to both dedicated catalogues. No npm, build framework, or server database is necessary. Deploy files directly from the `main` branch root on GitHub Pages.
+
+**Pre-launch:** all pages currently retain `noindex,nofollow` while draft descriptions, placeholder images and bibliographic details remain unverified.
