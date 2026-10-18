@@ -7,7 +7,7 @@ root=Path(__file__).resolve().parents[1]
 out=root/'qa/screens'
 out.mkdir(parents=True,exist_ok=True)
 base="http://127.0.0.1:8000/DKKICI/"
-urls=['','pl/','leadership/','pl/organizacje/','media/','pl/media/','gallery/','pl/galeria/','publications/','pl/publikacje/']
+urls=['','pl/','profile/','pl/profil/','leadership/','pl/organizacje/','media/','pl/media/','gallery/','pl/galeria/','publications/','pl/publikacje/']
 with sync_playwright() as p:
  browser=p.chromium.launch(headless=True,args=['--no-sandbox'])
  failures=[]
@@ -23,7 +23,7 @@ with sync_playwright() as p:
     bad=page.evaluate("""() => Array.from(document.querySelectorAll('*')).map(el=>({el,rect:el.getBoundingClientRect()})).filter(x=>x.rect.right>innerWidth+4 || x.rect.left < -4).slice(0,30).map(x=>({tag:x.el.tagName,cls:x.el.className?.toString().slice(0,70),txt:x.el.textContent.slice(0,70),left:Math.round(x.rect.left),right:Math.round(x.rect.right)}))""")
     print('OFFENDERS',mode,name,bad)
     failures.append(f'Horizontal overflow {mode} {name}: {overflow}px')
-   if name in ('','pl/','media/','gallery/','leadership/'):
+   if name in ('','pl/','profile/','pl/profil/','media/','gallery/','leadership/'):
     filename=(name.strip('/').replace('/','-') or 'home')
     page.screenshot(path=str(out/(mode+'-'+filename+'.jpg')),type='jpeg',quality=70)
    print(mode,name,result.status if result else 'none','overflow=',overflow)
@@ -37,6 +37,9 @@ with sync_playwright() as p:
    assert page.locator('#photo-viewer').evaluate('(el)=>el.open')
    page.keyboard.press('Escape')
    assert not page.locator('#photo-viewer').evaluate('(el)=>el.open')
+   page.goto(base+'profile/',wait_until='domcontentloaded')
+   assert page.locator('a[href="../publications/"]').count()>=1
+   assert page.locator('text=PACFA Clinical Registrant').count()>=1
    page.goto(base+'publications/',wait_until='domcontentloaded')
    page.locator('.publication-tile').first.click()
    assert page.locator('#publication-dialog').evaluate('(el)=>el.open')
