@@ -1,0 +1,38 @@
+/* Personal identity / photography / professional research layer */
+.hero-photo{object-fit:cover;object-position:50% 25%;filter:saturate(.78) contrast(1.02)}
+.hero-visual{background:#344139}
+.hero-visual-note{max-width:300px}
+.hero-visual-note .eyebrow{letter-spacing:.13em;font-size:.65rem}
+.about-img{object-fit:cover;object-position:center 29%;filter:saturate(.78) contrast(1.02)}
+.film-shell{background:linear-gradient(180deg,rgba(11,20,17,.65),rgba(11,20,17,.8)),url('../assets/photos/1779784543811.png') center 34%/cover}
+.identity-section{padding:clamp(86px,11vw,160px) 0;background:#E7E6DC;color:#29332D;overflow:hidden}
+.identity-section .section-topline{border-color:#bac1b6}
+.identity-heading{display:flex;align-items:end;justify-content:space-between;gap:45px;margin:54px 0 57px}
+.identity-heading h2{font-size:clamp(4.4rem,7vw,8.4rem);letter-spacing:-.065em;line-height:.94;margin:0}
+.identity-heading h2 em{font-weight:400;color:#928471}
+.identity-heading>p{line-height:1.85;font-size:clamp(.89rem,1.1vw,1.03rem);color:#596357;max-width:360px;margin:0 0 5px}
+.identity-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:1px solid #aeb8a9;border-bottom:1px solid #aeb8a9}
+.identity-card{padding:42px clamp(20px,3vw,43px) 45px;display:flex;flex-direction:column;min-height:340px}
+.identity-card:first-child{padding-left:0}
+.identity-card:not(:last-child){border-right:1px solid #aeb8a9}
+.identity-card>span,.identity-card small{font-size:.58rem;letter-spacing:.19em;text-transform:uppercase;font-weight:700;color:#7a776a}
+.identity-card h3{font:400 clamp(2.1rem,3.1vw,3.5rem)/1 var(--display,Georgia,serif);letter-spacing:-.035em;margin:52px 0 19px}
+.identity-card p{color:#576358;font-size:.8rem;line-height:1.85;margin:0 0 27px}
+.identity-card small{margin-top:auto}
+.identity-moments{display:grid;grid-template-columns:1.25fr .75fr;gap:27px;margin-top:53px}
+.identity-moment{margin:0;position:relative;overflow:hidden;background:#ced1c9;min-height:410px}
+.identity-moment img{display:block;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.7) contrast(1.03);transition:transform .8s cubic-bezier(.2,1,.25,1),filter .6s}
+.identity-moment--stage img{object-position:50% 35%}
+.identity-moment--candid img{object-position:55% 24%}
+.identity-moment:hover img{transform:scale(1.035);filter:saturate(.95)}
+.identity-moment:after{content:'';position:absolute;inset:40% 0 0;background:linear-gradient(transparent,#111d16b8);pointer-events:none}
+.identity-moment figcaption{position:absolute;bottom:26px;left:26px;z-index:1;color:#f8f4eb;letter-spacing:.19em;font-size:.57rem;font-weight:700}
+.identity-externals{margin-top:60px;padding-top:30px;border-top:1px solid #aeb8a9;display:grid;grid-template-columns:1fr 1.3fr;gap:50px}
+.identity-externals>div>p:nth-child(2){line-height:1.8;color:#5b655b;max-width:360px;font-size:.8rem;margin-top:16px}
+.identity-links{display:grid;grid-template-columns:1fr 1fr;gap:0 30px}
+.identity-links a{display:flex;align-items:center;justify-content:space-between;gap:12px;border-bottom:1px solid #aeb8a9;padding:18px 0;font-size:.91rem;color:#28392f;transition:color .2s,padding .25s}
+.identity-links a span{color:#917a5d}
+.identity-links a:hover{color:#aa8151;padding-left:5px}
+@media(max-width:900px){.identity-heading{flex-direction:column;align-items:start}.identity-heading>p{max-width:590px}.identity-card{min-height:390px;padding:35px 21px}.identity-card h3{font-size:2.5rem;margin-top:38px}}
+@media(max-width:650px){.identity-section{padding:75px 0}.identity-heading{margin:35px 0}.identity-heading h2{font-size:clamp(4rem,14vw,5.5rem)}.identity-grid{grid-template-columns:1fr}.identity-card{padding:28px 0 33px!important;min-height:auto;border-right:0!important;border-bottom:1px solid #aeb8a9}.identity-card:last-child{border-bottom:0}.identity-card h3{font-size:2.5rem;margin:25px 0 13px}.identity-moments{grid-template-columns:1fr;gap:16px;margin-top:38px}.identity-moment{min-height:320px}.identity-moment--candid{min-height:270px}.identity-externals{grid-template-columns:1fr;gap:15px;margin-top:38px}.identity-links{grid-template-columns:1fr 1fr;gap:0 16px}.identity-links a{font-size:.76rem;padding:15px 0}.hero-visual{max-width:530px}}
+@media(prefers-reduced-motion:reduce){.identity-moment img{transition:none!important}}
