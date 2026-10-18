@@ -1,5 +1,43 @@
 # DKK. — Personal Archive / osobista strona Dawida Karola Kołodzieja
 
+## Current site — professional identity and publishing workflow (October 2026)
+
+**Public domain:** https://dkk.hqici.com/
+
+**Professional profile:** https://dkk.hqici.com/profile/ · https://dkk.hqici.com/pl/profil/
+
+**Publications:** https://dkk.hqici.com/publications/ · https://dkk.hqici.com/pl/publikacje/
+
+The active source for professional biographical facts, qualifications, PACFA registration, NDIS PBS suitable-practitioner wording, ongoing DBA studies and both languages is **`data/profile.json`**. Do not alter generated HTML to change these facts. The English public name is **Dawid Karol Kolodziej**; the Polish public name is **Dawid Karol Kołodziej**. Periods are intentionally distinguished: charity placements beginning in 2009 and professional counselling practice from 2013.
+
+### Adding a new publication
+
+1. Open `data/publications.json`, copy one complete entry, and replace the slug, bilingual titles/subtitles/descriptions, kind, subject, date, cover, and available source/store URLs.
+2. Use `status: "published"` only for an actually released work, otherwise `status: "preview"`. Draft entries are excluded from the public index and sitemap.
+3. Place a legally usable cover in `assets/`, use its repository-relative path as `cover`. Do not invent ISBNs, DOIs, peer review, or store availability.
+4. Set `featured: true` for selected homepage works. The full library list, dynamic animated dialogs and Google Play editions are drawn from the **same** JSON file. Adding a new book does not require editing `index.html` or copying the store link into a second data file.
+5. Commit on `main`. GitHub Actions regenerates both stand-alone detail pages, the static catalogue fallback, navigation metadata, `sitemap.xml`, `hreflang`, canonical URLs, and structured research metadata.
+
+A `readUrl` should link to the full work or repository record. The `links` array can include Apple Books, Google Play Books and other *confirmed* edition URLs. Descriptive kinds currently supported: `article`, `research`, `working_paper`, `book`, `journal`, `resource`. Work descriptions must reflect the correct editorial/review status.
+
+### Current build order
+
+```bash
+python3 tools/build.py
+python3 tools/showcase_pages.py
+python3 tools/enrich_home.py
+python3 tools/brand_refresh.py
+python3 tools/localize_english_name.py
+python3 tools/generate_sitemap.py
+```
+
+The GitHub workflow `.github/workflows/build-site.yml` is the authoritative publishing process. Earlier instructions in this README describing a three-stage build, project-path URLs or removing `noindex` globally are historical and should not be followed for the current live site.
+
+Professional certification, professional registration, assessed suitability, completed degrees, short courses and ongoing DBA studies are distinct categories. English and Polish descriptions should not suggest these are equivalent. Do not publish confidential case details or images as clinical testimonials.
+
+---
+
+
 Dopasowywalne, dwujęzyczne portfolio redakcyjne w **czystym HTML + CSS + JavaScript**. Bez Astro, React, Next.js, `npm`, bazy danych i zewnętrznego CMS. Strona zawiera gotowe podstrony publikacji oraz prosty skrypt Pythona generujący kolejne strony z JSON-a.
 
 **Status:** kompletny demonstrator wizualny i techniczny. **Przed promocją i indeksowaniem** zweryfikuj biografię, publikacje, rolę autora/redaktora, portrety, linki do książek i dane kontaktowe. W projekcie świadomie ustawiono `noindex,nofollow`, aby nie indeksować danych demonstracyjnych. Wszystkie przykładowe wpisy mają status `preview`.
