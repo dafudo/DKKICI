@@ -1,14 +1,155 @@
 [
   {
+    "slug": "support-needs",
+    "title": {
+      "en": "From Deficit Description to Support Needs: Functioning and Education of Students with Mild Intellectual Disability",
+      "pl": "Od opisu deficytów do potrzeb wsparcia: funkcjonowanie i edukacja uczniów z lekką niepełnosprawnością intelektualną"
+    },
+    "subtitle": {
+      "en": "Reframing assessment around functioning, education and practical support",
+      "pl": "Od opisu trudności do funkcjonowania i praktycznego wsparcia"
+    },
+    "description": {
+      "en": "An article examining how the educational assessment of students with mild intellectual disability can move beyond deficit-led descriptions towards functioning and support needs. Deposited on Zenodo; further editorial and peer-review information has not been independently assessed.",
+      "pl": "Opracowanie dotyczące przejścia od opisu deficytów do analizy funkcjonowania i potrzeb wsparcia uczniów z lekką niepełnosprawnością intelektualną. Tekst udostępniony w Zenodo; nie dokonano niezależnej weryfikacji procesu recenzyjnego."
+    },
+    "year": "2026",
+    "date": "2026-10-18",
+    "kind": "essay",
+    "category": "education",
+    "featured": true,
+    "status": "published",
+    "cover": "assets/cover-support.svg",
+    "links": [
+      {
+        "label": "Apple Books",
+        "url": "https://books.apple.com/us/book/from-deficit-description-to-support-needs/id6824096092"
+      }
+    ],
+    "readUrl": "https://zenodo.org/records/23443068",
+    "doi": "10.5281/zenodo.23443068"
+  },
+  {
+    "slug": "from-case-description-to-diagnostic-hypothesis",
+    "title": {
+      "en": "From Case Description to Diagnostic Hypothesis: A Critical Analysis of Reasoning in the Assessment of Adolescent Social Maladjustment",
+      "pl": "Od opisu przypadku do hipotezy diagnostycznej: krytyczna analiza rozumowania w ocenie niedostosowania społecznego młodzieży"
+    },
+    "subtitle": {
+      "en": "Diagnostic reasoning, interpretation and professional judgement",
+      "pl": "Rozumowanie diagnostyczne, interpretacja i osąd specjalisty"
+    },
+    "description": {
+      "en": "A critical examination of how case descriptions become diagnostic hypotheses in the assessment of adolescent social maladjustment, with attention to reasoning and limitations. Deposited on Zenodo; peer-review status has not been independently assessed.",
+      "pl": "Krytyczna analiza procesu przechodzenia od opisu przypadku do hipotez diagnostycznych w ocenie niedostosowania społecznego młodzieży. Udostępnione w Zenodo; status recenzji nie został niezależnie potwierdzony."
+    },
+    "year": "2026",
+    "date": "2026-10-17",
+    "kind": "essay",
+    "category": "psychology",
+    "featured": true,
+    "status": "published",
+    "cover": "assets/cover-diagnostic.svg",
+    "links": [
+      {
+        "label": "Apple Books",
+        "url": "https://books.apple.com/us/book/from-case-description-to-diagnostic-hypothesis/id6823856702"
+      }
+    ],
+    "readUrl": "https://zenodo.org/records/23426826",
+    "doi": "10.5281/zenodo.23426826"
+  },
+  {
+    "slug": "family-context-risk-protection",
+    "title": {
+      "en": "Family as a Context of Risk and Protection: From Family Dysfunction to a Multifactorial Model of Adolescent Social Maladjustment",
+      "pl": "Rodzina jako kontekst ryzyka i ochrony: od dysfunkcji rodziny do wieloczynnikowego modelu niedostosowania społecznego młodzieży"
+    },
+    "subtitle": {
+      "en": "Family processes and a multifactorial view of adolescent development",
+      "pl": "Procesy rodzinne i wieloczynnikowe ujęcie rozwoju młodzieży"
+    },
+    "description": {
+      "en": "A theoretical paper considering family environments as both risk and protective contexts in adolescent social functioning. Available as an open repository record on Zenodo.",
+      "pl": "Opracowanie teoretyczne dotyczące rodziny jako kontekstu ryzyka i czynników ochronnych w funkcjonowaniu społecznym młodzieży. Dostępne w repozytorium Zenodo."
+    },
+    "year": "2026",
+    "date": "2026",
+    "kind": "essay",
+    "category": "psychology",
+    "featured": true,
+    "status": "published",
+    "cover": "assets/cover-family.svg",
+    "links": [],
+    "readUrl": "https://zenodo.org/records/23381111"
+  },
+  {
+    "slug": "open-assertiveness",
+    "title": {
+      "en": "Open Assertiveness as a Contextual Competence: Autonomy, Relationships, and the Social Costs of Self-Expression",
+      "pl": "Otwarta asertywność jako kompetencja kontekstowa: autonomia, relacje i społeczne koszty wyrażania siebie"
+    },
+    "subtitle": {
+      "en": "A working paper on assertiveness, relationships and autonomy",
+      "pl": "Working paper o asertywności, relacjach i autonomii"
+    },
+    "description": {
+      "en": "A working paper exploring assertiveness as a context-dependent competence involving autonomy, relationships and the social consequences of self-expression.",
+      "pl": "Working paper analizujący asertywność jako kompetencję zależną od kontekstu, obejmującą autonomię, relacje i społeczne skutki wyrażania siebie."
+    },
+    "year": "2026",
+    "date": "2026",
+    "kind": "essay",
+    "category": "psychology",
+    "featured": false,
+    "status": "published",
+    "cover": "assets/cover-assertiveness.svg",
+    "links": [],
+    "readUrl": "https://zenodo.org/records/23357448"
+  },
+  {
+    "slug": "authority-without-authoritarianism",
+    "title": {
+      "en": "Authority Without Authoritarianism: Legitimising Parental and Teacher Influence in the Education of Young People",
+      "pl": "Autorytet bez autorytaryzmu: legitymizacja wpływu rodziców i nauczycieli w wychowaniu młodzieży"
+    },
+    "subtitle": {
+      "en": "A working paper on educational authority and legitimate influence",
+      "pl": "Working paper o autorytecie wychowawczym i uzasadnionym wpływie"
+    },
+    "description": {
+      "en": "A working paper exploring how parents and teachers can exercise legitimate educational influence without relying on authoritarian approaches.",
+      "pl": "Working paper poświęcony temu, jak rodzice i nauczyciele mogą wywierać uzasadniony wpływ wychowawczy bez odwoływania się do autorytaryzmu."
+    },
+    "year": "2026",
+    "date": "2026",
+    "kind": "essay",
+    "category": "education",
+    "featured": false,
+    "status": "published",
+    "cover": "assets/cover-authority.svg",
+    "links": [],
+    "readUrl": "https://zenodo.org/records/23357877"
+  },
+  {
     "slug": "fundamenty-motywacji",
-    "title": {"en": "Foundations of Motivation", "pl": "Fundamenty motywacji"},
-    "subtitle": {"en": "A work on the psychology of motivation", "pl": "Praca o psychologii motywacji"},
-    "description": {"en": "An exploration of motivation, its mechanisms and the questions that shape how we understand change. This demo entry needs a verified publication description and links.", "pl": "Publikacja poświęcona mechanizmom motywacji i sposobom rozumienia zmiany. Ten wpis demonstracyjny wymaga zweryfikowanego opisu oraz linków."},
+    "title": {
+      "en": "Foundations of Motivation",
+      "pl": "Fundamenty motywacji"
+    },
+    "subtitle": {
+      "en": "A work on the psychology of motivation",
+      "pl": "Praca o psychologii motywacji"
+    },
+    "description": {
+      "en": "An exploration of motivation, its mechanisms and the questions that shape how we understand change. This demo entry needs a verified publication description and links.",
+      "pl": "Publikacja poświęcona mechanizmom motywacji i sposobom rozumienia zmiany. Ten wpis demonstracyjny wymaga zweryfikowanego opisu oraz linków."
+    },
     "year": "2025",
     "date": "2025-02-25",
     "kind": "book",
     "category": "psychology",
-    "featured": true,
+    "featured": false,
     "status": "preview",
     "cover": "assets/cover-motivation.svg",
     "links": [],
@@ -16,31 +157,25 @@
   },
   {
     "slug": "mente-11",
-    "title": {"en": "MENTE · Issue 11", "pl": "MENTE · Numer 11"},
-    "subtitle": {"en": "A themed issue on motivation", "pl": "Numer tematyczny o motywacji"},
-    "description": {"en": "An editorial project focused on motivation. Verify the publication details, editorial credits and outbound links before launch.", "pl": "Projekt redakcyjny poświęcony motywacji. Przed publikacją należy sprawdzić dane wydawnicze, role redakcyjne i linki."},
+    "title": {
+      "en": "MENTE · Issue 11",
+      "pl": "MENTE · Numer 11"
+    },
+    "subtitle": {
+      "en": "A themed issue on motivation",
+      "pl": "Numer tematyczny o motywacji"
+    },
+    "description": {
+      "en": "An editorial project focused on motivation. Verify the publication details, editorial credits and outbound links before launch.",
+      "pl": "Projekt redakcyjny poświęcony motywacji. Przed publikacją należy sprawdzić dane wydawnicze, role redakcyjne i linki."
+    },
     "year": "2025",
     "date": "2025-04-01",
     "kind": "journal",
     "category": "education",
-    "featured": true,
+    "featured": false,
     "status": "preview",
     "cover": "assets/cover-mente.svg",
-    "links": [],
-    "readUrl": ""
-  },
-  {
-    "slug": "support-needs",
-    "title": {"en": "Support Needs", "pl": "Support Needs"},
-    "subtitle": {"en": "A publication on understanding support", "pl": "Publikacja o rozumieniu potrzeb wsparcia"},
-    "description": {"en": "A placeholder catalogue entry for an English-language publication. Add verified bibliographic information and live availability links.", "pl": "Przykładowy wpis katalogowy dla anglojęzycznej publikacji. Uzupełnij zweryfikowane dane bibliograficzne i rzeczywiste linki."},
-    "year": "2026",
-    "date": "2026-10-01",
-    "kind": "book",
-    "category": "practice",
-    "featured": true,
-    "status": "preview",
-    "cover": "assets/cover-support.svg",
     "links": [],
     "readUrl": ""
   }
