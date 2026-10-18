@@ -16,7 +16,7 @@ assert len(set(x['slug'] for x in P)) == len(P), 'Slugs must be unique'
 for x in P:
     assert x['slug'].replace('-','').isalnum() and x['slug'] == x['slug'].lower(), 'Invalid slug'
     assert x['status'] in ('preview', 'published', 'archived')
-    assert x['kind'] in ('book','journal','essay','resource')
+    assert x['kind'] in ('book','journal','article','research','working_paper','resource')
     assert x['category'] in ('psychology','education','practice','ideas')
     assert len(x['date']) in (4,10)
     assert all(isinstance(x[k],dict) and x[k].get('en') and x[k].get('pl') for k in ['title','subtitle','description'])
@@ -49,7 +49,7 @@ I = {
  noLinks='Publication links will be added after verification.', otherH='More to explore',
  filmModalK='A FILM TO BE MADE', filmModalH='A portrait in motion.', filmModalText='Storyboard: a quiet opening portrait, scenes from writing and everyday work, a short direct-to-camera introduction, followed by an understated end title. To activate the film, add a video URL in data/site.json (videoUrl) and rebuild the pages.',
  filmClose='Close', poster='PORTRAIT PLACEHOLDER', edit='REPLACE WITH YOUR PHOTO', read='Read online', view='Open publication', draft='Preview / details to verify',
- typeLabels={'book':'Book','journal':'Journal','essay':'Essay','resource':'Resource'},
+ typeLabels={'book':'Book','journal':'Journal','article':'Research article','research':'Research paper','working_paper':'Working paper','resource':'Resource'},
  categoryLabels={'psychology':'Psychology','education':'Education','practice':'Practice','ideas':'Ideas'},
  events=[('2013','The beginning','Early work in counselling, psychological and educational support.'),('2015','Building an organisation','Beginning of leadership at Towarzystwo Psychopedagogiczne.'),('2024','A new chapter in Australia','Continued practice in youth mental health and counselling in Queensland.'),('2026','Writing and learning','An expanding catalogue of publications and continuing professional development.')],
  projects=[('01','Towarzystwo Psychopedagogiczne','Leadership, interdisciplinary collaboration and psychological education.'),('02','MENTE','A publication space for ideas about psychology, education and contemporary life.'),('03','ICI and educational projects','Learning resources and initiatives designed to bring practical knowledge closer to people.')],
@@ -79,7 +79,7 @@ I = {
  noLinks='Linki do publikacji zostaną uzupełnione po weryfikacji.', otherH='Odkryj więcej',
  filmModalK='FILM DO NAGRANIA', filmModalH='Portret w ruchu.', filmModalText='Scenariusz: spokojny kadr portretowy, sceny pisania i codziennej pracy, krótka wypowiedź do kamery oraz oszczędna plansza końcowa. Aby uruchomić film, dodaj adres pliku w data/site.json (videoUrl) i przebuduj strony.',
  filmClose='Zamknij', poster='MIEJSCE NA PORTRET', edit='TUTAJ DODAMY TWOJE ZDJĘCIE', read='Czytaj online', view='Otwórz publikację', draft='Podgląd / dane do weryfikacji',
- typeLabels={'book':'Książka','journal':'Czasopismo','essay':'Esej','resource':'Materiał'},
+ typeLabels={'book':'Książka','journal':'Czasopismo','article':'Artykuł naukowy','research':'Opracowanie badawcze','working_paper':'Working paper','resource':'Materiał'},
  categoryLabels={'psychology':'Psychologia','education':'Edukacja','practice':'Praktyka','ideas':'Idee'},
  events=[('2013','Początek praktyki','Pierwsze działania w obszarze poradnictwa oraz wsparcia psychologiczno-edukacyjnego.'),('2015','Budowanie organizacji','Początek kierowania Towarzystwem Psychopedagogicznym.'),('2024','Nowy rozdział w Australii','Kontynuacja pracy w zakresie zdrowia psychicznego młodzieży i poradnictwa w Queensland.'),('2026','Publikacje i rozwój','Rozbudowa biblioteki publikacji i dalsze doskonalenie zawodowe.')],
  projects=[('01','Towarzystwo Psychopedagogiczne','Przywództwo, współpraca interdyscyplinarna i edukacja psychologiczna.'),('02','MENTE','Przestrzeń publikacji o psychologii, edukacji i współczesnym życiu.'),('03','ICI i projekty edukacyjne','Materiały i inicjatywy służące upowszechnianiu praktycznej wiedzy.')],
