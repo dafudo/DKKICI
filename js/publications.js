@@ -63,7 +63,7 @@
     frame.append(img,symbol);
     const meta=document.createElement('div');meta.className='publication-tile__meta';
     meta.textContent=labelFor(null,p.kind) + ' / ' + (p.year || '');
-    const name=document.createElement('h3'); name.textContent=titleOf(p);
+    const name=document.createElement('h3'); name.textContent=p.titleShort?.[lang]||titleOf(p);
     const sub=document.createElement('p');sub.textContent=subtitleOf(p);
     card.append(frame,meta,name,sub);
     card.addEventListener('click', e=>{
@@ -95,7 +95,7 @@
   }
   function showPublication(p, push=true) {
     if(!dialog || !p)return;
-    current=p;asText(title,titleOf(p));asText(subtitle,subtitleOf(p));asText(description,details(p));
+    current=p;dialog.classList.toggle('is-long-title',titleOf(p).length>62);asText(title,titleOf(p));asText(subtitle,subtitleOf(p));asText(description,details(p));
     cover.src=root+p.cover;cover.alt=titleOf(p) + ' — cover';
     facts.replaceChildren();
     [[tr.year,p.year],[tr.format,labelFor(null,p.kind)],[tr.topic,labelFor(null,p.category)]].forEach(([k,v])=>{
