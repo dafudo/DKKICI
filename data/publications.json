@@ -19,11 +19,15 @@
     "category": "education",
     "featured": true,
     "status": "published",
-    "cover": "assets/cover-support.svg",
+    "cover": "assets/google-books/C3ocEgAAQBAJ.jpg",
     "links": [
       {
         "label": "Apple Books",
         "url": "https://books.apple.com/us/book/from-deficit-description-to-support-needs/id6824096092"
+      },
+      {
+        "label": "Google Play Books",
+        "url": "https://play.google.com/store/books/details?id=C3ocEgAAQBAJ"
       }
     ],
     "readUrl": "https://zenodo.org/records/23443068",
@@ -31,7 +35,8 @@
     "titleShort": {
       "en": "From Deficit to Support Needs",
       "pl": "Od deficytów do potrzeb wsparcia"
-    }
+    },
+    "googlePlayId": "C3ocEgAAQBAJ"
   },
   {
     "slug": "from-case-description-to-diagnostic-hypothesis",
@@ -53,11 +58,15 @@
     "category": "psychology",
     "featured": true,
     "status": "published",
-    "cover": "assets/cover-diagnostic.svg",
+    "cover": "assets/google-books/Jh8cEgAAQBAJ.jpg",
     "links": [
       {
         "label": "Apple Books",
         "url": "https://books.apple.com/us/book/from-case-description-to-diagnostic-hypothesis/id6823856702"
+      },
+      {
+        "label": "Google Play Books",
+        "url": "https://play.google.com/store/books/details?id=Jh8cEgAAQBAJ"
       }
     ],
     "readUrl": "https://zenodo.org/records/23426826",
@@ -65,7 +74,8 @@
     "titleShort": {
       "en": "From Case to Diagnostic Hypothesis",
       "pl": "Od przypadku do hipotezy diagnostycznej"
-    }
+    },
+    "googlePlayId": "Jh8cEgAAQBAJ"
   },
   {
     "slug": "family-context-risk-protection",
@@ -87,13 +97,19 @@
     "category": "psychology",
     "featured": true,
     "status": "published",
-    "cover": "assets/cover-family.svg",
-    "links": [],
+    "cover": "assets/google-books/rIMbEgAAQBAJ.jpg",
+    "links": [
+      {
+        "label": "Google Play Books",
+        "url": "https://play.google.com/store/books/details?id=rIMbEgAAQBAJ"
+      }
+    ],
     "readUrl": "https://zenodo.org/records/23381111",
     "titleShort": {
       "en": "Family, Risk & Protection",
       "pl": "Rodzina, ryzyko i ochrona"
-    }
+    },
+    "googlePlayId": "rIMbEgAAQBAJ"
   },
   {
     "slug": "open-assertiveness",
@@ -115,13 +131,19 @@
     "category": "psychology",
     "featured": false,
     "status": "published",
-    "cover": "assets/cover-assertiveness.svg",
-    "links": [],
+    "cover": "assets/google-books/mZMaEgAAQBAJ.jpg",
+    "links": [
+      {
+        "label": "Google Play Books",
+        "url": "https://play.google.com/store/books/details?id=mZMaEgAAQBAJ"
+      }
+    ],
     "readUrl": "https://zenodo.org/records/23357448",
     "titleShort": {
       "en": "Open Assertiveness",
       "pl": "Otwarta asertywność"
-    }
+    },
+    "googlePlayId": "mZMaEgAAQBAJ"
   },
   {
     "slug": "authority-without-authoritarianism",
@@ -143,13 +165,19 @@
     "category": "education",
     "featured": false,
     "status": "published",
-    "cover": "assets/cover-authority.svg",
-    "links": [],
+    "cover": "assets/google-books/0voaEgAAQBAJ.jpg",
+    "links": [
+      {
+        "label": "Google Play Books",
+        "url": "https://play.google.com/store/books/details?id=0voaEgAAQBAJ"
+      }
+    ],
     "readUrl": "https://zenodo.org/records/23357877",
     "titleShort": {
       "en": "Authority Without Authoritarianism",
       "pl": "Autorytet bez autorytaryzmu"
-    }
+    },
+    "googlePlayId": "0voaEgAAQBAJ"
   },
   {
     "slug": "fundamenty-motywacji",
