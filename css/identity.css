@@ -4,7 +4,7 @@
 .hero-visual-note{max-width:300px}
 .hero-visual-note .eyebrow{letter-spacing:.13em;font-size:.65rem}
 .about-img{object-fit:cover;object-position:center 29%;filter:saturate(.78) contrast(1.02)}
-.film-shell{background:linear-gradient(180deg,rgba(11,20,17,.65),rgba(11,20,17,.8)),url('../assets/photos/1779784543811.png') center 34%/cover}
+.film-shell{background:linear-gradient(180deg,rgba(11,20,17,.65),rgba(11,20,17,.8)),url('../assets/portraits/about.webp') center 34%/cover}
 .identity-section{padding:clamp(86px,11vw,160px) 0;background:#E7E6DC;color:#29332D;overflow:hidden}
 .identity-section .section-topline{border-color:#bac1b6}
 .identity-heading{display:flex;align-items:end;justify-content:space-between;gap:45px;margin:54px 0 57px}
