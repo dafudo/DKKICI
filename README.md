@@ -165,3 +165,26 @@ python3 tools/enrich_home.py
 The GitHub Actions workflow `.github/workflows/build-site.yml` runs these commands and publishes static HTML changes to `main` whenever the source data or generators change. The optional `.github/workflows/visual-qa.yml` performs responsive browser checks.
 
 **Editorial standards:** 2009 denotes first charity placements; professional counselling practice dates from 2013. Current qualifications must not be retroactively attributed to earlier years. DBA is ongoing. Media reports involving sensitive family matters are linked in context, and known historical title misattributions are not reproduced as professional credentials. Two stylised compositions are labelled editorial, not event documentation. The MENTE mockup is retired. All 26 photographs supplied in `photos` are retained in the gallery; the older hand-picked portrait set was removed.
+
+
+## Google Search Console — sitemap and search indexing
+
+- **Live sitemap:** https://dafudo.github.io/DKKICI/sitemap.xml
+- The file is committed to the `main` branch alongside `robots.txt`.
+- **Submit in Search Console:** add and verify a URL-prefix property for
+  `https://dafudo.github.io/DKKICI/`, go to **Indexing → Sitemaps**,
+  and submit `sitemap.xml` (or its full URL).
+- The sitemap includes the English and Polish versions of the homepage,
+  publications index, media, gallery, leadership pages, and **published** book
+  pages. Draft/preview records in `data/publications.json` are excluded.
+- The sitemap includes `hreflang` alternates and gallery image URLs.
+- `tools/generate_sitemap.py` also sets canonical and locale-alternate
+  links in every public indexed HTML page. It is run at the end of
+  `.github/workflows/build-site.yml`, after all HTML generators.
+- **Important GitHub Pages limitation:** a `robots.txt` file under the
+  repository-project path `/DKKICI/robots.txt` is **not** the host-root
+  `https://dafudo.github.io/robots.txt`. Crawlers generally consult the
+  host-root robots file; therefore you should submit the sitemap directly in
+  Search Console, instead of relying on this project-level `robots.txt`.
+- A submitted sitemap helps Google discover URLs; it does **not** guarantee
+  indexing or a particular ranking.
