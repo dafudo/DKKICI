@@ -2,8 +2,7 @@
 """Publish sitemap.xml and canonical/hreflang metadata for static GitHub Pages.
 
 No dependencies. Only public, indexed pages are included; draft/preview
-publications are excluded. Uses URL-prefix property /DKKICI/ rather than
-mistakenly assuming a dedicated apex domain.
+publications are excluded. Uses the custom subdomain https://dkk.hqici.com/ as canonical URL.
 """
 from __future__ import annotations
 
@@ -14,7 +13,7 @@ from urllib.parse import quote
 from xml.etree import ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
-BASE = "https://dafudo.github.io/DKKICI/"
+BASE = "https://dkk.hqici.com/"
 SITEMAP_NS = "http://www.sitemaps.org/schemas/sitemap/0.9"
 XHTML_NS = "http://www.w3.org/1999/xhtml"
 IMAGE_NS = "http://www.google.com/schemas/sitemap-image/1.1"
@@ -118,8 +117,7 @@ def build() -> None:
     with (ROOT / "sitemap.xml").open("wb") as stream:
         tree.write(stream, encoding="utf-8", xml_declaration=True)
 
-    # On project Pages, robots.txt inside /DKKICI/ does not replace the
-    # host-root robots file. Google Search Console should receive sitemap URL.
+    # On the configured custom domain robots.txt is served at the host root.
     (ROOT / "robots.txt").write_text(
         "User-agent: *\nAllow: /\n\nSitemap: " + BASE + "sitemap.xml\n",
         encoding="utf-8",
