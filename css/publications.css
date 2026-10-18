@@ -130,3 +130,45 @@
 .detail-page .detail-title{font-size:clamp(2.75rem,5vw,5.7rem);overflow-wrap:break-word;hyphens:auto}
 .detail-doi{display:inline-block;color:#6f5b41;font-size:.75rem;margin-top:9px}
 @media(max-width:540px){.publication-dialog.is-long-title h2{font-size:clamp(2.2rem,8vw,3.3rem)}.detail-page .detail-title{font-size:clamp(2.6rem,10vw,4rem)}}
+
+
+/* Quality pass: reliable responsive titles and accessible publication overlays */
+.pub-hero__inner>*{min-width:0}
+.pub-hero h1{font-size:clamp(4.7rem,8.7vw,9rem);line-height:.91;max-width:100%}
+.pub-hero__content{min-width:0}
+.pub-section__top h2{font-size:clamp(3.1rem,5.8vw,6rem);line-height:1.02}
+.publication-tile{min-width:0}
+.publication-tile h3{font-size:clamp(1.7rem,2.55vw,2.6rem);overflow-wrap:break-word;line-height:1.12}
+.publication-dialog{max-height:92dvh;overscroll-behavior:contain;border-radius:3px}
+.publication-dialog__inner{min-height:0;grid-template-columns:minmax(0,.78fr) minmax(0,1.22fr)}
+.publication-dialog__visual,.publication-dialog__copy{min-width:0}
+.publication-dialog__copy{padding:clamp(45px,4vw,69px) clamp(28px,3vw,52px) 38px}
+.publication-dialog h2,.publication-dialog.is-long-title h2{font-size:clamp(2.05rem,3.05vw,3.6rem);line-height:1.04;hyphens:auto;overflow-wrap:break-word;letter-spacing:-.025em}
+.publication-dialog__desc{font-size:.87rem;line-height:1.7}
+.publication-dialog__close{position:sticky;float:right;top:15px;margin:-22px -16px 0 12px;background:#28392f;z-index:10}
+.pub-store-link{max-width:100%;min-width:0;overflow-wrap:anywhere}
+.pub-grid,.gp-grid{min-width:0}
+.pub-tools{max-width:100%}
+.gp-book__visual{background:#f7f6f1}
+.gp-book__visual img{max-width:100%;max-height:100%}
+.detail-page .detail-grid>*{min-width:0}
+.detail-page .detail-title{font-size:clamp(2.7rem,5.25vw,5.5rem);line-height:1.08;hyphens:auto;overflow-wrap:break-word}
+.detail-actions{flex-wrap:wrap;gap:13px}
+@media(max-width:850px){
+ .pub-hero h1{font-size:clamp(4.4rem,11vw,7.2rem)}
+ .publication-dialog__inner{grid-template-columns:1fr}
+ .publication-dialog__visual{min-height:280px}
+ .publication-dialog__visual img{height:240px;width:auto}
+}
+@media(max-width:540px){
+ .pub-hero h1{font-size:clamp(3.8rem,13vw,5.3rem)}
+ .pub-section__top h2{font-size:clamp(2.95rem,12vw,4rem)}
+ .publication-tile h3{font-size:2rem}
+ .publication-dialog{width:calc(100vw - 12px);max-height:96dvh}
+ .publication-dialog__visual{min-height:245px;padding:20px}
+ .publication-dialog__visual img{height:205px;width:auto}
+ .publication-dialog__copy{padding:31px 24px 30px}
+ .publication-dialog h2,.publication-dialog.is-long-title h2{font-size:clamp(2.05rem,8.7vw,3rem)}
+ .publication-dialog__close{top:5px;right:0;margin:-13px -12px 0 4px}
+ .gp-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
