@@ -141,4 +141,27 @@ Only valid HTTPS links supplied in the JSON file are displayed; do not use searc
 
 The listing updates from JSON automatically. For a **new book**, also run `python3 tools/build.py` before committing so the separate English and Polish publication detail pages are generated. The generator preserves and links to both dedicated catalogues. No npm, build framework, or server database is necessary. Deploy files directly from the `main` branch root on GitHub Pages.
 
-**Pre-launch:** all pages currently retain `noindex,nofollow` while draft descriptions, placeholder images and bibliographic details remain unverified.
+**Search indexing:** published works and the public biography may be indexed. Unverified draft publication pages remain `noindex,nofollow`; the public catalogue only displays published records.
+
+
+## October 2026 — leadership, media and documentary portfolio
+
+The site is now a bilingual personal portfolio rather than a generic psychotherapy landing page. There are six dedicated content pages:
+
+- `/leadership/` and `/pl/organizacje/` — TPP President, PCA CEO and ICI Academic Director; organisation and business experience.
+- `/media/` and `/pl/media/` — verified links to source broadcasters, interviews, professional speaking and community initiatives.
+- `/gallery/` and `/pl/galeria/` — all 26 supplied `assets/photos` images, editorially described and optimised as WebP.
+
+Data sources are `data/leadership.json`, `data/media.json`, `data/gallery.json` and `data/publications.json`. Image optimisation is handled by `tools/build_gallery.py`. The personal hero uses `assets/DawidKolodziej.png` with a compressed WebP source.
+
+**To regenerate the full website:**
+
+```bash
+python3 tools/build.py
+python3 tools/showcase_pages.py
+python3 tools/enrich_home.py
+```
+
+The GitHub Actions workflow `.github/workflows/build-site.yml` runs these commands and publishes static HTML changes to `main` whenever the source data or generators change. The optional `.github/workflows/visual-qa.yml` performs responsive browser checks.
+
+**Editorial standards:** 2009 denotes first charity placements; professional counselling practice dates from 2013. Current qualifications must not be retroactively attributed to earlier years. DBA is ongoing. Media reports involving sensitive family matters are linked in context, and known historical title misattributions are not reproduced as professional credentials. Two stylised compositions are labelled editorial, not event documentation. The MENTE mockup is retired. All 26 photographs supplied in `photos` are retained in the gallery; the older hand-picked portrait set was removed.
