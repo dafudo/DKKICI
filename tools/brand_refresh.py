@@ -167,6 +167,13 @@ def repair_metadata(src,path,lang):
         s=re.sub(r'<meta property="og:title" content="[^"]*">','<meta property="og:title" content="'+h(title,quote=True)+'">',s,count=1)
         s=re.sub(r'<meta name="description" content="[^"]*">','<meta name="description" content="'+h(PROFILE[lang]['intro'],quote=True)+'">',s,count=1)
         s=re.sub(r'<meta property="og:description" content="[^"]*">','<meta property="og:description" content="'+h(PROFILE[lang]['intro'],quote=True)+'">',s,count=1)
+    if path.as_posix() in ('publications/index.html','pl/publikacje/index.html'):
+        first=next((p for p in PUBLICATIONS if p.get('status')=='published'),None)
+        if first:
+            s=re.sub(r'<meta property="og:image" content="[^"]*">','<meta property="og:image" content="'+BASE+h(first['cover'],quote=True)+'">',s,count=1)
+        old_text=('Five links to Google Play Books. Covers and verified author-matched titles are fetched from Google\'s catalogue when available.' if lang=='en' else 'Pięć odnośników do katalogu Google Play Books. Tytuły i okładki są pobierane z oficjalnych metadanych, jeśli są dostępne.')
+        new_text=('A selection of available digital editions. The growing catalogue above includes links to the relevant stores and source records.' if lang=='en' else 'Wybrane dostępne wydania cyfrowe. Rozwijający się katalog powyżej zawiera odnośniki do księgarni i źródeł.')
+        s=s.replace(old_text,new_text)
     if path.parts[0]=='works' or (path.parts[0]=='pl' and len(path.parts)>3 and path.parts[1]=='publikacje'):
         slug=path.parts[-2]
         item=next((p for p in PUBLICATIONS if p['slug']==slug),None)
