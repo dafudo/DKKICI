@@ -1,33 +1,38 @@
-/* Optional enrichment for user-provided Google Play Books volume IDs. */
+/* The storefront shelf uses only locally cached, title-matched records. */
 (() => {
- const shelf=document.querySelector('[data-google-shelf]');
- if(!shelf)return;
- const codes=['rIMbEgAAQBAJ','mZMaEgAAQBAJ','0voaEgAAQBAJ','Jh8cEgAAQBAJ','C3ocEgAAQBAJ'];
- const pl=document.documentElement.lang==='pl';
- const fallback=shelf.dataset.fallback || '../assets/cover-motivation.svg';
- const root=document.createDocumentFragment();
- codes.forEach((id,i)=>{
-   const card=document.createElement('a');card.className='gp-book';
-   card.href='https://play.google.com/store/books/details?id='+encodeURIComponent(id);
-   card.target='_blank';card.rel='noopener noreferrer';
-   const visual=document.createElement('div');visual.className='gp-book__visual';
-   const img=document.createElement('img');img.loading='lazy';img.decoding='async';
-   img.width=360;img.height=480;img.alt=pl?'Okładka książki Google Play Books':'Google Play Books cover';
-   img.src='https://books.google.com/books/content?id='+encodeURIComponent(id)+'&printsec=frontcover&img=1&zoom=1&source=gbs_api';
-   img.onerror=()=>{img.onerror=null;img.src=fallback;};
-   const badge=document.createElement('span');badge.textContent='↗';visual.append(img,badge);
-   const title=document.createElement('strong');title.textContent=(pl?'Wydanie Google Play':'Google Play edition')+' '+String(i+1).padStart(2,'0');
-   const sub=document.createElement('small');sub.textContent='Google Play Books';
-   card.append(visual,title,sub);root.append(card);
-   fetch('https://www.googleapis.com/books/v1/volumes/'+encodeURIComponent(id),{mode:'cors',cache:'force-cache'})
-     .then(r=>r.ok?r.json():Promise.reject(new Error('Google Books API unavailable')))
-     .then(data=>{
-       const info=data.volumeInfo||{};
-       const authors=(info.authors||[]).join(' ').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
-       if(authors.includes('kolodziej')&&typeof info.title==='string')title.textContent=info.title;
-       const source=info.imageLinks?.thumbnail||info.imageLinks?.smallThumbnail;
-       if(source&&/^https?:\/\//.test(source))img.src=source.replace(/^http:/,'https:');
-     }).catch(()=>{});
- });
- shelf.replaceChildren(root);
+  'use strict';
+  const shelf=document.querySelector('[data-google-shelf]');
+  if(!shelf)return;
+  const lang=document.documentElement.lang==='pl'?'pl':'en';
+  const root=document.body.dataset.root || '../';
+  const fallback=shelf.dataset.fallback || root+'assets/cover-motivation.svg';
+  const safe=(url)=>{try{let u=new URL(url);return u.protocol==='https:'?u.href:null}catch{return null}};
+  function render(books) {
+    const fragment=document.createDocumentFragment();
+    for(const book of books) {
+      if(!book.title || !book.cover || !book.slug || !safe(book.url))continue;
+      const item=document.createElement('a');
+      item.className='gp-book';
+      item.href=book.url;
+      item.target='_blank';item.rel='noopener noreferrer';
+      const visual=document.createElement('div');visual.className='gp-book__visual';
+      const image=document.createElement('img');image.loading='lazy';image.decoding='async';
+      image.width=360;image.height=480;
+      image.src=root+book.cover;
+      image.alt=(lang==='pl'?(book.titlePl||book.title):book.title)+' — Google Play Books cover';
+      image.addEventListener('error',()=>{image.src=fallback},{once:true});
+      const arrow=document.createElement('span');arrow.textContent='↗';arrow.setAttribute('aria-hidden','true');
+      visual.append(image,arrow);
+      const heading=document.createElement('strong');heading.textContent=(lang==='pl'?(book.titlePl||book.title):book.title);
+      const meta=document.createElement('small');meta.textContent='Google Play Books';
+      item.append(visual,heading,meta);
+      fragment.append(item);
+    }
+    if(fragment.childNodes.length) shelf.replaceChildren(fragment);
+    else shelf.textContent=lang==='pl'?'Wydania są obecnie niedostępne.':'Digital editions are currently unavailable.';
+  }
+  fetch(root+'data/google-books.json',{cache:'force-cache'})
+    .then(r=>r.ok?r.json():Promise.reject(new Error('Catalog unavailable')))
+    .then(data=>render(Array.isArray(data)?data:[]))
+    .catch(()=>{shelf.textContent=lang==='pl'?'Nie udało się załadować wydań.':'The editions could not be loaded.';});
 })();
