@@ -1,0 +1,44 @@
+[
+  {
+    "key": "tpp",
+    "name": "Psychopedagogical Association",
+    "from": "2015",
+    "title": {
+      "en": "President of the General Board",
+      "pl": "Prezes Zarządu Głównego"
+    },
+    "description": {
+      "en": "Leadership of Towarzystwo Psychopedagogiczne, with a focus on counselling, professional education, organisational development and psychosocial support.",
+      "pl": "Kierowanie Towarzystwem Psychopedagogicznym, rozwój poradnictwa, edukacji zawodowej, organizacji i wsparcia psychospołecznego."
+    },
+    "url": "https://www.psychopedagog.org/"
+  },
+  {
+    "key": "pca",
+    "name": "The Psychology Counselling Association",
+    "from": "2024",
+    "title": {
+      "en": "Chief Executive Officer",
+      "pl": "Chief Executive Officer"
+    },
+    "description": {
+      "en": "Strategic development of a professional counselling organisation, specialist cooperation, services and educational initiatives.",
+      "pl": "Rozwój strategiczny organizacji poradnictwa, współpracy specjalistów, usług oraz inicjatyw edukacyjnych."
+    },
+    "url": "https://www.linkedin.com/company/100956794/"
+  },
+  {
+    "key": "ici",
+    "name": "International Counselling Institute",
+    "from": "2025",
+    "title": {
+      "en": "Academic Director",
+      "pl": "Dyrektor Akademicki"
+    },
+    "description": {
+      "en": "Academic direction, professional training design, educational materials and the development of learning standards.",
+      "pl": "Kierowanie sprawami akademickimi, projektowanie programów szkoleniowych i rozwój standardów edukacji zawodowej."
+    },
+    "url": "https://orcid.org/0009-0007-5526-2576"
+  }
+]
