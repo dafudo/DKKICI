@@ -5,7 +5,18 @@
     "image": "assets/gallery/1.webp",
     "width": 1400,
     "height": 789,
-    "caption": "1"
+    "caption": "1",
+    "category": "speaking",
+    "title": {
+      "en": "Workshop and audience",
+      "pl": "Warsztaty i uczestnicy"
+    },
+    "description": {
+      "en": "Archival photograph from a training session",
+      "pl": "Warsztaty i uczestnicy"
+    },
+    "editorial": false,
+    "featured": true
   },
   {
     "id": "10",
@@ -13,7 +24,18 @@
     "image": "assets/gallery/10.webp",
     "width": 1400,
     "height": 789,
-    "caption": "10"
+    "caption": "10",
+    "category": "speaking",
+    "title": {
+      "en": "Speaking to a large audience",
+      "pl": "Wystąpienie przed publicznością"
+    },
+    "description": {
+      "en": "Public presentation captured from the audience",
+      "pl": "Wystąpienie przed publicznością"
+    },
+    "editorial": false,
+    "featured": true
   },
   {
     "id": "12",
@@ -21,7 +43,18 @@
     "image": "assets/gallery/12.webp",
     "width": 1400,
     "height": 789,
-    "caption": "12"
+    "caption": "12",
+    "category": "media",
+    "title": {
+      "en": "Radio interview",
+      "pl": "Wywiad radiowy"
+    },
+    "description": {
+      "en": "Studio conversation at a radio broadcaster",
+      "pl": "Wywiad radiowy"
+    },
+    "editorial": false,
+    "featured": true
   },
   {
     "id": "13",
@@ -29,7 +62,18 @@
     "image": "assets/gallery/13.webp",
     "width": 1400,
     "height": 789,
-    "caption": "13"
+    "caption": "13",
+    "category": "media",
+    "title": {
+      "en": "Television interview",
+      "pl": "Wywiad telewizyjny"
+    },
+    "description": {
+      "en": "Television broadcast still",
+      "pl": "Wywiad telewizyjny"
+    },
+    "editorial": false,
+    "featured": true
   },
   {
     "id": "14",
@@ -37,7 +81,18 @@
     "image": "assets/gallery/14.webp",
     "width": 1400,
     "height": 789,
-    "caption": "14"
+    "caption": "14",
+    "category": "media",
+    "title": {
+      "en": "TVN UWAGA! appearance",
+      "pl": "Występ w TVN UWAGA!"
+    },
+    "description": {
+      "en": "Television report still",
+      "pl": "Występ w TVN UWAGA!"
+    },
+    "editorial": false,
+    "featured": true
   },
   {
     "id": "16",
@@ -45,7 +100,18 @@
     "image": "assets/gallery/16.webp",
     "width": 1400,
     "height": 789,
-    "caption": "16"
+    "caption": "16",
+    "category": "media",
+    "title": {
+      "en": "Morning television appearance",
+      "pl": "Występ w telewizji śniadaniowej"
+    },
+    "description": {
+      "en": "Studio programme still",
+      "pl": "Występ w telewizji śniadaniowej"
+    },
+    "editorial": false,
+    "featured": true
   },
   {
     "id": "17",
@@ -53,7 +119,18 @@
     "image": "assets/gallery/17.webp",
     "width": 1400,
     "height": 789,
-    "caption": "17"
+    "caption": "17",
+    "category": "media",
+    "title": {
+      "en": "On camera",
+      "pl": "Przed kamerą"
+    },
+    "description": {
+      "en": "Behind the scenes of a filmed interview",
+      "pl": "Przed kamerą"
+    },
+    "editorial": false,
+    "featured": true
   },
   {
     "id": "18",
@@ -61,7 +138,18 @@
     "image": "assets/gallery/18.webp",
     "width": 1400,
     "height": 789,
-    "caption": "18"
+    "caption": "18",
+    "category": "media",
+    "title": {
+      "en": "Recorded interview",
+      "pl": "Wywiad nagrywany"
+    },
+    "description": {
+      "en": "Camera crew recording an interview",
+      "pl": "Wywiad nagrywany"
+    },
+    "editorial": false,
+    "featured": true
   },
   {
     "id": "1a",
@@ -69,7 +157,18 @@
     "image": "assets/gallery/1a.webp",
     "width": 1400,
     "height": 789,
-    "caption": "1a"
+    "caption": "1a",
+    "category": "media",
+    "title": {
+      "en": "Television recording on location",
+      "pl": "Nagranie telewizyjne w plenerze"
+    },
+    "description": {
+      "en": "Outdoor recording with a camera crew",
+      "pl": "Nagranie telewizyjne w plenerze"
+    },
+    "editorial": false,
+    "featured": true
   },
   {
     "id": "2",
@@ -77,7 +176,18 @@
     "image": "assets/gallery/2.webp",
     "width": 1400,
     "height": 789,
-    "caption": "2"
+    "caption": "2",
+    "category": "media",
+    "title": {
+      "en": "Television studio contribution",
+      "pl": "Wypowiedź w studiu telewizyjnym"
+    },
+    "description": {
+      "en": "Still from a television programme",
+      "pl": "Wypowiedź w studiu telewizyjnym"
+    },
+    "editorial": false,
+    "featured": true
   },
   {
     "id": "20",
@@ -85,7 +195,18 @@
     "image": "assets/gallery/20.webp",
     "width": 1400,
     "height": 789,
-    "caption": "20"
+    "caption": "20",
+    "category": "media",
+    "title": {
+      "en": "Interview production",
+      "pl": "Produkcja wywiadu"
+    },
+    "description": {
+      "en": "An interview being recorded",
+      "pl": "Produkcja wywiadu"
+    },
+    "editorial": false,
+    "featured": true
   },
   {
     "id": "21",
@@ -93,7 +214,18 @@
     "image": "assets/gallery/21.webp",
     "width": 1400,
     "height": 789,
-    "caption": "21"
+    "caption": "21",
+    "category": "speaking",
+    "title": {
+      "en": "Presenting at a professional event",
+      "pl": "Prezentacja na wydarzeniu zawodowym"
+    },
+    "description": {
+      "en": "Speaking at a professional gathering",
+      "pl": "Prezentacja na wydarzeniu zawodowym"
+    },
+    "editorial": false,
+    "featured": true
   },
   {
     "id": "3",
@@ -101,7 +233,18 @@
     "image": "assets/gallery/3.webp",
     "width": 1400,
     "height": 789,
-    "caption": "3"
+    "caption": "3",
+    "category": "media",
+    "title": {
+      "en": "Television studio visit",
+      "pl": "Wizyta w studiu telewizyjnym"
+    },
+    "description": {
+      "en": "Photograph with presenters",
+      "pl": "Wizyta w studiu telewizyjnym"
+    },
+    "editorial": false,
+    "featured": false
   },
   {
     "id": "4",
@@ -109,7 +252,18 @@
     "image": "assets/gallery/4.webp",
     "width": 1400,
     "height": 789,
-    "caption": "4"
+    "caption": "4",
+    "category": "speaking",
+    "title": {
+      "en": "Professional training",
+      "pl": "Szkolenie zawodowe"
+    },
+    "description": {
+      "en": "Facilitating a training session",
+      "pl": "Szkolenie zawodowe"
+    },
+    "editorial": false,
+    "featured": true
   },
   {
     "id": "4a",
@@ -117,7 +271,18 @@
     "image": "assets/gallery/4a.webp",
     "width": 1400,
     "height": 789,
-    "caption": "4a"
+    "caption": "4a",
+    "category": "media",
+    "title": {
+      "en": "Press interview outdoors",
+      "pl": "Wywiad prasowy w plenerze"
+    },
+    "description": {
+      "en": "On-location media conversation",
+      "pl": "Wywiad prasowy w plenerze"
+    },
+    "editorial": false,
+    "featured": true
   },
   {
     "id": "5",
@@ -125,7 +290,18 @@
     "image": "assets/gallery/5.webp",
     "width": 1400,
     "height": 789,
-    "caption": "5"
+    "caption": "5",
+    "category": "media",
+    "title": {
+      "en": "Polsat programme",
+      "pl": "Program Polsatu"
+    },
+    "description": {
+      "en": "Studio setting with programme backdrop",
+      "pl": "Program Polsatu"
+    },
+    "editorial": false,
+    "featured": true
   },
   {
     "id": "6",
@@ -133,7 +309,18 @@
     "image": "assets/gallery/6.webp",
     "width": 1400,
     "height": 789,
-    "caption": "6"
+    "caption": "6",
+    "category": "media",
+    "title": {
+      "en": "After a television appearance",
+      "pl": "Po występie telewizyjnym"
+    },
+    "description": {
+      "en": "Photograph in the television studio",
+      "pl": "Po występie telewizyjnym"
+    },
+    "editorial": false,
+    "featured": false
   },
   {
     "id": "7",
@@ -141,7 +328,18 @@
     "image": "assets/gallery/7.webp",
     "width": 1400,
     "height": 789,
-    "caption": "7"
+    "caption": "7",
+    "category": "media",
+    "title": {
+      "en": "Dzień Dobry TVN visit",
+      "pl": "Wizyta w Dzień Dobry TVN"
+    },
+    "description": {
+      "en": "Behind the scenes at the studio",
+      "pl": "Wizyta w Dzień Dobry TVN"
+    },
+    "editorial": false,
+    "featured": true
   },
   {
     "id": "9",
@@ -149,7 +347,18 @@
     "image": "assets/gallery/9.webp",
     "width": 1400,
     "height": 789,
-    "caption": "9"
+    "caption": "9",
+    "category": "community",
+    "title": {
+      "en": "Community press conference",
+      "pl": "Konferencja prasowa związana z działaniami społecznymi"
+    },
+    "description": {
+      "en": "Press conference and community involvement",
+      "pl": "Konferencja prasowa związana z działaniami społecznymi"
+    },
+    "editorial": false,
+    "featured": true
   },
   {
     "id": "IMG_1393",
@@ -157,7 +366,18 @@
     "image": "assets/gallery/IMG_1393.webp",
     "width": 720,
     "height": 960,
-    "caption": "IMG 1393"
+    "caption": "IMG 1393",
+    "category": "personal",
+    "title": {
+      "en": "Away from the desk",
+      "pl": "Poza pracą"
+    },
+    "description": {
+      "en": "A quiet personal moment outdoors",
+      "pl": "Poza pracą"
+    },
+    "editorial": false,
+    "featured": false
   },
   {
     "id": "IMG_1534",
@@ -165,7 +385,18 @@
     "image": "assets/gallery/IMG_1534.webp",
     "width": 720,
     "height": 960,
-    "caption": "IMG 1534"
+    "caption": "IMG 1534",
+    "category": "personal",
+    "title": {
+      "en": "Australia, outside the office",
+      "pl": "Australia poza miejscem pracy"
+    },
+    "description": {
+      "en": "Candid photograph outdoors",
+      "pl": "Australia poza miejscem pracy"
+    },
+    "editorial": false,
+    "featured": false
   },
   {
     "id": "IMG_5427",
@@ -173,7 +404,18 @@
     "image": "assets/gallery/IMG_5427.webp",
     "width": 540,
     "height": 960,
-    "caption": "IMG 5427"
+    "caption": "IMG 5427",
+    "category": "personal",
+    "title": {
+      "en": "A day outdoors",
+      "pl": "Dzień na świeżym powietrzu"
+    },
+    "description": {
+      "en": "Informal personal photograph",
+      "pl": "Dzień na świeżym powietrzu"
+    },
+    "editorial": false,
+    "featured": false
   },
   {
     "id": "Inspiring Keynote to a Full Auditorium",
@@ -181,7 +423,18 @@
     "image": "assets/gallery/Inspiring-Keynote-to-a-Full-Auditorium.webp",
     "width": 1400,
     "height": 1050,
-    "caption": "Inspiring Keynote to a Full Auditorium"
+    "caption": "Inspiring Keynote to a Full Auditorium",
+    "category": "editorial",
+    "title": {
+      "en": "Speaking — editorial composition",
+      "pl": "Wystąpienie — kompozycja redakcyjna"
+    },
+    "description": {
+      "en": "Stylised editorial image, not independent event documentation",
+      "pl": "Wystąpienie — kompozycja redakcyjna"
+    },
+    "editorial": true,
+    "featured": false
   },
   {
     "id": "School Hall Assembly with a Focused Supervisor",
@@ -189,7 +442,18 @@
     "image": "assets/gallery/School-Hall-Assembly-with-a-Focused-Supervisor.webp",
     "width": 1400,
     "height": 1050,
-    "caption": "School Hall Assembly with a Focused Supervisor"
+    "caption": "School Hall Assembly with a Focused Supervisor",
+    "category": "editorial",
+    "title": {
+      "en": "Education — editorial composition",
+      "pl": "Edukacja — kompozycja redakcyjna"
+    },
+    "description": {
+      "en": "Stylised editorial image, not independent event documentation",
+      "pl": "Edukacja — kompozycja redakcyjna"
+    },
+    "editorial": true,
+    "featured": false
   },
   {
     "id": "Screenshot_20261018_221442",
@@ -197,7 +461,18 @@
     "image": "assets/gallery/Screenshot_20261018_221442.webp",
     "width": 1400,
     "height": 784,
-    "caption": "Screenshot 20261018 221442"
+    "caption": "Screenshot 20261018 221442",
+    "category": "personal",
+    "title": {
+      "en": "Portrait detail",
+      "pl": "Portret"
+    },
+    "description": {
+      "en": "Informal personal portrait",
+      "pl": "Portret"
+    },
+    "editorial": false,
+    "featured": false
   },
   {
     "id": "spotkanie_profesjonalna_korekta",
@@ -205,6 +480,17 @@
     "image": "assets/gallery/spotkanie_profesjonalna_korekta.webp",
     "width": 1400,
     "height": 755,
-    "caption": "spotkanie profesjonalna korekta"
+    "caption": "spotkanie profesjonalna korekta",
+    "category": "leadership",
+    "title": {
+      "en": "At an organisational meeting",
+      "pl": "Podczas spotkania organizacyjnego"
+    },
+    "description": {
+      "en": "Archival team meeting photograph",
+      "pl": "Podczas spotkania organizacyjnego"
+    },
+    "editorial": false,
+    "featured": true
   }
 ]
