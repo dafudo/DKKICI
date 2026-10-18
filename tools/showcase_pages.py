@@ -58,7 +58,7 @@ def leadership(lang):
   cards+=f'''<article class="showcase-leader"><span class="showcase-leader__index">{i:02}</span>
 <div><p class="showcase-eyebrow">{e(r['title'][lang])} · {r['from']}—</p><h3>{e(r['name'])}</h3></div>
 <div class="showcase-leader__copy"><p>{e(r['description'][lang])}</p>
-<a class="showcase-outlink" href="{e(r['url'],quote=True)}" target="_blank" rel="noopener noreferrer">{'Organisation / professional profile' if not pl else 'Organizacja / profil zawodowy'} <span>↗</span></a></div></article>'''
+<a class="showcase-outlink" href="{e(r['url'],quote=True)}" target="_blank" rel="noopener noreferrer">{'ORCID professional record' if r['key']=='ici' and not pl else 'Profil zawodowy ORCID' if r['key']=='ici' else 'Organisation / professional profile' if not pl else 'Organizacja / profil zawodowy'} <span>↗</span></a></div></article>'''
  top+='<section id="collection" class="showcase-section"><div class="container">'+section_head(lang,'01 / CORE RESPONSIBILITIES',
    'Institutions with<br><em>purpose.</em>' if not pl else 'Instytucje<br><em>z misją.</em>',
    'Three distinct responsibilities in governance, strategy and academic direction.' if not pl else 'Trzy odrębne odpowiedzialności w zarządzaniu, strategii i rozwoju akademickim.')+'<div class="showcase-leadership">'+cards+'</div></div></section>'
