@@ -26,17 +26,22 @@ jobs:
           nohup python -m http.server 8000 --bind 127.0.0.1 >/tmp/dkk-static-http.log 2>&1 &
           sleep 3
       - name: Run responsive browser checks
-        run: python tools/visual_qa.py
-      - name: Commit preview screenshots
-        if: success()
         run: |
+          python tools/visual_qa.py > /tmp/dkk-qa.log 2>&1 || { cat /tmp/dkk-qa.log; exit 1; }
+          cat /tmp/dkk-qa.log
+      - name: Commit preview screenshots
+        if: always()
+        run: |
+          mkdir -p qa
+          cp /tmp/dkk-qa.log qa/qa-report.txt 2>/dev/null || true
+          echo "Result: ${{ job.status }}" >> qa/qa-report.txt
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add qa/screens
+          git add qa
           if git diff --cached --quiet; then
-            echo "QA screenshots unchanged"
+            echo "QA artifacts unchanged"
           else
-            git commit -m "Save validated responsive page previews"
+            git commit -m "Save responsive QA results and page previews"
             git pull --rebase origin main
             git push origin HEAD:main
           fi
