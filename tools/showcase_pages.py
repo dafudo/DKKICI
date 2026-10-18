@@ -27,7 +27,7 @@ def base(lang,which,title,description,content):
 <meta name="description" content="{e(description,quote=True)}">
 <title>{e(title)} — Dawid Karol Kołodziej</title><meta property="og:title" content="{e(title,quote=True)} — Dawid Karol Kołodziej">
 <meta property="og:description" content="{e(description,quote=True)}"><meta property="og:type" content="website">
-<meta property="og:image" content="https://dafudo.github.io/DKKICI/assets/DawidKolodziej.png">
+<meta property="og:image" content="https://dkk.hqici.com/assets/DawidKolodziej.png">
 <link rel="icon" type="image/svg+xml" href="{pre}assets/favicon.svg">
 <link rel="stylesheet" href="{pre}css/style.css"><link rel="stylesheet" href="{pre}css/identity.css">
 <link rel="stylesheet" href="{pre}css/showcase.css"><script>document.documentElement.classList.add('js')</script>
