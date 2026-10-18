@@ -23,6 +23,7 @@ ET.register_namespace("image", IMAGE_NS)
 
 PUBLIC_SECTIONS = [
     ("", "pl/"),
+    ("profile/", "pl/profil/"),
     ("leadership/", "pl/organizacje/"),
     ("publications/", "pl/publikacje/"),
     ("media/", "pl/media/"),
