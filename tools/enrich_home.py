@@ -128,7 +128,7 @@ def update():
    source=section_replace(source,'id:projects',roles_section(lang,pre))
    source=section_replace(source,'id:credentials',gallery_section(lang,pre))
    source=section_replace(source,'id:library','')
-   source=re.sub(r'<meta property="og:image" content="[^"]*">','<meta property="og:image" content="https://dafudo.github.io/DKKICI/assets/DawidKolodziej.png">',source,count=1)
+   source=re.sub(r'<meta property="og:image" content="[^"]*">','<meta property="og:image" content="https://dkk.hqici.com/assets/DawidKolodziej.png">',source,count=1)
   (R/path).write_text(source,'utf-8')
  print('Updated',len(all_pages),'existing pages with bilingual navigation and editorial homepage.')
 if __name__=='__main__':update()
