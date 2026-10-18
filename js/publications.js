@@ -76,7 +76,7 @@
   function render() {
     const q=(search?.value || '').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLocaleLowerCase().trim();
     const matched=items.filter(p=>{
-      if(p.status==='archived')return false;
+      if(p.status!=='published')return false;
       if(category!=='all' && p.category!==category)return false;
       const hay=[p.title?.en,p.title?.pl,p.subtitle?.en,p.subtitle?.pl,p.description?.en,p.description?.pl,p.kind,p.year].join(' ').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLocaleLowerCase();
       return !q || hay.includes(q);
@@ -141,14 +141,14 @@
   order?.addEventListener('change',render);
   window.addEventListener('popstate',()=>{
     const slug=new URL(location.href).searchParams.get('publication');
-    const target=items.find(p=>p.slug===slug && p.status!=='archived');
+    const target=items.find(p=>p.slug===slug && p.status==='published');
     if(target)showPublication(target,false);else if(dialog?.open)dialog.close();
   });
   fetch(root+'data/publications.json',{cache:'no-cache'})
     .then(r=>{if(!r.ok)throw new Error('Publication data unavailable');return r.json();})
     .then(data=>{
       if(!Array.isArray(data))throw new Error('Invalid publication catalogue');
-      items=data.filter(p=>p?.slug && p.title && p.cover && p.status!=='archived');
+      items=data.filter(p=>p?.slug && p.title && p.cover && p.status==='published');
       render();
       const slug=new URL(location.href).searchParams.get('publication');
       const selected=items.find(p=>p.slug===slug);
