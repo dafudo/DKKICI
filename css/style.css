@@ -10,3 +10,26 @@
 .work-meta{flex-wrap:wrap;align-items:baseline;row-gap:6px;line-height:1.45}
 .work-status{display:none}
 @media(max-width:540px){.work-meta{font-size:.60rem;letter-spacing:.10em;gap:8px}.work-card h3{margin-top:12px}}
+
+/* 2026-10: scroll stability and editorial card layout.
+   Legacy image badges are never placed on top of cover photography. */
+.work-image-tag {display:none!important}
+.work-card {min-width:0}
+.work-card .work-image {isolation:isolate;overflow:hidden}
+.work-card .work-meta {
+  position:relative;
+  z-index:1;
+  display:flex;
+  align-items:baseline;
+  flex-wrap:wrap;
+  gap:6px 12px;
+  margin-top:18px;
+  padding:0;
+  line-height:1.45;
+}
+.work-card h3 {clear:both}
+.js .work-card.reveal {transform:none!important;transition:opacity .48s ease}
+.js .work-card.reveal.is-visible {transform:none!important}
+@media(prefers-reduced-motion:reduce){
+  .js .work-card.reveal {opacity:1!important;transform:none!important;transition:none!important}
+}
