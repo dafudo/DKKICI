@@ -74,7 +74,7 @@ jobs:
           published=sum(p['status']=='published' for p in json.loads(Path('data/publications.json').read_text('utf-8')))
           assert len(locations)==10+2*published,(len(locations),published)
           assert len(locations)==len(set(locations))
-          assert all(x.startswith('https://dafudo.github.io/DKKICI/') for x in locations)
+          assert all(x.startswith('https://dkk.hqici.com/') for x in locations)
           assert 'fundamenty-motywacji' not in ''.join(locations)
           assert Path('robots.txt').is_file()
           assert len(xml.findall('.//x:link',ns))==3*len(locations)
