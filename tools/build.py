@@ -33,9 +33,9 @@ I = {
  chapter2='02 — THE PERSON', aboutH='More than<br><em>a title.</em>',
  aboutLead='Psychotherapist, mental health clinician, counsellor and author.',
  aboutA='My professional work began in Poland in 2013. Since then, I have worked with young people, adults and families in counselling, psychotherapy and psychosocial support. Today, my clinical work is based in Queensland, Australia.',
- aboutB='I hold master’s degrees in Forensic and Penitentiary Psychology and in Personal and Career Counselling, alongside a bachelor's degree in Resocialisation and Social Prophylaxis. I am a PACFA Clinical Registrant and work at headspace Mackay. My interests extend from developmental and forensic psychology to education, professional standards and the organisation of mental health services.',
+ aboutB='At headspace Mackay, I support young people experiencing mental health difficulties. Alongside practice, I write about psychological assessment, adolescent development, families and education. I am a PACFA Clinical Registrant and contribute to professional education and organisational leadership through ICI, PCA and TPP.',
  storyLink='Follow the journey', place='BASED IN QUEENSLAND',
- quoteEyebrow='03 — A WAY OF THINKING', quote='Knowledge matters when<br><em>it informs practice.</em>', quoteBy='A thought behind this archive — editable editorial copy',
+ quoteEyebrow='03 — A WAY OF THINKING', quote='Knowledge matters when<br><em>it informs practice.</em>', quoteBy='AN IDEA BEHIND THIS ARCHIVE',
  filmEyebrow='04 — IN MOTION', filmTitle='The story<br><em>in motion.</em>', filmText='A short personal film will live here. For now, explore the creative direction of the sequence.', filmBtn='View film concept', filmLabel='PERSONAL FILM / PLACEHOLDER',
  journeyK='05 — EXPERIENCE', journeyH='How the work<br><em>developed.</em>',
  projK='06 — INITIATIVES', projH='Work that<br><em>keeps growing.</em>', projNote='A few of the organisations and initiatives connected to this story.',
@@ -65,7 +65,7 @@ I = {
  aboutA='Pracę zawodową rozpocząłem w Polsce w 2013 roku. Od tamtej pory wspieram młodzież, dorosłych i rodziny poprzez poradnictwo, psychoterapię i działania psychospołeczne. Obecnie pracuję w Queensland w Australii.',
  aboutB='W headspace Mackay wspieram młode osoby doświadczające trudności związanych ze zdrowiem psychicznym. Równolegle publikuję teksty o diagnozie, rozwoju młodzieży, rodzinie i edukacji. Mam status PACFA Clinical Registrant i działam w obszarze edukacji zawodowej oraz zarządzania organizacjami ICI, PCA i TPP.',
  storyLink='Moja droga', place='NA CO DZIEŃ W QUEENSLAND',
- quoteEyebrow='03 — SPOSÓB MYŚLENIA', quote='Wiedza ma znaczenie, gdy<br><em>pomaga w praktyce.</em>', quoteBy='Myśl przewodnia archiwum — tekst redakcyjny do autoryzacji',
+ quoteEyebrow='03 — SPOSÓB MYŚLENIA', quote='Wiedza ma znaczenie, gdy<br><em>pomaga w praktyce.</em>', quoteBy='MOTYW PRZEWODNI TEGO ARCHIWUM',
  filmEyebrow='04 — W RUCHU', filmTitle='Historia<br><em>w ruchu.</em>', filmText='Tutaj znajdzie się krótki autorski film. Na razie zobacz proponowaną koncepcję ujęć.', filmBtn='Zobacz koncepcję', filmLabel='FILM OSOBISTY / PLACEHOLDER',
  journeyK='05 — DOŚWIADCZENIE', journeyH='Jak rozwijała się<br><em>moja praca.</em>',
  projK='06 — INICJATYWY', projH='Projekty, które<br><em>rosną.</em>', projNote='Wybrane organizacje i inicjatywy związane z moją działalnością.',
@@ -98,8 +98,8 @@ def rpath(path,prefix): return prefix+path
 def card(pub,lang,prefix,archive=False):
     t=I[lang]; label=e(pub.get('titleShort',pub['title']).get(lang,pub['title'][lang])); desc=e(pub['subtitle'][lang]); img=e(prefix+pub['cover']); url=e(prefix+href_for(pub,lang)); y=e(pub['year']); categ=e(pub['category']); search=e(' '.join([pub['title']['en'],pub['title']['pl'],pub['subtitle']['en'],pub['subtitle']['pl'],pub['description'][lang]]))
     attr = f' data-work-card data-category="{categ}" data-search="{search}"' if archive else ''
-    status = f'<span class="work-status">{e(t["preview"])}</span>' if pub['status']!='published' else ''
-    return f'''<a class="work-card reveal" href="{url}"{attr} aria-label="{label}"><div class="work-image"><span class="work-image-tag">{e(t['typeLabels'][pub['kind']])} / {y}</span><img src="{img}" alt="{label} — editorial cover mockup" loading="lazy" width="660" height="880"><span class="work-image-arrow" aria-hidden="true">↗</span></div><div class="work-meta"><span>{e(t['categoryLabels'][pub['category']])}</span><span>—</span><span>{y}</span>{status}</div><h3>{label}</h3><p class="work-sub">{desc}</p></a>'''
+    status = ''  # Only verified published work is shown in the public collection.
+    return f'''<a class="work-card reveal" href="{url}"{attr} aria-label="{label}"><div class="work-image"><span class="work-image-tag">{e(t['typeLabels'][pub['kind']])} / {y}</span><img src="{img}" alt="{label} — publication cover" loading="lazy" width="660" height="880"><span class="work-image-arrow" aria-hidden="true">↗</span></div><div class="work-meta"><span>{e(t['categoryLabels'][pub['category']])}</span><span>—</span><span>{y}</span>{status}</div><h3>{label}</h3><p class="work-sub">{desc}</p></a>'''
 
 def header(lang,prefix,detail=False):
     t=I[lang]; root=prefix; home=prefix+('pl/index.html' if lang=='pl' else 'index.html'); rootpl=prefix+'pl/index.html'
@@ -133,8 +133,8 @@ def home_page(lang,prefix):
     cover=S['portrait'] or 'assets/portrait-placeholder.svg'
     about_image=S['aboutPortrait'] or S['stockPhotoJournal']
     filmUrl=S.get('videoUrl','').strip()
-    hero_cards=''.join(card(p,lang,prefix) for p in [p for p in P if p.get('featured') and p['status']!='archived'][:3])
-    all_cards=''.join(card(p,lang,prefix) for p in [p for p in P if p['status']!='archived'][:3])
+    hero_cards=''.join(card(p,lang,prefix) for p in [p for p in P if p.get('featured') and p['status']=='published'][:3])
+    all_cards=''.join(card(p,lang,prefix) for p in [p for p in P if p['status']=='published'][:3])
     options=''.join(f'<button class="filter" type="button" data-filter="{v}" aria-pressed="{str(i==0).lower()}">{e(t[k])}</button>' for i,(v,k) in enumerate([('all','filterAll'),('psychology','filterPsych'),('education','filterEdu'),('practice','filterPractice'),('ideas','filterIdeas')]))
     timeline=''.join(f'<div class="timeline-row reveal"><span class="timeline-year">{e(year)}</span><div><h3>{e(h)}</h3><p>{e(d)}</p></div></div>' for year,h,d in t['events'])
     projects=''.join(f'<article class="project-item reveal"><span class="project-no">PROJECT / {e(n)}</span><div><h3>{e(h)}</h3><p>{e(d)}</p></div></article>' for n,h,d in t['projects'])
@@ -176,11 +176,11 @@ def detail_page(pub,lang,prefix):
     if pub.get('readUrl','').startswith('https://'): links.insert(0,f'<a rel="noopener noreferrer" target="_blank" href="{e(pub["readUrl"])}">{e(t["read"])} ↗</a>')
     if pub.get('doi'): links.append(f'<a rel="noopener noreferrer" target="_blank" href="https://doi.org/{e(pub["doi"])}">DOI: {e(pub["doi"])} ↗</a>')
     if not links: links.append(f'<p class="muted">{e(t["noLinks"])}</p>')
-    others=[p for p in P if p['slug']!=pub['slug'] and p['status']!='archived'][:2]
+    others=[p for p in P if p['slug']!=pub['slug'] and p['status']=='published'][:2]
     extra=''.join(card(p,lang,prefix) for p in others)
     preview=f'<p class="detail-note">{e(t["previewNote"])}</p>' if pub['status']!='published' else ''
     back=prefix+('pl/publikacje/' if lang=='pl' else 'publications/')
-    body=f'''<main id="main" class="detail-main"><div class="container"><a class="detail-back" href="{e(back)}">← {e(t['detailBack'])}</a><div class="detail-grid"><div class="detail-copy"><p class="eyebrow accent">{e(t['categoryLabels'][pub['category']])} / {e(t['typeLabels'][pub['kind']])}</p><h1 class="detail-title">{e(title)}</h1><p class="detail-subtitle">{e(subtitle)}</p><p class="detail-summary">{e(pub['description'][lang])}</p><div class="detail-facts"><div><span class="eyebrow">{e(t['published'])}</span><span>{e(pub['year'])}</span></div><div><span class="eyebrow">{e(t['type'])}</span><span>{e(t['typeLabels'][pub['kind']])}</span></div><div><span class="eyebrow">{e(t['subject'])}</span><span>{e(t['categoryLabels'][pub['category']])}</span></div><div><span class="eyebrow">STATUS</span><span>{e(t['preview'] if pub['status']!='published' else t['publishedLabel'])}</span></div></div><div class="detail-actions">{''.join(links)}<button class="secondary" type="button" data-copy-link data-copied="{e(t['copied'])}" data-failed="{e(t['unavailable'])}">{e(t['share'])}</button></div>{preview}</div><div class="detail-cover"><img src="{e(prefix+pub['cover'])}" alt="{e(title)} — editorial cover mockup" width="660" height="880"></div></div><div class="detail-other"><h2>{e(t['otherH'])}</h2><div class="featured-grid">{extra}</div></div></div></main>'''
+    body=f'''<main id="main" class="detail-main"><div class="container"><a class="detail-back" href="{e(back)}">← {e(t['detailBack'])}</a><div class="detail-grid"><div class="detail-copy"><p class="eyebrow accent">{e(t['categoryLabels'][pub['category']])} / {e(t['typeLabels'][pub['kind']])}</p><h1 class="detail-title">{e(title)}</h1><p class="detail-subtitle">{e(subtitle)}</p><p class="detail-summary">{e(pub['description'][lang])}</p><div class="detail-facts"><div><span class="eyebrow">{e(t['published'])}</span><span>{e(pub['year'])}</span></div><div><span class="eyebrow">{e(t['type'])}</span><span>{e(t['typeLabels'][pub['kind']])}</span></div><div><span class="eyebrow">{e(t['subject'])}</span><span>{e(t['categoryLabels'][pub['category']])}</span></div><div><span class="eyebrow">STATUS</span><span>{e(t['preview'] if pub['status']!='published' else t['publishedLabel'])}</span></div></div><div class="detail-actions">{''.join(links)}<button class="secondary" type="button" data-copy-link data-copied="{e(t['copied'])}" data-failed="{e(t['unavailable'])}">{e(t['share'])}</button></div>{preview}</div><div class="detail-cover"><img src="{e(prefix+pub['cover'])}" alt="{e(title)} — publication cover" width="660" height="880"></div></div><div class="detail-other"><h2>{e(t['otherH'])}</h2><div class="featured-grid">{extra}</div></div></div></main>'''
     return shell(lang,title,pub['description'][lang],prefix,body,detail=pub['slug'])
 
 (ROOT/'index.html').write_text(home_page('en',''),encoding='utf-8')
