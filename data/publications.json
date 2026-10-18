@@ -27,7 +27,11 @@
       }
     ],
     "readUrl": "https://zenodo.org/records/23443068",
-    "doi": "10.5281/zenodo.23443068"
+    "doi": "10.5281/zenodo.23443068",
+    "titleShort": {
+      "en": "From Deficit to Support Needs",
+      "pl": "Od deficytów do potrzeb wsparcia"
+    }
   },
   {
     "slug": "from-case-description-to-diagnostic-hypothesis",
@@ -57,7 +61,11 @@
       }
     ],
     "readUrl": "https://zenodo.org/records/23426826",
-    "doi": "10.5281/zenodo.23426826"
+    "doi": "10.5281/zenodo.23426826",
+    "titleShort": {
+      "en": "From Case to Diagnostic Hypothesis",
+      "pl": "Od przypadku do hipotezy diagnostycznej"
+    }
   },
   {
     "slug": "family-context-risk-protection",
@@ -81,7 +89,11 @@
     "status": "published",
     "cover": "assets/cover-family.svg",
     "links": [],
-    "readUrl": "https://zenodo.org/records/23381111"
+    "readUrl": "https://zenodo.org/records/23381111",
+    "titleShort": {
+      "en": "Family, Risk & Protection",
+      "pl": "Rodzina, ryzyko i ochrona"
+    }
   },
   {
     "slug": "open-assertiveness",
@@ -105,7 +117,11 @@
     "status": "published",
     "cover": "assets/cover-assertiveness.svg",
     "links": [],
-    "readUrl": "https://zenodo.org/records/23357448"
+    "readUrl": "https://zenodo.org/records/23357448",
+    "titleShort": {
+      "en": "Open Assertiveness",
+      "pl": "Otwarta asertywność"
+    }
   },
   {
     "slug": "authority-without-authoritarianism",
@@ -129,7 +145,11 @@
     "status": "published",
     "cover": "assets/cover-authority.svg",
     "links": [],
-    "readUrl": "https://zenodo.org/records/23357877"
+    "readUrl": "https://zenodo.org/records/23357877",
+    "titleShort": {
+      "en": "Authority Without Authoritarianism",
+      "pl": "Autorytet bez autorytaryzmu"
+    }
   },
   {
     "slug": "fundamenty-motywacji",
