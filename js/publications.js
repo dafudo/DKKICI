@@ -46,7 +46,7 @@
     essay:{en:'Essay',pl:'Esej'},resource:{en:'Resource',pl:'Materiał'},
     psychology:{en:'Psychology',pl:'Psychologia'},education:{en:'Education',pl:'Edukacja'},
     practice:{en:'Practice',pl:'Praktyka'},ideas:{en:'Ideas',pl:'Idee'}
-  }[value]?.[lang] || value || '';
+  }[value]?.[lang] || value || '');
 
   function createCard(p,i) {
     const card = document.createElement('a');
