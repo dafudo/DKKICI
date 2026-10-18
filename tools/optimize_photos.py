@@ -10,9 +10,6 @@ OUT.mkdir(parents=True,exist_ok=True)
 # (source, output name, desired dimensions, focal centre)
 photos=[
  ("assets/DawidKolodziej.png","hero.webp",(1050,1312),(.5,.32)),
- ("assets/photos/1779784543811.png","about.webp",(850,1100),(.56,.47)),
- ("assets/photos/42.png","speaking.webp",(960,640),(.50,.45)),
- ("assets/photos/IMG_1534.jpg","candid.webp",(800,1000),(.52,.40)),
 ]
 for rel,target,dimensions,focal in photos:
  src=ROOT/rel
