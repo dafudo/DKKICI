@@ -253,5 +253,73 @@
     },
     "url": "https://www.linkedin.com/pulse/changing-your-perspective-its-ripper-dawid-karol-kolodziej-rxy9c",
     "photo": "assets/gallery/21.webp"
+  },
+  {
+    "id": "community2018",
+    "date": "2018-10-07",
+    "publisher": "Istotne.pl",
+    "category": "projects",
+    "featured": true,
+    "title": {
+      "en": "Mobilising community support through the Psychopedagogical Association",
+      "pl": "Mobilizacja pomocy społecznej przez Towarzystwo Psychopedagogiczne"
+    },
+    "summary": {
+      "en": "Contemporary reporting identifies Dawid Kołodziej as the petition initiator and the association as the event organiser. The report describes 400 signatures collected within an hour.",
+      "pl": "Relacja wskazuje Dawida Kołodzieja jako inicjatora petycji, a Towarzystwo jako organizatora wydarzenia; opisuje zebranie 400 podpisów w godzinę."
+    },
+    "url": "https://istotne.pl/wiadomosc/36283",
+    "photo": "assets/gallery/9.webp"
+  },
+  {
+    "id": "assistance2019",
+    "date": "2019-08-26",
+    "publisher": "Istotne.pl",
+    "category": "projects",
+    "featured": false,
+    "title": {
+      "en": "Public record of coordinated therapeutic and legal assistance",
+      "pl": "Publiczna dokumentacja skoordynowanej pomocy terapeutycznej i prawnej"
+    },
+    "summary": {
+      "en": "A retrospective report distinguishing Dawid Kołodziej’s counselling and community-organisation activities from the defence lawyers’ work.",
+      "pl": "Materiał retrospektywny odróżniający działania pomocowe i organizacyjne Dawida Kołodzieja od pracy prawników prowadzących obronę."
+    },
+    "url": "https://istotne.pl/wiadomosc/39007",
+    "photo": "assets/gallery/9.webp"
+  },
+  {
+    "id": "initiative2016",
+    "date": "2016-12-11",
+    "publisher": "Istotne.pl",
+    "category": "projects",
+    "featured": false,
+    "title": {
+      "en": "A community initiative against disability-related stigma",
+      "pl": "Inicjatywa społeczna przeciw stygmatyzacji osób z niepełnosprawnościami"
+    },
+    "summary": {
+      "en": "Contemporary local coverage documents an educational inclusion initiative associated with the Psychopedagogical Association.",
+      "pl": "Lokalna relacja dokumentuje inicjatywę edukacyjną na rzecz włączenia społecznego realizowaną przez Towarzystwo Psychopedagogiczne."
+    },
+    "url": "https://istotne.pl/wiadomosc/30315",
+    "photo": "assets/gallery/9.webp"
+  },
+  {
+    "id": "radioInterview2018",
+    "date": "2018-02-03",
+    "publisher": "Radio Wrocław",
+    "category": "radio",
+    "featured": false,
+    "title": {
+      "en": "Radio reporting on community mobilisation and legal assistance",
+      "pl": "Relacja radiowa o mobilizacji społecznej i pomocy prawnej"
+    },
+    "summary": {
+      "en": "Radio reporting discusses the supporting petition and explicitly distinguishes the role of the legal team and Dawid Kołodziej’s community involvement.",
+      "pl": "Relacja radiowa opisuje petycję oraz rozróżnia role zespołu prawnego i działalność społeczną Dawida Kołodzieja."
+    },
+    "url": "https://www.radiowroclaw.pl/articles/view/74741/Zabil-konkubenta-matki-ale-wyszedl-z-aresztu-Tysiace-osob-wspiera-Dominika",
+    "photo": "assets/gallery/12.webp"
   }
 ]
