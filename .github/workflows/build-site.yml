@@ -1,0 +1,74 @@
+name: Build bilingual personal website
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'tools/build.py'
+      - 'tools/showcase_pages.py'
+      - 'tools/enrich_home.py'
+      - 'data/leadership.json'
+      - 'data/media.json'
+      - 'data/gallery.json'
+      - 'data/publications.json'
+      - '.github/workflows/build-site.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate generators
+        run: python -m py_compile tools/build.py tools/showcase_pages.py tools/enrich_home.py
+      - name: Build the existing website
+        run: python tools/build.py
+      - name: Generate six standalone editorial pages
+        run: python tools/showcase_pages.py
+      - name: Enhance homepage and navigation
+        run: python tools/enrich_home.py
+      - name: Validate generated pages
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json
+          pages=[
+            'index.html','pl/index.html',
+            'publications/index.html','pl/publikacje/index.html',
+            'leadership/index.html','pl/organizacje/index.html',
+            'media/index.html','pl/media/index.html',
+            'gallery/index.html','pl/galeria/index.html'
+          ]
+          for path in pages:
+            p=Path(path)
+            assert p.is_file(), path+' missing'
+            s=p.read_text('utf-8')
+            assert '<main' in s and '</main>' in s, path+' missing main'
+            assert 'css/showcase.css' in s, path+' missing showcase styling'
+            assert 'MENTE' not in s, path+' leaked retired publication'
+            print(path,len(s))
+          a=Path('gallery/index.html').read_text('utf-8')
+          n=len(json.loads(Path('data/gallery.json').read_text('utf-8')))
+          assert a.count('data-gallery-item=')==n, 'Photo coverage incomplete'
+          for lang in ('en','pl'):
+            file='index.html' if lang=='en' else 'pl/index.html'
+            s=Path(file).read_text('utf-8')
+            for key in ('2009','Psychopedagog','International Counselling Institute','assets/DawidKolodziej.png'):
+              assert key in s,(lang,key)
+          print('Verified gallery and all key pages')
+          PY
+      - name: Commit generated pages to main
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A '*.html'
+          if git diff --cached --quiet; then
+            echo "No generated HTML changes"
+          else
+            git commit -m "Publish bilingual leadership media and full documentary photo archive"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
