@@ -5,6 +5,9 @@ on:
     paths:
       - 'tools/visual_qa.py'
       - 'css/showcase.css'
+      - 'css/profile.css'
+      - 'tools/brand_refresh.py'
+      - 'data/profile.json'
       - '.github/workflows/visual-qa.yml'
   workflow_dispatch:
 permissions:
