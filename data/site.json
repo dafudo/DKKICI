@@ -1,14 +1,28 @@
 {
   "owner": "Dawid Karol Kołodziej",
   "initials": "DKK.",
-  "location": "Poland · Australia",
-  "email": "",
-  "linkedin": "",
+  "location": "Mackay, Queensland · Australia / Poland",
+  "email": "sdkk@psychopedagog.org",
+  "linkedin": "https://www.linkedin.com/in/dafudo/",
   "website": "",
   "videoUrl": "",
-  "portrait": "",
-  "aboutPortrait": "",
+  "portrait": "assets/DawidKolodziej.png",
+  "aboutPortrait": "assets/photos/1779784543811.png",
   "stockPhotoHero": "https://images.unsplash.com/photo-1677024345396-71b09e3fb27a?auto=format&fit=crop&w=1500&q=85",
   "stockPhotoJournal": "https://images.unsplash.com/photo-1756993263826-9b4bae15e2b2?auto=format&fit=crop&w=1450&q=82",
-  "stockPhotoLibrary": "https://images.unsplash.com/photo-1641565187914-363ce21932a3?auto=format&fit=crop&w=1300&q=80"
+  "stockPhotoLibrary": "https://images.unsplash.com/photo-1641565187914-363ce21932a3?auto=format&fit=crop&w=1300&q=80",
+  "facebook": "https://www.facebook.com/dafudo",
+  "orcid": "https://orcid.org/0009-0007-5526-2576",
+  "scholar": "https://scholar.google.com/citations?user=u76jDVcAAAAJ",
+  "zenodo": "https://zenodo.org/search?q=metadata.creators.person_or_org.name%3A%22Kolodziej%2C%20Dawid%20Karol%22&l=list&p=1&s=10&sort=bestmatch",
+  "speakerPortrait": "assets/photos/42.png",
+  "candidPortrait": "assets/photos/IMG_1534.jpg",
+  "googlePlayBooks": [
+    "rIMbEgAAQBAJ",
+    "mZMaEgAAQBAJ",
+    "0voaEgAAQBAJ",
+    "Jh8cEgAAQBAJ",
+    "C3ocEgAAQBAJ"
+  ],
+  "portraitNote": "Original personal photograph supplied by the site owner. Optimized crops are generated separately."
 }
