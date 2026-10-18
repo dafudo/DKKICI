@@ -1,0 +1,257 @@
+[
+  {
+    "id": "tvn2019",
+    "date": "2019-09-13",
+    "publisher": "TVN UWAGA!",
+    "category": "television",
+    "featured": true,
+    "title": {
+      "en": "Expert commentary on family trauma and community support",
+      "pl": "Komentarz ekspercki o traumie rodzinnej i wsparciu społecznym"
+    },
+    "summary": {
+      "en": "A national television report documenting psychosocial and therapeutic involvement in a highly publicised family case. Content concerns a sensitive legal matter.",
+      "pl": "Reportaż ogólnopolskiej telewizji dokumentujący zaangażowanie w pomoc psychospołeczną i terapeutyczną w głośnej sprawie rodzinnej. Materiał dotyczy wrażliwego postępowania."
+    },
+    "url": "https://uwaga.tvn.pl/reportaze/zabil-konkubenta-matki-ja-ranil-21-latek-nie-trafi-do-wiezienia-ls6695538",
+    "photo": "assets/gallery/14.webp"
+  },
+  {
+    "id": "ddtvn",
+    "date": "2019-09-14",
+    "publisher": "Dzień Dobry TVN",
+    "category": "television",
+    "featured": true,
+    "title": {
+      "en": "A studio appearance discussing community assistance",
+      "pl": "Występ studyjny o działaniach pomocowych"
+    },
+    "summary": {
+      "en": "A studio conversation and contemporary coverage of a community-support initiative. The linked editorial report documents the appearance.",
+      "pl": "Rozmowa studyjna i relacja redakcyjna dotycząca inicjatywy pomocy społecznej. Załączone źródło dokumentuje występ."
+    },
+    "url": "https://dziendobry.tvn.pl/gorace-tematy/ponizany-przez-matke-dominik-zabil-jej-konkubenta-a-ja-ranil-sad-zdecydowal-ze-nie-trafi-do-wiezienia-da306256-ls5340320",
+    "photo": "assets/gallery/16.webp"
+  },
+  {
+    "id": "polsat2019",
+    "date": "2019-10-20",
+    "publisher": "Polsat · Państwo w Państwie",
+    "category": "television",
+    "featured": true,
+    "title": {
+      "en": "Therapeutic and organisational involvement in a public-interest case",
+      "pl": "Zaangażowanie terapeutyczne i organizacyjne w sprawie społecznej"
+    },
+    "summary": {
+      "en": "Independent coverage of a television programme discussing family support and the Psychopedagogical Association's role. The link leads to reporting about the programme.",
+      "pl": "Niezależna relacja o programie dotyczącym wsparcia rodziny i roli Towarzystwa Psychopedagogicznego. Link prowadzi do relacji o audycji."
+    },
+    "url": "https://istotne.pl/wiadomosc/39537",
+    "photo": "assets/gallery/5.webp"
+  },
+  {
+    "id": "tvn2018",
+    "date": "2018-02-19",
+    "publisher": "TVN UWAGA!",
+    "category": "television",
+    "featured": false,
+    "title": {
+      "en": "A television report on family violence and victim support",
+      "pl": "Reportaż o przemocy w rodzinie i wsparciu osób pokrzywdzonych"
+    },
+    "summary": {
+      "en": "A report including professional commentary on family violence and a social-support response. The subject matter is sensitive.",
+      "pl": "Reportaż zawierający wypowiedź zawodową o przemocy rodzinnej i działaniach pomocowych. Tematyka jest wrażliwa."
+    },
+    "url": "https://uwaga.tvn.pl/reportaze/przyznal-sie-do-zabojstwa-ale-wyszedl-z-aresztu-dominik-k-jest-takze-ofiara-ls6696257",
+    "photo": "assets/gallery/14.webp"
+  },
+  {
+    "id": "radio2019",
+    "date": "2019-01-22",
+    "publisher": "Radio Wrocław",
+    "category": "radio",
+    "featured": false,
+    "title": {
+      "en": "Radio commentary on a community support initiative",
+      "pl": "Wypowiedź radiowa o działaniach społecznych"
+    },
+    "summary": {
+      "en": "A regional radio report with a recorded statement on legal and community support.",
+      "pl": "Materiał regionalnego radia zawierający wypowiedź o pomocy prawnej i społecznej."
+    },
+    "url": "https://www.radiowroclaw.pl/articles/view/84060/Ranil-wlasna-matke-i-zabil-jej-partnera-Tysiace-ludzi-apeluje-o-jego-uwolnienie",
+    "photo": "assets/gallery/12.webp"
+  },
+  {
+    "id": "dziennik2015",
+    "date": "2015-02-16",
+    "publisher": "Dziennik.pl",
+    "category": "interview",
+    "featured": true,
+    "title": {
+      "en": "Children, internet safety and parenting — expert interview",
+      "pl": "Dzieci, bezpieczeństwo w sieci i rodzicielstwo — wywiad ekspercki"
+    },
+    "summary": {
+      "en": "An interview about protecting children online, parent involvement and digital risks.",
+      "pl": "Wywiad o bezpieczeństwie dzieci w internecie, zaangażowaniu rodziców i zagrożeniach cyfrowych."
+    },
+    "url": "https://zdrowie.dziennik.pl/dziecko/artykuly/483034%2Cco-dziecko-powinno-wiedziec-o-internecie-problem-przed-ktorym-staje-kazdy-rodzic.html",
+    "photo": "assets/gallery/17.webp"
+  },
+  {
+    "id": "memento2016",
+    "date": "2016",
+    "publisher": "MEMENTO · Professional Magazine",
+    "category": "speaking",
+    "featured": false,
+    "title": {
+      "en": "A professional lecture on emotional management",
+      "pl": "Wykład branżowy o zarządzaniu emocjami"
+    },
+    "summary": {
+      "en": "Trade-press documentation of an educational talk delivered at a professional training event.",
+      "pl": "Dokumentacja branżowa wykładu podczas wydarzenia szkoleniowego."
+    },
+    "url": "https://krzysztof.waw.pl/index.php/pl/content/download/9452/31314/file/DF%20MEMENTO%20nr%2095_2016.PDF",
+    "photo": "assets/gallery/4.webp"
+  },
+  {
+    "id": "microsoft2020",
+    "date": "2020-09-19",
+    "publisher": "Istotne.pl",
+    "category": "education",
+    "featured": true,
+    "title": {
+      "en": "Microsoft Innovative Educator Expert — local coverage",
+      "pl": "Microsoft Innovative Educator Expert — relacja prasowa"
+    },
+    "summary": {
+      "en": "Local reporting on recognition in educational technology and innovation in teaching. Presented in its historical context.",
+      "pl": "Lokalna relacja o wyróżnieniu w obszarze innowacji edukacyjnych i technologii w nauczaniu, przedstawiona w historycznym kontekście."
+    },
+    "url": "https://istotne.pl/wiadomosc/42788",
+    "photo": "assets/gallery/21.webp"
+  },
+  {
+    "id": "inclusion2016",
+    "date": "2016-12-11",
+    "publisher": "Istotne.pl",
+    "category": "projects",
+    "featured": false,
+    "title": {
+      "en": "An anti-stigma and disability inclusion initiative",
+      "pl": "Inicjatywa przeciw stygmatyzacji i na rzecz osób z niepełnosprawnościami"
+    },
+    "summary": {
+      "en": "Reporting on a social project organised through the Psychopedagogical Association.",
+      "pl": "Relacja o projekcie społecznym realizowanym w ramach Towarzystwa Psychopedagogicznego."
+    },
+    "url": "https://istotne.pl/wiadomosc/30315",
+    "photo": "assets/gallery/9.webp"
+  },
+  {
+    "id": "parents2017",
+    "date": "2017-06-03",
+    "publisher": "Istotne.pl",
+    "category": "projects",
+    "featured": false,
+    "title": {
+      "en": "Supporting families of autistic children",
+      "pl": "Wsparcie rodzin dzieci autystycznych"
+    },
+    "summary": {
+      "en": "Coverage of a parent-support group organised by the association. Historical language and claims are not reproduced as contemporary clinical guidance.",
+      "pl": "Relacja o grupie wsparcia rodziców prowadzonej przez stowarzyszenie. Dawnych określeń nie przedstawiamy jako współczesnych zaleceń."
+    },
+    "url": "https://istotne.pl/wiadomosc/31881",
+    "photo": "assets/gallery/10.webp"
+  },
+  {
+    "id": "association2019",
+    "date": "2019-09-13",
+    "publisher": "Istotne.pl",
+    "category": "projects",
+    "featured": false,
+    "title": {
+      "en": "Community assistance organised by the association",
+      "pl": "Pomoc społeczna organizowana przez Towarzystwo"
+    },
+    "summary": {
+      "en": "Independent reporting identifying the role of the association and the organisation of public assistance.",
+      "pl": "Niezależna relacja identyfikująca rolę Towarzystwa i organizację działań pomocowych."
+    },
+    "url": "https://istotne.pl/wiadomosc/39195",
+    "photo": "assets/gallery/9.webp"
+  },
+  {
+    "id": "alumni",
+    "date": "2023",
+    "publisher": "Wyższa Szkoła Bezpieczeństwa",
+    "category": "education",
+    "featured": false,
+    "title": {
+      "en": "University alumni profile",
+      "pl": "Profil absolwenta uczelni"
+    },
+    "summary": {
+      "en": "Institutional alumnus profile documenting education and professional activity. Some historical award descriptions remain subject to verification.",
+      "pl": "Profil absolwencki opisujący wykształcenie i działalność zawodową. Część historycznych określeń wyróżnień wymaga doprecyzowania."
+    },
+    "url": "https://www.wsb.net.pl/nasi-absolwenci/kolodziej-dawid/",
+    "photo": "assets/gallery/4.webp"
+  },
+  {
+    "id": "podcastEN",
+    "date": "2024",
+    "publisher": "Apple Podcasts",
+    "category": "podcast",
+    "featured": false,
+    "title": {
+      "en": "Psycho Curiosities — English-language podcast",
+      "pl": "Psycho Curiosities — podcast anglojęzyczny"
+    },
+    "summary": {
+      "en": "An archive of short-form reflections on psychology, human behaviour and wellbeing.",
+      "pl": "Archiwum materiałów audio o psychologii, zachowaniu i dobrostanie."
+    },
+    "url": "https://podcasts.apple.com/pt/podcast/psycho-curiosities-by-dkk/id1679621208",
+    "photo": "assets/gallery/20.webp"
+  },
+  {
+    "id": "podcastPL",
+    "date": "2023",
+    "publisher": "Apple Podcasts",
+    "category": "podcast",
+    "featured": false,
+    "title": {
+      "en": "Psycho Ciekawostki — Polish-language podcast",
+      "pl": "Psycho Ciekawostki — podcast polskojęzyczny"
+    },
+    "summary": {
+      "en": "A Polish-language collection of psychology audio episodes.",
+      "pl": "Polskojęzyczne archiwum nagrań o psychologii."
+    },
+    "url": "https://podcasts.apple.com/pl/podcast/psycho-ciekawostki-by-dkk/id1676923126",
+    "photo": "assets/gallery/12.webp"
+  },
+  {
+    "id": "linkedInPerspective",
+    "date": "2024-10-30",
+    "publisher": "LinkedIn Articles",
+    "category": "writing",
+    "featured": false,
+    "title": {
+      "en": "Changing Your Perspective — It's a Ripper!",
+      "pl": "Changing Your Perspective — It's a Ripper!"
+    },
+    "summary": {
+      "en": "An English-language personal article on perspective, attitude and adaptation.",
+      "pl": "Anglojęzyczny artykuł o perspektywie, nastawieniu i adaptacji."
+    },
+    "url": "https://www.linkedin.com/pulse/changing-your-perspective-its-ripper-dawid-karol-kolodziej-rxy9c",
+    "photo": "assets/gallery/21.webp"
+  }
+]
