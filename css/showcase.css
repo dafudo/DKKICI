@@ -163,3 +163,11 @@
 .dkk-home-roles{grid-template-columns:1fr}
 }
 @media(max-width:385px){.home-page .hero h1{font-size:2.75rem;letter-spacing:-.045em}}
+
+
+/* Small-screen Polish CTA: let the long leadership label use its own row. */
+@media(max-width:540px){
+ .home-page .project-section .works-end{display:flex;flex-direction:column;align-items:flex-start;gap:14px}
+ .home-page .project-section .works-end .eyebrow{width:100%;max-width:100%}
+ .home-page .project-section .works-end .text-link{width:auto;max-width:100%;white-space:normal;flex-wrap:wrap;overflow-wrap:anywhere}
+}
