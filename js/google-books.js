@@ -1,38 +1,30 @@
-/* The storefront shelf uses only locally cached, title-matched records. */
+/* Google Play shelf uses the same verified record source as the publication catalogue. */
 (() => {
   'use strict';
   const shelf=document.querySelector('[data-google-shelf]');
   if(!shelf)return;
   const lang=document.documentElement.lang==='pl'?'pl':'en';
-  const root=document.body.dataset.root || '../';
-  const fallback=shelf.dataset.fallback || root+'assets/cover-motivation.svg';
-  const safe=(url)=>{try{let u=new URL(url);return u.protocol==='https:'?u.href:null}catch{return null}};
-  function render(books) {
-    const fragment=document.createDocumentFragment();
-    for(const book of books) {
-      if(!book.title || !book.cover || !book.slug || !safe(book.url))continue;
-      const item=document.createElement('a');
-      item.className='gp-book';
-      item.href=book.url;
-      item.target='_blank';item.rel='noopener noreferrer';
-      const visual=document.createElement('div');visual.className='gp-book__visual';
-      const image=document.createElement('img');image.loading='lazy';image.decoding='async';
-      image.width=360;image.height=480;
-      image.src=root+book.cover;
-      image.alt=(lang==='pl'?(book.titlePl||book.title):book.title)+' — Google Play Books cover';
-      image.addEventListener('error',()=>{image.src=fallback},{once:true});
-      const arrow=document.createElement('span');arrow.textContent='↗';arrow.setAttribute('aria-hidden','true');
-      visual.append(image,arrow);
-      const heading=document.createElement('strong');heading.textContent=(lang==='pl'?(book.titlePl||book.title):book.title);
-      const meta=document.createElement('small');meta.textContent='Google Play Books';
-      item.append(visual,heading,meta);
-      fragment.append(item);
-    }
-    if(fragment.childNodes.length) shelf.replaceChildren(fragment);
-    else shelf.textContent=lang==='pl'?'Wydania są obecnie niedostępne.':'Digital editions are currently unavailable.';
-  }
-  fetch(root+'data/google-books.json',{cache:'force-cache'})
-    .then(r=>r.ok?r.json():Promise.reject(new Error('Catalog unavailable')))
-    .then(data=>render(Array.isArray(data)?data:[]))
-    .catch(()=>{shelf.textContent=lang==='pl'?'Nie udało się załadować wydań.':'The editions could not be loaded.';});
+  const root=document.body.dataset.root||'../';
+  fetch(root+'data/publications.json',{cache:'no-cache'})
+    .then(r=>{if(!r.ok)throw new Error('Catalogue unavailable');return r.json()})
+    .then(records=>{
+      const books=(Array.isArray(records)?records:[]).filter(p=>p.status==='published'&&p.googlePlayId&&p.cover);
+      const frag=document.createDocumentFragment();
+      for(const p of books){
+        const link=(p.links||[]).find(l=>l.label==='Google Play Books'&&typeof l.url==='string'&&/^https:\/\/play\.google\.com\//.test(l.url));
+        if(!link)continue;
+        const a=document.createElement('a');a.className='gp-book';
+        a.href=link.url;a.target='_blank';a.rel='noopener noreferrer';
+        const v=document.createElement('div');v.className='gp-book__visual';
+        const img=document.createElement('img');img.loading='lazy';img.decoding='async';
+        img.src=root+p.cover;img.alt=(p.title[lang]||p.title.en)+' — '+(lang==='pl'?'okładka':'cover');
+        const arrow=document.createElement('span');arrow.textContent='↗';arrow.setAttribute('aria-hidden','true');
+        v.append(img,arrow);
+        const h=document.createElement('strong');h.textContent=p.titleShort?.[lang]||p.title?.[lang]||p.title?.en;
+        const subtitle=document.createElement('small');subtitle.textContent='Google Play Books';
+        a.append(v,h,subtitle);frag.append(a);
+      }
+      shelf.replaceChildren(frag);
+    })
+    .catch(()=>{shelf.textContent=lang==='pl'?'Nie udało się pobrać wydań.':'The editions could not be loaded.'});
 })();
