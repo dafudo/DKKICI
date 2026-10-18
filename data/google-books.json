@@ -2,36 +2,61 @@
   {
     "id": "rIMbEgAAQBAJ",
     "url": "https://play.google.com/store/books/details?id=rIMbEgAAQBAJ",
-    "title": null,
-    "authors": [],
-    "cover": "assets/google-books/rIMbEgAAQBAJ.jpg"
+    "title": "Family as a Context of Risk and Protection: From Family Dysfunction to a Multifactorial Model of Adolescent Social Maladjustment",
+    "authors": [
+      "Dawid Karol Kolodziej"
+    ],
+    "cover": "assets/google-books/rIMbEgAAQBAJ.jpg",
+    "titlePl": "Rodzina jako kontekst ryzyka i ochrony: od dysfunkcji rodziny do wieloczynnikowego modelu niedostosowania społecznego młodzieży",
+    "slug": "family-context-risk-protection",
+    "verifiedBy": "manual comparison with published cover image"
   },
   {
     "id": "mZMaEgAAQBAJ",
     "url": "https://play.google.com/store/books/details?id=mZMaEgAAQBAJ",
-    "title": null,
-    "authors": [],
-    "cover": "assets/google-books/mZMaEgAAQBAJ.jpg"
+    "title": "Open Assertiveness as a Contextual Competence: Autonomy, Relationships, and the Social Costs of Self-Expression",
+    "authors": [
+      "Dawid Karol Kolodziej"
+    ],
+    "cover": "assets/google-books/mZMaEgAAQBAJ.jpg",
+    "titlePl": "Otwarta asertywność jako kompetencja kontekstowa: autonomia, relacje i społeczne koszty wyrażania siebie",
+    "slug": "open-assertiveness",
+    "verifiedBy": "manual comparison with published cover image"
   },
   {
     "id": "0voaEgAAQBAJ",
     "url": "https://play.google.com/store/books/details?id=0voaEgAAQBAJ",
-    "title": null,
-    "authors": [],
-    "cover": "assets/google-books/0voaEgAAQBAJ.jpg"
+    "title": "Authority Without Authoritarianism: Legitimising Parental and Teacher Influence in the Education of Young People",
+    "authors": [
+      "Dawid Karol Kolodziej"
+    ],
+    "cover": "assets/google-books/0voaEgAAQBAJ.jpg",
+    "titlePl": "Autorytet bez autorytaryzmu: legitymizacja wpływu rodziców i nauczycieli w wychowaniu młodzieży",
+    "slug": "authority-without-authoritarianism",
+    "verifiedBy": "manual comparison with published cover image"
   },
   {
     "id": "Jh8cEgAAQBAJ",
     "url": "https://play.google.com/store/books/details?id=Jh8cEgAAQBAJ",
-    "title": null,
-    "authors": [],
-    "cover": "assets/google-books/Jh8cEgAAQBAJ.jpg"
+    "title": "From Case Description to Diagnostic Hypothesis: A Critical Analysis of Reasoning in the Assessment of Adolescent Social Maladjustment",
+    "authors": [
+      "Dawid Karol Kolodziej"
+    ],
+    "cover": "assets/google-books/Jh8cEgAAQBAJ.jpg",
+    "titlePl": "Od opisu przypadku do hipotezy diagnostycznej: krytyczna analiza rozumowania w ocenie niedostosowania społecznego młodzieży",
+    "slug": "from-case-description-to-diagnostic-hypothesis",
+    "verifiedBy": "manual comparison with published cover image"
   },
   {
     "id": "C3ocEgAAQBAJ",
     "url": "https://play.google.com/store/books/details?id=C3ocEgAAQBAJ",
-    "title": null,
-    "authors": [],
-    "cover": "assets/google-books/C3ocEgAAQBAJ.jpg"
+    "title": "From Deficit Description to Support Needs: Functioning and Education of Students with Mild Intellectual Disability",
+    "authors": [
+      "Dawid Karol Kolodziej"
+    ],
+    "cover": "assets/google-books/C3ocEgAAQBAJ.jpg",
+    "titlePl": "Od opisu deficytów do potrzeb wsparcia: funkcjonowanie i edukacja uczniów z lekką niepełnosprawnością intelektualną",
+    "slug": "support-needs",
+    "verifiedBy": "manual comparison with published cover image"
   }
 ]
