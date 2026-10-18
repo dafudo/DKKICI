@@ -124,3 +124,9 @@
 .gp-book small{font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:#657065}
 @media(max-width:960px){.gp-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:590px){.gp-section{padding:65px 0}.gp-section__top{grid-template-columns:1fr;gap:20px}.gp-section__top>.eyebrow{grid-column:auto}.gp-section__top p{justify-self:start}.gp-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.gp-book strong{font-size:1.35rem}}
+
+/* Long scholarly titles remain fully readable rather than clipped. */
+.publication-dialog.is-long-title h2{font-size:clamp(2.5rem,3.35vw,4.2rem);line-height:1.02;overflow-wrap:break-word}
+.detail-page .detail-title{font-size:clamp(2.75rem,5vw,5.7rem);overflow-wrap:break-word;hyphens:auto}
+.detail-doi{display:inline-block;color:#6f5b41;font-size:.75rem;margin-top:9px}
+@media(max-width:540px){.publication-dialog.is-long-title h2{font-size:clamp(2.2rem,8vw,3.3rem)}.detail-page .detail-title{font-size:clamp(2.6rem,10vw,4rem)}}
