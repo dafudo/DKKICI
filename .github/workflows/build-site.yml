@@ -6,6 +6,10 @@ on:
       - 'tools/build.py'
       - 'tools/showcase_pages.py'
       - 'tools/enrich_home.py'
+      - 'tools/brand_refresh.py'
+      - 'css/profile.css'
+      - 'data/profile.json'
+      - 'data/site.json'
       - 'tools/localize_english_name.py'
       - 'tools/generate_sitemap.py'
       - 'data/leadership.json'
@@ -25,13 +29,15 @@ jobs:
         with:
           python-version: '3.12'
       - name: Validate generators
-        run: python -m py_compile tools/build.py tools/showcase_pages.py tools/enrich_home.py tools/localize_english_name.py tools/generate_sitemap.py
+        run: python -m py_compile tools/build.py tools/showcase_pages.py tools/enrich_home.py tools/brand_refresh.py tools/localize_english_name.py tools/generate_sitemap.py
       - name: Build the existing website
         run: python tools/build.py
       - name: Generate six standalone editorial pages
         run: python tools/showcase_pages.py
       - name: Enhance homepage and navigation
         run: python tools/enrich_home.py
+      - name: Generate bilingual professional profiles, proof bar and publication previews
+        run: python tools/brand_refresh.py
       - name: Localise English personal name
         run: python tools/localize_english_name.py
       - name: Generate bilingual XML sitemap, image references and canonical tags
@@ -43,6 +49,7 @@ jobs:
           import json
           pages=[
             'index.html','pl/index.html',
+            'profile/index.html','pl/profil/index.html',
             'publications/index.html','pl/publikacje/index.html',
             'leadership/index.html','pl/organizacje/index.html',
             'media/index.html','pl/media/index.html',
@@ -72,14 +79,25 @@ jobs:
           xml=ET.parse('sitemap.xml')
           locations=[e.text for e in xml.findall('.//s:url/s:loc',ns)]
           published=sum(p['status']=='published' for p in json.loads(Path('data/publications.json').read_text('utf-8')))
-          assert len(locations)==10+2*published,(len(locations),published)
+          assert len(locations)==12+2*published,(len(locations),published)
           assert len(locations)==len(set(locations))
           assert all(x.startswith('https://dkk.hqici.com/') for x in locations)
           assert 'fundamenty-motywacji' not in ''.join(locations)
           assert Path('robots.txt').is_file()
           assert len(xml.findall('.//x:link',ns))==3*len(locations)
           assert len(xml.findall('.//img:loc',ns))>=52
-          print('Verified SEO sitemap:',len(locations),'indexed URLs, gallery imagery and language variants')
+          for name in ('profile/index.html','pl/profil/index.html'):
+            content=Path(name).read_text('utf-8')
+            assert 'PACFA' in content and 'NDIS' in content and 'GAMBIT' in content
+            assert 'ORCID' in content and 'Google Scholar' in content and 'LinkedIn' in content
+            assert 'application/ld+json' in content
+          for name in ('index.html','pl/index.html'):
+            content=Path(name).read_text('utf-8')
+            assert 'p-home-evidence' in content and 'schema.org' in content
+          for name in ('publications/index.html','pl/publikacje/index.html'):
+            content=Path(name).read_text('utf-8')
+            assert content.count('class="publication-tile"')==published,(name,published)
+          print('Verified bilingual profiles, research identities, dynamic publications and SEO sitemap:',len(locations),'indexed URLs')
           PY
       - name: Commit generated pages to main
         run: |
