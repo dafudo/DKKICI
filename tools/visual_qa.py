@@ -19,7 +19,10 @@ with sync_playwright() as p:
    page.wait_for_timeout(380)
    if not result or result.status>=400:failures.append(f'HTTP {name}: {result.status if result else None}')
    overflow=page.evaluate('Math.max(document.documentElement.scrollWidth, document.body.scrollWidth) - window.innerWidth')
-   if overflow>4:failures.append(f'Horizontal overflow {mode} {name}: {overflow}px')
+   if overflow>4:
+    bad=page.evaluate("""() => Array.from(document.querySelectorAll('*')).map(el=>({el,rect:el.getBoundingClientRect()})).filter(x=>x.rect.right>innerWidth+4 || x.rect.left < -4).slice(0,30).map(x=>({tag:x.el.tagName,cls:x.el.className?.toString().slice(0,70),txt:x.el.textContent.slice(0,70),left:Math.round(x.rect.left),right:Math.round(x.rect.right)}))""")
+    print('OFFENDERS',mode,name,bad)
+    failures.append(f'Horizontal overflow {mode} {name}: {overflow}px')
    if name in ('','pl/','media/','gallery/','leadership/'):
     filename=(name.strip('/').replace('/','-') or 'home')
     page.screenshot(path=str(out/(mode+'-'+filename+'.jpg')),type='jpeg',quality=70)
