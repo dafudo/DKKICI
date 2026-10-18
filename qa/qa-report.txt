@@ -1,5 +1,7 @@
 mobile  200 overflow= 0
 mobile pl/ 200 overflow= 0
+mobile profile/ 200 overflow= 0
+mobile pl/profil/ 200 overflow= 0
 mobile leadership/ 200 overflow= 0
 mobile pl/organizacje/ 200 overflow= 0
 mobile media/ 200 overflow= 0
@@ -10,6 +12,8 @@ mobile publications/ 200 overflow= 0
 mobile pl/publikacje/ 200 overflow= 0
 desktop  200 overflow= 0
 desktop pl/ 200 overflow= 0
+desktop profile/ 200 overflow= 0
+desktop pl/profil/ 200 overflow= 0
 desktop leadership/ 200 overflow= 0
 desktop pl/organizacje/ 200 overflow= 0
 desktop media/ 200 overflow= 0
