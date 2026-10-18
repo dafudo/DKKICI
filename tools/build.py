@@ -96,7 +96,7 @@ def href_for(pub,lang):
 def rpath(path,prefix): return prefix+path
 
 def card(pub,lang,prefix,archive=False):
-    t=I[lang]; label=e(pub['title'][lang]); desc=e(pub['subtitle'][lang]); img=e(prefix+pub['cover']); url=e(prefix+href_for(pub,lang)); y=e(pub['year']); categ=e(pub['category']); search=e(' '.join([pub['title']['en'],pub['title']['pl'],pub['subtitle']['en'],pub['subtitle']['pl'],pub['description'][lang]]))
+    t=I[lang]; label=e(pub.get('titleShort',pub['title']).get(lang,pub['title'][lang])); desc=e(pub['subtitle'][lang]); img=e(prefix+pub['cover']); url=e(prefix+href_for(pub,lang)); y=e(pub['year']); categ=e(pub['category']); search=e(' '.join([pub['title']['en'],pub['title']['pl'],pub['subtitle']['en'],pub['subtitle']['pl'],pub['description'][lang]]))
     attr = f' data-work-card data-category="{categ}" data-search="{search}"' if archive else ''
     status = f'<span class="work-status">{e(t["preview"])}</span>' if pub['status']!='published' else ''
     return f'''<a class="work-card reveal" href="{url}"{attr} aria-label="{label}"><div class="work-image"><span class="work-image-tag">{e(t['typeLabels'][pub['kind']])} / {y}</span><img src="{img}" alt="{label} — editorial cover mockup" loading="lazy" width="660" height="880"><span class="work-image-arrow" aria-hidden="true">↗</span></div><div class="work-meta"><span>{e(t['categoryLabels'][pub['category']])}</span><span>—</span><span>{y}</span>{status}</div><h3>{label}</h3><p class="work-sub">{desc}</p></a>'''
@@ -174,6 +174,7 @@ def detail_page(pub,lang,prefix):
         if url.startswith('https://'):
             links.append(f'<a rel="noopener noreferrer" target="_blank" href="{e(url)}">{e(name)} ↗</a>')
     if pub.get('readUrl','').startswith('https://'): links.insert(0,f'<a rel="noopener noreferrer" target="_blank" href="{e(pub["readUrl"])}">{e(t["read"])} ↗</a>')
+    if pub.get('doi'): links.append(f'<a rel="noopener noreferrer" target="_blank" href="https://doi.org/{e(pub["doi"])}">DOI: {e(pub["doi"])} ↗</a>')
     if not links: links.append(f'<p class="muted">{e(t["noLinks"])}</p>')
     others=[p for p in P if p['slug']!=pub['slug'] and p['status']!='archived'][:2]
     extra=''.join(card(p,lang,prefix) for p in others)
