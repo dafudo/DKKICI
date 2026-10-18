@@ -38,3 +38,6 @@ DKK. PERSONAL ARCHIVE — GOTOWY PROJEKT STATYCZNY
    niezweryfikowanego demonstratora. Instrukcja usunięcia: README.md.
 
 SZCZEGÓŁOWA INSTRUKCJA: README.md
+
+Domena docelowa: https://dkk.hqici.com/
+Mapa XML: https://dkk.hqici.com/sitemap.xml
