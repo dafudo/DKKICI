@@ -1,0 +1,40 @@
+DKK. PERSONAL ARCHIVE — GOTOWY PROJEKT STATYCZNY
+================================================
+
+1. PODGLĄD:
+   W katalogu projektu uruchom:
+       python3 -m http.server 8000
+   Otwórz http://localhost:8000
+   Polski: http://localhost:8000/pl/
+
+2. GITHUB PAGES:
+   Utwórz nowe PUBLICZNE repozytorium z gałęzią main.
+   Wgraj ZAWARTOŚĆ tego katalogu do katalogu głównego repo.
+   Settings -> Pages -> Source -> GitHub Actions.
+   W Actions poczekaj na zielony status; link znajdziesz w Pages.
+
+   ALTERNATYWA:
+   Settings -> Pages -> Deploy from a branch -> main -> /(root).
+   Ten wariant działa bez Actions dla gotowych plików HTML, ale przed
+   następną publikacją uruchom lokalnie: python3 tools/build.py
+
+3. ZAMIANA ZDJĘĆ, KONTAKTU I FILMU:
+   Edytuj data/site.json i wrzuć swoje zdjęcia do assets/.
+   portrait: "assets/twoj-portret.webp"
+   aboutPortrait: "assets/twoje-zdjecie.webp"
+   email: "twoj-adres@example.com"
+   videoUrl: pełny link YouTube albo URL do filmu MP4/WEBM.
+
+4. DODAWANIE PUBLIKACJI:
+   Edytuj data/publications.json, dodaj nową pozycję i okładkę do assets/.
+   Przy wdrażaniu przez GitHub Actions wystarczy zapisać commit na main.
+   Przy Deploy from a branch: uruchom python3 tools/build.py i wgraj HTML.
+
+5. UWAGA:
+   To w pełni działający projekt demonstracyjny, z placeholderem portretu,
+   filmem do podmiany i trzema wstępnymi wpisami publikacji. Ich dane,
+   biografia i rola zawodowa wymagają końcowej autoryzacji.
+   Na start ustawiono noindex,nofollow — Google nie powinien indeksować
+   niezweryfikowanego demonstratora. Instrukcja usunięcia: README.md.
+
+SZCZEGÓŁOWA INSTRUKCJA: README.md

@@ -1,0 +1,47 @@
+[
+  {
+    "slug": "fundamenty-motywacji",
+    "title": {"en": "Foundations of Motivation", "pl": "Fundamenty motywacji"},
+    "subtitle": {"en": "A work on the psychology of motivation", "pl": "Praca o psychologii motywacji"},
+    "description": {"en": "An exploration of motivation, its mechanisms and the questions that shape how we understand change. This demo entry needs a verified publication description and links.", "pl": "Publikacja poświęcona mechanizmom motywacji i sposobom rozumienia zmiany. Ten wpis demonstracyjny wymaga zweryfikowanego opisu oraz linków."},
+    "year": "2025",
+    "date": "2025-02-25",
+    "kind": "book",
+    "category": "psychology",
+    "featured": true,
+    "status": "preview",
+    "cover": "assets/cover-motivation.svg",
+    "links": [],
+    "readUrl": ""
+  },
+  {
+    "slug": "mente-11",
+    "title": {"en": "MENTE · Issue 11", "pl": "MENTE · Numer 11"},
+    "subtitle": {"en": "A themed issue on motivation", "pl": "Numer tematyczny o motywacji"},
+    "description": {"en": "An editorial project focused on motivation. Verify the publication details, editorial credits and outbound links before launch.", "pl": "Projekt redakcyjny poświęcony motywacji. Przed publikacją należy sprawdzić dane wydawnicze, role redakcyjne i linki."},
+    "year": "2025",
+    "date": "2025-04-01",
+    "kind": "journal",
+    "category": "education",
+    "featured": true,
+    "status": "preview",
+    "cover": "assets/cover-mente.svg",
+    "links": [],
+    "readUrl": ""
+  },
+  {
+    "slug": "support-needs",
+    "title": {"en": "Support Needs", "pl": "Support Needs"},
+    "subtitle": {"en": "A publication on understanding support", "pl": "Publikacja o rozumieniu potrzeb wsparcia"},
+    "description": {"en": "A placeholder catalogue entry for an English-language publication. Add verified bibliographic information and live availability links.", "pl": "Przykładowy wpis katalogowy dla anglojęzycznej publikacji. Uzupełnij zweryfikowane dane bibliograficzne i rzeczywiste linki."},
+    "year": "2026",
+    "date": "2026-10-01",
+    "kind": "book",
+    "category": "practice",
+    "featured": true,
+    "status": "preview",
+    "cover": "assets/cover-support.svg",
+    "links": [],
+    "readUrl": ""
+  }
+]
