@@ -1,0 +1,26 @@
+mobile  200 overflow= 0
+mobile pl/ 200 overflow= 52
+mobile leadership/ 200 overflow= 0
+mobile pl/organizacje/ 200 overflow= 0
+mobile media/ 200 overflow= 0
+mobile pl/media/ 200 overflow= 0
+mobile gallery/ 200 overflow= 0
+mobile pl/galeria/ 200 overflow= 0
+mobile publications/ 200 overflow= 0
+mobile pl/publikacje/ 200 overflow= 0
+desktop  200 overflow= 0
+desktop pl/ 200 overflow= 0
+desktop leadership/ 200 overflow= 0
+desktop pl/organizacje/ 200 overflow= 0
+desktop media/ 200 overflow= 0
+desktop pl/media/ 200 overflow= 0
+desktop gallery/ 200 overflow= 0
+desktop pl/galeria/ 200 overflow= 0
+desktop publications/ 200 overflow= 0
+desktop pl/publikacje/ 200 overflow= 0
+Horizontal overflow mobile pl/: 52px
+Traceback (most recent call last):
+  File "/home/runner/work/DKKICI/DKKICI/tools/visual_qa.py", line 44, in <module>
+    raise RuntimeError(str(len(failures))+' QA failures')
+RuntimeError: 1 QA failures
+Result: failure
