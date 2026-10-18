@@ -1,4 +1,5 @@
 mobile  200 overflow= 0
+OFFENDERS mobile pl/ [{'tag': 'DIV', 'cls': 'mobile-panel', 'txt': 'NAVIGATION / MENUO mnieOrganizacjePublikacjeMediaGaleria', 'left': 394, 'right': 784}, {'tag': 'DIV', 'cls': 'container', 'txt': 'NAVIGATION / MENUO mnieOrganizacjePublikacjeMediaGaleria', 'left': 439, 'right': 739}, {'tag': 'P', 'cls': 'eyebrow', 'txt': 'NAVIGATION / MENU', 'left': 439, 'right': 739}, {'tag': 'NAV', 'cls': '', 'txt': 'O mnieOrganizacjePublikacjeMediaGaleria', 'left': 439, 'right': 739}, {'tag': 'A', 'cls': '', 'txt': 'O mnie', 'left': 439, 'right': 739}, {'tag': 'A', 'cls': '', 'txt': 'Organizacje', 'left': 439, 'right': 739}, {'tag': 'A', 'cls': '', 'txt': 'Publikacje', 'left': 439, 'right': 739}, {'tag': 'A', 'cls': '', 'txt': 'Media', 'left': 439, 'right': 739}, {'tag': 'A', 'cls': '', 'txt': 'Galeria', 'left': 439, 'right': 739}, {'tag': 'SPAN', 'cls': 'vertical-tag', 'txt': 'DKK / PERSONAL ARCHIVE', 'left': 389, 'right': 403}, {'tag': 'A', 'cls': 'text-link', 'txt': 'Poznaj działalność organizacyjną ↗', 'left': 134, 'right': 442}, {'tag': 'SPAN', 'cls': 'arrow', 'txt': '↗', 'left': 422, 'right': 442}]
 mobile pl/ 200 overflow= 52
 mobile leadership/ 200 overflow= 0
 mobile pl/organizacje/ 200 overflow= 0
@@ -20,7 +21,7 @@ desktop publications/ 200 overflow= 0
 desktop pl/publikacje/ 200 overflow= 0
 Horizontal overflow mobile pl/: 52px
 Traceback (most recent call last):
-  File "/home/runner/work/DKKICI/DKKICI/tools/visual_qa.py", line 44, in <module>
+  File "/home/runner/work/DKKICI/DKKICI/tools/visual_qa.py", line 47, in <module>
     raise RuntimeError(str(len(failures))+' QA failures')
 RuntimeError: 1 QA failures
 Result: failure
