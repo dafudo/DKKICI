@@ -8,6 +8,7 @@ Do not replace genuine publication source URLs or alter work metadata.
 from pathlib import Path
 from html import escape
 import re
+import hashlib
 
 ROOT=Path(__file__).resolve().parents[1]
 
@@ -96,6 +97,11 @@ def main():
         source=source.replace('DKK. / INDEPENDENT DIGITAL ARCHIVE','DKK. / PUBLICATIONS')
         source=source.replace('sdkk@psychopedagog.org','dkk@hqici.com')
         source=translate_publications(source,lang)
+        if rel.as_posix() in ('publications/index.html','pl/publikacje/index.html'):
+            # Force refresh of the modal script after each JS change.
+            version=hashlib.sha256((ROOT/'js/publications.js').read_bytes()).hexdigest()[:12]
+            source=re.sub(r'(src="[^"]*js/publications\\.js)(?:\\?[^"]*)?(")',
+                          lambda m:m.group(1)+'?v='+version+m.group(2), source)
         if rel.as_posix() in ('index.html','pl/index.html'):
             source=source.replace('QUEENSLAND · AUSTRALIA','POLSKA · AUSTRALIA' if pl else 'AUSTRALIA')
             source=source.replace('DKK / PROFESSIONAL WEBSITE','DKK / PROFIL' if pl else 'DKK / PROFILE')
