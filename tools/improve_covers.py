@@ -146,6 +146,9 @@ def main():
     changed=0
     for p in works:
         if p.get('status')!='published':continue
+        if p.get('coverSource')=='author-provided':
+            print(' Author-supplied cover protected:',p['slug'])
+            continue
         current=ROOT/p['cover']
         if not current.is_file():
             print('MISSING cover',p['slug'])
