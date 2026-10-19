@@ -23,6 +23,20 @@ with sync_playwright() as p:
     bad=page.evaluate("""() => Array.from(document.querySelectorAll('*')).map(el=>({el,rect:el.getBoundingClientRect()})).filter(x=>x.rect.right>innerWidth+4 || x.rect.left < -4).slice(0,30).map(x=>({tag:x.el.tagName,cls:x.el.className?.toString().slice(0,70),txt:x.el.textContent.slice(0,70),left:Math.round(x.rect.left),right:Math.round(x.rect.right)}))""")
     print('OFFENDERS',mode,name,bad)
     failures.append(f'Horizontal overflow {mode} {name}: {overflow}px')
+   if name in ('','pl/'):
+    page.locator('#journey').scroll_into_view_if_needed()
+    layout=page.evaluate("""() => {
+      const heading=document.querySelector('#journey .journey-grid h2');
+      const note=document.querySelector('#journey .dkk-timeline-context');
+      const row=[...document.querySelectorAll('.p-home-evidence__inner > *')];
+      if (!heading || !note || row.length!==4) return {ok:false,why:'Missing layout elements'};
+      const r1=heading.getBoundingClientRect(),r2=note.getBoundingClientRect();
+      const overlap= r1.right>r2.left && r1.left<r2.right && r1.bottom>r2.top && r1.top<r2.bottom;
+      return {ok:!overlap && getComputedStyle(heading).position==='static',
+              why:overlap?'Timeline overlap':'Sticky heading',
+              heading:getComputedStyle(heading).position};
+    }""")
+    if not layout['ok']: failures.append(f'Timeline layout {mode} {name}: {layout}')
    if name in ('','pl/','profile/','pl/profil/','media/','gallery/','leadership/'):
     filename=(name.strip('/').replace('/','-') or 'home')
     page.screenshot(path=str(out/(mode+'-'+filename+'.jpg')),type='jpeg',quality=70)
