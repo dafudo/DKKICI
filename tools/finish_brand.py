@@ -97,6 +97,10 @@ def main():
         source=source.replace('DKK. / INDEPENDENT DIGITAL ARCHIVE','DKK. / PUBLICATIONS')
         source=source.replace('sdkk@psychopedagog.org','dkk@hqici.com')
         source=translate_publications(source,lang)
+        if rel.as_posix() == 'pl/publikacje/index.html':
+            source=source.replace('id="publication-dialog-title">Publication</h2>',
+                                  'id="publication-dialog-title">Publikacja</h2>')
+            source=source.replace('DKK. / PUBLICATIONS', 'DKK. / PUBLIKACJE')
         if rel.as_posix() in ('publications/index.html','pl/publikacje/index.html'):
             # Force refresh of the modal script after each JS change.
             version=hashlib.sha256((ROOT/'js/publications.js').read_bytes()).hexdigest()[:12]

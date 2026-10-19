@@ -69,7 +69,7 @@ def about_section(lang,pre):
     'Mam dwa tytuły magistra — z psychologii sądowej i penitencjarnej oraz kierunku związanego z poradnictwem osobistym i zawodowym — a także licencjat z resocjalizacji i profilaktyki społecznej. Posiadam status PACFA Clinical Registrant. Równolegle tworzę projekty i kieruję organizacjami w poradnictwie i edukacji.')
  return f'''<section id="about" class="about-section"><div class="container about-grid">
 <div class="about-visual reveal"><img class="about-img" src="{pre}assets/gallery/12.webp" loading="lazy" width="1400" height="1050" alt="Radio interview with Dawid Karol Kołodziej">
-<div class="about-caption"><span>ABOUT / DKK</span><strong>{'PRACTICE & INITIATIVE' if not pl else 'PRAKTYKA I INICJATYWA'}</strong></div></div>
+<div class="about-caption"><span>{'O MNIE / DKK' if pl else 'ABOUT / DKK'}</span><strong>{'PRACTICE & INITIATIVE' if not pl else 'PRAKTYKA I INICJATYWA'}</strong></div></div>
 <div class="about-copy"><p class="eyebrow reveal">02 / {'PROFESSIONAL IDENTITY' if not pl else 'PROFIL ZAWODOWY'}</p>
 <h2 class="reveal">{'More than<br><em>one role.</em>' if not pl else 'Więcej niż<br><em>jedna rola.</em>'}</h2>
 <p class="lead reveal">{'Australia-based psychotherapist offering online consultations, mental health clinician, author and organisational leader.' if not pl else 'Australijski psychoterapeuta prowadzący również konsultacje online, specjalista zdrowia psychicznego, autor i lider organizacji.'}</p>
@@ -102,7 +102,7 @@ def hero_section(lang,pre):
 <div class="hero-visual reveal"><picture><source srcset="{pre}assets/portraits/hero.webp" type="image/webp">
 <img class="hero-photo" src="{pre}assets/DawidKolodziej.png" alt="Dawid Karol Kołodziej — portrait" fetchpriority="high" width="1050" height="1312"></picture>
 <div class="hero-visual-note"><strong class="eyebrow">DAWID KAROL KOŁODZIEJ</strong><span>QUEENSLAND · AUSTRALIA</span></div><span class="vertical-tag">DKK / PERSONAL ARCHIVE</span></div></div>
-<div class="container hero-bottom"><span class="eyebrow">{'2009 EARLY CHARITY PLACEMENTS / PROFESSIONAL WORK FROM 2013' if not pl else '2009 PIERWSZE PRAKTYKI SPOŁECZNE / PRACA ZAWODOWA OD 2013'}</span><span class="eyebrow">SCROLL TO EXPLORE ↓</span></div></section>'''
+<div class="container hero-bottom"><span class="eyebrow">{'2009 EARLY CHARITY PLACEMENTS / PROFESSIONAL WORK FROM 2013' if not pl else '2009 PIERWSZE PRAKTYKI SPOŁECZNE / PRACA ZAWODOWA OD 2013'}</span><span class="eyebrow">{'PRZEWIŃ, ABY ODKRYĆ WIĘCEJ' if pl else 'SCROLL TO EXPLORE'} ↓</span></div></section>'''
 def section_replace(src,sel,new):
  patt=(r'<section id="'+sel[3:]+r'"[^>]*>[\s\S]*?</section>') if sel.startswith('id:') else (r'<section class="'+sel+r'"[^>]*>[\s\S]*?</section>')
  out,n=re.subn(patt,lambda m:new,src,count=1)

@@ -69,7 +69,7 @@ I = {
  filmEyebrow='04 — W RUCHU', filmTitle='Historia<br><em>w ruchu.</em>', filmText='Tutaj znajdzie się krótki autorski film. Na razie zobacz proponowaną koncepcję ujęć.', filmBtn='Zobacz koncepcję', filmLabel='FILM OSOBISTY / PLACEHOLDER',
  journeyK='05 — DOŚWIADCZENIE', journeyH='Jak rozwijała się<br><em>moja praca.</em>',
  projK='06 — INICJATYWY', projH='Projekty, które<br><em>rosną.</em>', projNote='Wybrane organizacje i inicjatywy związane z moją działalnością.',
- archiveK='07 — BIBLIOTEKA', archiveH='Biblioteka<br><em>publikacji.</em>', archiveNote='Przeglądaj artykuły, opracowania badawcze, working papers i książki. Każda pozycja ma własną stronę i odnośniki do źródeł.',
+ archiveK='07 — BIBLIOTEKA', archiveH='Biblioteka<br><em>publikacji.</em>', archiveNote='Przeglądaj artykuły, opracowania badawcze, opracowania robocze i książki. Każda pozycja ma własną stronę i odnośniki do źródeł.',
  filterAll='Wszystkie', filterPsych='Psychologia', filterEdu='Edukacja', filterPractice='Praktyka', filterIdeas='Idee', search='Szukaj w bibliotece…', countLabel='WIDOCZNE POZYCJE', empty='Brak publikacji spełniających kryteria. Zmień wyszukiwanie lub filtr.',
  connectK='08 — KONTAKT', connectH='Porozmawiajmy<br><em>o współpracy.</em>', connectP='W sprawach zawodowych, publikacji, projektów edukacyjnych i możliwej współpracy zapraszam do kontaktu.', connectBtn='Napisz wiadomość', connectPending='KANAŁ KONTAKTOWY — DO UZUPEŁNIENIA',
  footerSub='Archiwum osobiste · psychoterapia · pisanie · edukacja', made='NIEZALEŻNE ARCHIWUM CYFROWE', top='Do góry',
@@ -99,7 +99,7 @@ def card(pub,lang,prefix,archive=False):
     t=I[lang]; label=e(pub.get('titleShort',pub['title']).get(lang,pub['title'][lang])); desc=e(pub['subtitle'][lang]); img=e(prefix+pub['cover']); url=e(prefix+href_for(pub,lang)); y=e(pub['year']); categ=e(pub['category']); search=e(' '.join([pub['title']['en'],pub['title']['pl'],pub['subtitle']['en'],pub['subtitle']['pl'],pub['description'][lang]]))
     attr = f' data-work-card data-category="{categ}" data-search="{search}"' if archive else ''
     status = ''  # Only verified published work is shown in the public collection.
-    return f'''<a class="work-card reveal" href="{url}"{attr} aria-label="{label}"><div class="work-image"><img src="{img}" alt="{label} — {'editorial website artwork' if pub.get('coverSource') == 'editorial' else 'publication cover'}" loading="lazy" width="660" height="880"><span class="work-image-arrow" aria-hidden="true">↗</span></div><div class="work-meta"><span>{e(t['categoryLabels'][pub['category']])}</span><span>—</span><span>{y}</span>{status}</div><h3>{label}</h3><p class="work-sub">{desc}</p></a>'''
+    return f'''<a class="work-card reveal" href="{url}"{attr} aria-label="{label}"><div class="work-image"><img src="{img}" alt="{label} — {('kompozycja redakcyjna' if lang=='pl' else 'editorial website artwork') if pub.get('coverSource') == 'editorial' else ('okładka publikacji' if lang=='pl' else 'publication cover')}" loading="lazy" width="660" height="880"><span class="work-image-arrow" aria-hidden="true">↗</span></div><div class="work-meta"><span>{e(t['categoryLabels'][pub['category']])}</span><span>—</span><span>{y}</span>{status}</div><h3>{label}</h3><p class="work-sub">{desc}</p></a>'''
 
 def header(lang,prefix,detail=False):
     t=I[lang]; root=prefix; home=prefix+('pl/index.html' if lang=='pl' else 'index.html'); rootpl=prefix+'pl/index.html'
@@ -111,7 +111,7 @@ def header(lang,prefix,detail=False):
         target=prefix+href_for(next(p for p in P if p['slug']==slug),'pl' if lang=='en' else 'en')+'index.html'
     catalogue=prefix+('pl/publikacje/' if lang=='pl' else 'publications/')
     nav=''.join(f'<a href="{e(catalogue if anchor=="library" else home+"#"+anchor)}">{e(t[text])}</a>' for anchor,text in [('selected','work'),('about','about'),('library','archive'),('contact','connect')])
-    return f'''<a class="skip" href="#main">Skip to content</a><header class="site-nav"><div class="nav-inner container"><a class="brand" href="{home}" aria-label="{e(S['owner'])} — home"><span class="brand-mark">DKK.</span><span class="brand-caption">PERSONAL / ARCHIVE</span></a><nav class="nav-links" aria-label="Main navigation">{nav}</nav><div class="nav-right"><a class="locale-link" lang="{'pl' if lang=='en' else 'en'}" href="{target}" aria-label="Change language">{'PL' if lang=='en' else 'EN'} <span aria-hidden="true">↗</span></a><button class="nav-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="mobile-nav" aria-label="Menu"><span></span><span></span></button></div></div></header><div class="mobile-panel" id="mobile-nav" aria-hidden="true"><div class="container"><p class="eyebrow">NAVIGATION / MENU</p><nav aria-label="Mobile navigation">{nav}</nav></div></div>'''
+    return f'''<a class="skip" href="#main">{e('Przejdź do treści' if lang=='pl' else 'Skip to content')}</a><header class="site-nav"><div class="nav-inner container"><a class="brand" href="{home}" aria-label="{e(S['owner'])} — home"><span class="brand-mark">DKK.</span><span class="brand-caption">PERSONAL / ARCHIVE</span></a><nav class="nav-links" aria-label="Main navigation">{nav}</nav><div class="nav-right"><a class="locale-link" lang="{'pl' if lang=='en' else 'en'}" href="{target}" aria-label="Change language">{'PL' if lang=='en' else 'EN'} <span aria-hidden="true">↗</span></a><button class="nav-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="mobile-nav" aria-label="Menu"><span></span><span></span></button></div></div></header><div class="mobile-panel" id="mobile-nav" aria-hidden="true"><div class="container"><p class="eyebrow">{e('NAWIGACJA / MENU' if lang=='pl' else 'NAVIGATION / MENU')}</p><nav aria-label="Mobile navigation">{nav}</nav></div></div>'''
 
 def footer(lang,prefix):
     t=I[lang]; home=prefix+('pl/index.html' if lang=='pl' else 'index.html')
@@ -178,7 +178,7 @@ def detail_page(pub,lang,prefix):
     others=[p for p in P if p['slug']!=pub['slug'] and p['status']=='published'][:2]
     extra=''.join(card(p,lang,prefix) for p in others)
     editorial = pub.get('coverSource') == 'editorial'
-    cover_alt = e(title) + (' — editorial website artwork' if editorial else ' — publication cover')
+    cover_alt = e(title) + ((' — kompozycja redakcyjna' if lang=='pl' else ' — editorial website artwork') if editorial else (' — okładka publikacji' if lang=='pl' else ' — publication cover'))
     cover_note = ''  # No editorial placeholder disclaimer is shown to visitors.
     preview=f'<p class="detail-note">{e(t["previewNote"])}</p>' if pub['status']!='published' else ''
     back=prefix+('pl/publikacje/' if lang=='pl' else 'publications/')
