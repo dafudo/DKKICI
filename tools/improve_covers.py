@@ -46,7 +46,14 @@ def same_author(authors):
 
 def get_book_ids(p,platform):
     result=[]
-    for l in p.get('links',[]):
+    # Store author-library URLs remain public; immutable edition IDs power cover checks.
+    if platform=='Google Play Books':
+        gid=p.get('googlePlayId','')
+        if re.fullmatch(r'[A-Za-z0-9_-]{8,20}',gid):result.append(gid)
+    if platform=='Apple Books':
+        aid=str(p.get('appleBooksId',''))
+        if re.fullmatch(r'\d{8,14}',aid):result.append(aid)
+    for l in (p.get('editionLinks',[])+p.get('links',[])):
         if l.get('label')!=platform:continue
         parsed=urlparse(l.get('url',''))
         if platform=='Google Play Books' and parsed.hostname=='play.google.com':
@@ -101,6 +108,22 @@ def candidates(p):
                     yield ('Apple Books',artwork.replace('100x100bb','600x600bb').replace('60x60bb','600x600bb'))
         except Exception as exc:
             print(p['slug'],'Apple verification unavailable:',str(exc)[:100])
+    # Discover a newly deposited publication if its exact volume ID is not yet known.
+    if not get_book_ids(p,'Google Play Books'):
+        try:
+            from urllib.parse import quote
+            stem=title.split(':')[0]
+            q=quote('intitle:"'+stem+'" inauthor:"Dawid Karol Kolodziej"')
+            obj=json.loads(request('https://www.googleapis.com/books/v1/volumes?q='+q+'&maxResults=10').decode())
+            for entry in obj.get('items',[]):
+                info=entry.get('volumeInfo',{})
+                if not same_title(info.get('title',''),title) or not same_author(info.get('authors',[])):
+                    continue
+                for size in ('extraLarge','large','medium','small','thumbnail','smallThumbnail'):
+                    url=info.get('imageLinks',{}).get(size)
+                    if url:yield ('Google Books',url.replace('http://','https://',1))
+        except Exception as exc:
+            print(p['slug'],'Google discovery unavailable:',str(exc)[:100])
     for gid in get_book_ids(p,'Google Play Books'):
         try:
             obj=json.loads(request('https://www.googleapis.com/books/v1/volumes/'+gid).decode())
@@ -141,7 +164,7 @@ def main():
             seen.add(url)
             try:
                 pic=get_img(url)
-                if p.get('coverSource')=='editorial' and not is_original_artwork_candidate(pic):
+                if not is_original_artwork_candidate(pic):
                     print(' title-page-only thumbnail rejected:',origin,pic.size)
                     continue
                 merit=score(pic)
