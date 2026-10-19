@@ -171,3 +171,92 @@
  .home-page .project-section .works-end .eyebrow{width:100%;max-width:100%}
  .home-page .project-section .works-end .text-link{width:auto;max-width:100%;white-space:normal;flex-wrap:wrap;overflow-wrap:anywhere}
 }
+
+/* Polished collaboration CTA on leadership / media pages (PL + EN).
+   These pages load showcase.css, not profile.css. Keep the CTA styles here. */
+.showcase-page .p-mini-cta{
+  background:#e3e5dd;
+  border-top:1px solid #c3cabf;
+  color:#25372c;
+  padding:clamp(38px,4.7vw,72px) 0;
+}
+.showcase-page .p-mini-cta .container{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) max-content max-content;
+  align-items:center;
+  column-gap:clamp(12px,2vw,28px);
+  row-gap:18px;
+}
+.showcase-page .p-mini-cta .container>span{
+  display:block;
+  max-width:580px;
+  font:400 clamp(1.75rem,3vw,3.1rem)/1.09 var(--display,Georgia,serif);
+  letter-spacing:-.035em;
+  text-transform:none;
+  overflow-wrap:break-word;
+  color:#24342a;
+}
+.showcase-page .p-mini-cta a{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  box-sizing:border-box;
+  min-height:54px;
+  padding:13px clamp(17px,1.7vw,28px);
+  border:1px solid #304537;
+  font:700 .69rem/1.4 Arial,Helvetica,sans-serif;
+  letter-spacing:.095em;
+  text-transform:uppercase;
+  text-align:center;
+  text-decoration:none;
+  white-space:normal;
+  background:transparent;
+  color:#253a2e;
+  transition:background .22s ease,color .22s ease,border-color .22s ease;
+}
+.showcase-page .p-mini-cta a:first-of-type{
+  background:#24372b;
+  border-color:#24372b;
+  color:#f5f3e9;
+}
+.showcase-page .p-mini-cta a:first-of-type:hover{
+  background:#3e5744;
+  border-color:#3e5744;
+}
+.showcase-page .p-mini-cta a:last-of-type:hover{
+  background:#d1d8cc;
+}
+.showcase-page .p-mini-cta a:focus-visible{
+  outline:3px solid #8c754f;
+  outline-offset:4px;
+}
+@media(max-width:1050px){
+  .showcase-page .p-mini-cta .container{
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+    gap:15px;
+  }
+  .showcase-page .p-mini-cta .container>span{
+    grid-column:1/-1;
+    max-width:none;
+    margin-bottom:7px;
+  }
+}
+@media(max-width:620px){
+  .showcase-page .p-mini-cta{
+    padding:38px 0 44px;
+  }
+  .showcase-page .p-mini-cta .container{
+    display:flex;
+    flex-direction:column;
+    align-items:stretch;
+    gap:12px;
+  }
+  .showcase-page .p-mini-cta .container>span{
+    font-size:clamp(2rem,9vw,2.65rem);
+    margin-bottom:13px;
+  }
+  .showcase-page .p-mini-cta a{
+    width:100%;
+    min-height:52px;
+  }
+}

@@ -10,6 +10,7 @@ on:
       - 'tools/finish_brand.py'
       - 'tools/build_icons.py'
       - 'css/brand-fixes.css'
+      - 'css/showcase.css'
       - 'assets/favicon.svg'
       - 'js/language.js'
       - 'js/analytics.js'
@@ -89,6 +90,14 @@ jobs:
             assert 'css/brand-fixes.css' in s, path+' missing brand polish CSS'
             assert 'PERSONAL / ARCHIVE' not in s and 'INDEPENDENT ARCHIVE' not in s
             print(path,len(s))
+          # Ensure collaboration CTAs have their shared, loaded desktop/mobile styles.
+          showcase_css=Path('css/showcase.css').read_text('utf-8')
+          assert '.showcase-page .p-mini-cta .container' in showcase_css
+          for name in ('leadership/index.html','pl/organizacje/index.html','media/index.html','pl/media/index.html'):
+            page=Path(name).read_text('utf-8')
+            assert page.count('class="p-mini-cta"')==1, name+' missing collaboration CTA'
+            assert 'css/showcase.css' in page, name+' missing CTA stylesheet'
+            assert 'mailto:dkk@hqici.com' in page, name+' missing CTA email'
           a=Path('gallery/index.html').read_text('utf-8')
           n=len(json.loads(Path('data/gallery.json').read_text('utf-8')))
           assert a.count('data-gallery-item=')==n, 'Photo coverage incomplete'
