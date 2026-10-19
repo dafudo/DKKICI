@@ -161,6 +161,17 @@ jobs:
           for name in ('publications/index.html','pl/publikacje/index.html'):
             content=Path(name).read_text('utf-8')
             assert content.count('class="publication-tile"')==published,(name,published)
+          # Confirm no duplicate edition shelf or redundant read button.
+          for folder in ('works','pl/publikacje'):
+            for page in Path(folder).glob('*/index.html'):
+              text=page.read_text('utf-8')
+              assert 'Temporary editorial website artwork' not in text
+              assert 'Tymczasowa grafika redakcyjna strony' not in text
+              assert '>Read online ↗</a>' not in text
+              assert '>Czytaj online ↗</a>' not in text
+          for path in ('publications/index.html','pl/publikacje/index.html'):
+            html=Path(path).read_text('utf-8')
+            assert 'data-google-shelf' not in html,path+' repeated retailer shelf still present'
           for item in json.loads(Path('data/publications.json').read_text('utf-8')):
             if item['status']!='published':
               continue
