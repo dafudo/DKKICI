@@ -1,0 +1,15 @@
+/* DKK consent UI: a small accessible, bilingual opt-in panel. */
+.dkk-consent[hidden]{display:none!important}
+.dkk-consent{position:fixed;z-index:200;bottom:16px;left:16px;width:min(440px,calc(100vw - 32px));padding:26px 27px 23px;border:1px solid rgba(208,188,157,.43);border-radius:4px;background:#202b25;color:#f0ece3;box-shadow:0 12px 55px rgba(0,0,0,.3);font-family:var(--font,'DM Sans',Arial,sans-serif)}
+.dkk-consent h2{color:#f0ece3;font:400 clamp(1.8rem,2.5vw,2.2rem)/1.1 var(--display,Georgia,serif);letter-spacing:-.025em;margin:0 0 12px}
+.dkk-consent p{font-size:.79rem;line-height:1.75;color:#d0d5cb;margin:0 0 10px}
+.dkk-consent>a{display:inline-block;font-size:.7rem;color:#e2c29b;text-decoration:underline;text-underline-offset:4px}
+.dkk-consent__actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:21px}
+.dkk-consent__actions button{min-height:41px;padding:11px 15px;border:1px solid #d4c1a9;border-radius:2px;font-family:inherit;font-size:.7rem;font-weight:700;letter-spacing:.025em;cursor:pointer}
+.dkk-consent__accept{background:#d0b08b;color:#19251d}
+.dkk-consent__decline{background:transparent;color:#f0ece3}
+.dkk-consent__actions button:hover{filter:brightness(1.12)}
+.dkk-consent__actions button:focus-visible,.dkk-consent-settings:focus-visible{outline:2px solid #d9b88f;outline-offset:3px}
+.dkk-consent-settings{padding:2px 0;background:transparent;border:0;border-bottom:1px solid currentColor;color:inherit;opacity:.75;font:inherit;font-size:.67rem;cursor:pointer;white-space:nowrap}
+.dkk-consent-settings:hover{opacity:1}
+@media(max-width:480px){.dkk-consent{bottom:10px;left:10px;width:calc(100vw - 20px);padding:20px 20px 18px}.dkk-consent__actions button{flex:1 1 130px}}
