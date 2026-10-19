@@ -131,10 +131,12 @@ jobs:
             content=Path(name).read_text('utf-8')
             assert 'PACFA' in content and 'NDIS' in content and 'GAMBIT' in content
             assert 'ORCID' in content and 'Google Scholar' in content and 'LinkedIn' in content
+            assert content.count('https://www.pacfa.org.au/portal/TherapistProfile?Id=17249')>=2, name+' missing PACFA register in credentials and professional links'
             assert 'application/ld+json' in content
           for name in ('index.html','pl/index.html'):
             content=Path(name).read_text('utf-8')
             assert 'p-home-evidence' in content and 'schema.org' in content
+            assert 'p-home-evidence__pacfa' in content and 'https://www.pacfa.org.au/portal/TherapistProfile?Id=17249' in content, name+' missing PACFA verification link'
             verification=json.loads(Path('data/site.json').read_text('utf-8'))['googleSiteVerification']
             tag='<meta name="google-site-verification" content="'+verification+'">'
             assert tag in content, name+' missing Search Console ownership tag'

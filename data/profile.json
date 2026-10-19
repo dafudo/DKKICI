@@ -28,7 +28,9 @@
     "registrations": [
       {
         "heading": "PACFA Clinical Registrant",
-        "detail": "Professional registration with the Psychotherapy and Counselling Federation of Australia."
+        "detail": "Professional registration with the Psychotherapy and Counselling Federation of Australia.",
+        "url": "https://www.pacfa.org.au/portal/TherapistProfile?Id=17249",
+        "linkLabel": "View PACFA public register profile"
       },
       {
         "heading": "Level IV Certified Psychosocial Counsellor",
@@ -108,7 +110,9 @@
     "registrations": [
       {
         "heading": "PACFA Clinical Registrant",
-        "detail": "Rejestracja zawodowa w Psychotherapy and Counselling Federation of Australia."
+        "detail": "Rejestracja zawodowa w Psychotherapy and Counselling Federation of Australia.",
+        "url": "https://www.pacfa.org.au/portal/TherapistProfile?Id=17249",
+        "linkLabel": "Zobacz profil w rejestrze PACFA"
       },
       {
         "heading": "Level IV Certified Psychosocial Counsellor",

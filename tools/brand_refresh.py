@@ -17,6 +17,9 @@ SITE=json.loads((ROOT/'data/site.json').read_text('utf-8'))
 PUBLICATIONS=json.loads((ROOT/'data/publications.json').read_text('utf-8'))
 ROLES=json.loads((ROOT/'data/leadership.json').read_text('utf-8'))
 BASE="https://dkk.hqici.com/"
+PACFA_PROFILE_URL=next((item.get('url','') for item in PROFILE['en']['registrations'] if item.get('heading')=='PACFA Clinical Registrant'),'')
+assert PACFA_PROFILE_URL.startswith('https://www.pacfa.org.au/'), 'Missing official PACFA registry link'
+assert any(item.get('url')==PACFA_PROFILE_URL for item in PROFILE['pl']['registrations']), 'PACFA link differs across languages'
 IDENTIFIERS=[
     ("ORCID", "https://orcid.org/0009-0007-5526-2576"),
     ("Google Scholar", "https://scholar.google.com/citations?hl=en&user=u76jDVcAAAAJ"),
@@ -61,7 +64,7 @@ def profile_page(lang):
     bio=''.join('<p>'+h(p)+'</p>' for p in d['biography'])
     roles=''.join('<article class="p-role"><span>'+h(r['title'][lang])+' / '+h(r['from'])+'—</span><h3>'+h(r['name'])+'</h3><p>'+h(r['description'][lang])+'</p>'+ (link('Organisation website' if lang=='en' else 'Strona organizacji',r['url'],'p-role__source') if r.get('url','').startswith('https://') else '') + '</article>' for r in ROLES)
     practice=''.join('<li>'+h(v)+'</li>' for v in d['scope'])
-    externals=''.join(link(label,url,'p-source') for label,url in IDENTIFIERS)
+    externals=link('Rejestr PACFA' if pl else 'PACFA public register',PACFA_PROFILE_URL,'p-source')+''.join(link(label,url,'p-source') for label,url in IDENTIFIERS)
     intro=(d['subtitle']+'. '+d['intro'])
     title=t['overview']+' — '+d['name']
     canonical=BASE+t['profile']
@@ -97,7 +100,7 @@ def profile_page(lang):
 
 def add_proof_bar(src,lang,pre):
     d=PROFILE[lang];t=LANG[lang];pl=lang=='pl'
-    bar='<section class="p-home-evidence" aria-label="'+('Professional credentials' if not pl else 'Podstawowe informacje zawodowe')+'"><div class="container p-home-evidence__inner"><span><strong>PACFA</strong> Clinical Registrant</span><span><strong>NDIS PBS</strong> '+('Assessed suitable' if not pl else 'Ocena suitable')+'</span><span><strong>2013—</strong> '+('Professional practice' if not pl else 'Praktyka zawodowa')+'</span><a href="'+pre+t['profile']+'">'+h(t['link'])+' ↗</a></div></section>'
+    bar='<section class="p-home-evidence" aria-label="'+('Professional credentials' if not pl else 'Podstawowe informacje zawodowe')+'"><div class="container p-home-evidence__inner"><span><a class="p-home-evidence__pacfa" href="'+h(PACFA_PROFILE_URL,quote=True)+'" target="_blank" rel="noopener noreferrer"><strong>PACFA</strong> Clinical Registrant ↗</a></span><span><strong>NDIS PBS</strong> '+('Assessed suitable' if not pl else 'Ocena suitable')+'</span><span><strong>2013—</strong> '+('Professional practice' if not pl else 'Praktyka zawodowa')+'</span><a href="'+pre+t['profile']+'">'+h(t['link'])+' ↗</a></div></section>'
     src,n=re.subn(r'(</section>)(?=\s*<section id="selected")',lambda m:m.group(1)+bar,src,count=1,flags=re.S)
     if n!=1:raise RuntimeError('Homepage hero boundary not found')
     about='<section id="about"'
