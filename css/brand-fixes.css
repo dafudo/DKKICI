@@ -34,3 +34,9 @@
  .p-home-evidence__inner{flex-direction:column;align-items:flex-start;gap:13px;padding-top:24px;padding-bottom:27px}
  .p-home-evidence__inner>span,.p-home-evidence__inner>a{font-size:.75rem!important}
 }
+
+/* Publisher-cover transparency for original artwork not yet supplied. */
+.detail-cover:has(.detail-editorial-note){flex-direction:column;gap:15px;justify-content:center;align-items:center}
+.detail-cover:has(.detail-editorial-note) img{max-height:520px;max-width:85%;object-fit:contain}
+.detail-editorial-note{display:block;max-width:360px;color:#516057;text-align:center;font-size:.72rem;line-height:1.55;font-weight:500}
+@media(max-width:730px){.detail-cover:has(.detail-editorial-note) img{max-height:410px}}
