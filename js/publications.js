@@ -7,13 +7,13 @@
     open:'Otwórz szczegóły',empty:'Nie znaleziono publikacji. Spróbuj innego hasła.', year:'Rok',
     format:'Rodzaj',topic:'Tematyka',preview:'Dane wydawnicze w przygotowaniu',links:'Gdzie przeczytać',
     coming:'Linki do księgarni zostaną dodane po potwierdzeniu dostępności.',
-    read:'Czytaj online',full:'Pełna strona publikacji',copy:'Kopiuj link',copied:'Skopiowano',
+    full:'Pełna strona publikacji',copy:'Kopiuj link',copied:'Skopiowano',
     results:'publikacji',other:'Dostępne wydania'
   } : {
     open:'Explore publication',empty:'No publications match. Try another search.',year:'Year',
     format:'Format',topic:'Topic',preview:'Publication details to be confirmed',links:'Where to read',
     coming:'Store links will appear here after availability is confirmed.',
-    read:'Read online',full:'Full publication page',copy:'Copy link',copied:'Copied',
+    full:'Full publication page',copy:'Copy link',copied:'Copied',
     results:'publications',other:'Available editions'
   };
   const grid = document.querySelector('[data-publications-grid]');
@@ -104,8 +104,7 @@
     });
     links.replaceChildren();
     const available=[...(p.links||[])].filter(x=>validUrl(x.url));
-    if(validUrl(p.readUrl))available.unshift({url:p.readUrl,label:tr.read});
-    available.forEach(x=>links.append(makeExternal(validUrl(x.url),x.label || tr.read)));
+    available.forEach(x=>links.append(makeExternal(validUrl(x.url),x.label || (lang === 'pl' ? 'Źródło publikacji' : 'Publication source'))));
     linkMessage.hidden=available.length>0;
     asText(linkMessage,tr.coming);
     full.href=detailPath(p);
