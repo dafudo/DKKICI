@@ -110,7 +110,7 @@ def add_proof_bar(src,lang,pre):
     # Precise, concise hero description; the evidence bar supplies professional qualifications.
     target=re.search(r'(<div class="hero-intro reveal"><p>)(.*?)(</p>)',src,re.S)
     if target:
-        text=('Mental health clinician, psychotherapist, author and organisational leader. Working across practice, education, publications and institutional development.' if not pl else 'Specjalista zdrowia psychicznego, psychoterapeuta, autor i lider organizacji. Łączę praktykę, edukację, publikacje i rozwój instytucji.')
+        text=('Australia-based psychotherapist and mental health clinician offering online consultations. Author and organisational leader working across practice, education and publishing.' if not pl else 'Australijski psychoterapeuta praktykujący również online, specjalista zdrowia psychicznego, autor i lider organizacji. Działam na styku praktyki, edukacji i publikacji.')
         src=src[:target.start(2)]+h(text)+src[target.end(2):]
     # The main heading stays the person's name, but add an explicit professional description to assist scanning.
     return src
