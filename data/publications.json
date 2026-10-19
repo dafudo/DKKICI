@@ -23,8 +23,8 @@
     "category": "psychology",
     "featured": true,
     "status": "published",
-    "cover": "assets/cover-case-formulation.svg",
-    "coverSource": "editorial",
+    "cover": "assets/author-covers/from-diagnostic-label-to-case-formulation.jpg",
+    "coverSource": "author-provided",
     "links": [
       {
         "label": "Apple Books",
@@ -116,7 +116,7 @@
     "category": "psychology",
     "featured": true,
     "status": "published",
-    "cover": "assets/cover-diagnostic.svg",
+    "cover": "assets/author-covers/from-case-description-to-diagnostic-hypothesis.jpg",
     "links": [
       {
         "label": "Apple Books",
@@ -139,7 +139,7 @@
     },
     "googlePlayId": "Jh8cEgAAQBAJ",
     "retailerCover": "assets/google-books/Jh8cEgAAQBAJ.jpg",
-    "coverSource": "editorial",
+    "coverSource": "author-provided",
     "editionLinks": [
       {
         "label": "Apple Books",
@@ -172,7 +172,7 @@
     "category": "psychology",
     "featured": true,
     "status": "published",
-    "cover": "assets/cover-family.svg",
+    "cover": "assets/author-covers/family-context-risk-protection.jpg",
     "links": [
       {
         "label": "Apple Books",
@@ -194,7 +194,7 @@
     },
     "googlePlayId": "rIMbEgAAQBAJ",
     "retailerCover": "assets/google-books/rIMbEgAAQBAJ.jpg",
-    "coverSource": "editorial",
+    "coverSource": "author-provided",
     "editionLinks": [
       {
         "label": "Google Play Books",
@@ -222,7 +222,7 @@
     "category": "psychology",
     "featured": false,
     "status": "published",
-    "cover": "assets/cover-assertiveness.svg",
+    "cover": "assets/author-covers/open-assertiveness.jpg",
     "links": [
       {
         "label": "Apple Books",
@@ -244,7 +244,7 @@
     },
     "googlePlayId": "mZMaEgAAQBAJ",
     "retailerCover": "assets/google-books/mZMaEgAAQBAJ.jpg",
-    "coverSource": "editorial",
+    "coverSource": "author-provided",
     "editionLinks": [
       {
         "label": "Google Play Books",
