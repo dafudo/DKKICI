@@ -72,6 +72,14 @@ def score(image):
     resolution=min(w*h,1000*1400)
     return math.log2(resolution)*11 + diversity*.13 - pale*12
 
+def is_original_artwork_candidate(img):
+    """Reject auto-generated white title-page thumbnails presented as covers."""
+    small=img.copy()
+    small.thumbnail((150,150))
+    pixels=list(small.convert('RGB').getdata())
+    pale=sum(1 for r,g,b in pixels if min(r,g,b)>241)/max(1,len(pixels))
+    return pale < .75
+
 def get_img(url):
     data=request(url)
     with Image.open(BytesIO(data)) as im:
@@ -133,6 +141,9 @@ def main():
             seen.add(url)
             try:
                 pic=get_img(url)
+                if p.get('coverSource')=='editorial' and not is_original_artwork_candidate(pic):
+                    print(' title-page-only thumbnail rejected:',origin,pic.size)
+                    continue
                 merit=score(pic)
                 print(' candidate',origin,pic.size,'score',round(merit,1))
                 # The present cover is already a legitimate source. Don't
@@ -151,6 +162,7 @@ def main():
         img.save(dst,'JPEG',quality=90,optimize=True,progressive=True)
         p['cover']='assets/verified-covers/'+p['slug']+'.jpg'
         p['coverSource']=origin
+        p.pop('coverNote',None)
         changed+=1
         print(' NEW VERIFIED COVER',dst.relative_to(ROOT),img.size,'via',origin)
     if changed:
