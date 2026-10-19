@@ -7,6 +7,8 @@ on:
       - 'tools/showcase_pages.py'
       - 'tools/enrich_home.py'
       - 'tools/brand_refresh.py'
+      - 'js/language.js'
+      - 'tools/test_language.cjs'
       - 'css/profile.css'
       - 'data/profile.json'
       - 'data/site.json'
@@ -28,6 +30,10 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: Test language routing and manual selection
+        run: |
+          node --check js/language.js
+          node tools/test_language.cjs
       - name: Validate generators
         run: python -m py_compile tools/build.py tools/showcase_pages.py tools/enrich_home.py tools/brand_refresh.py tools/localize_english_name.py tools/generate_sitemap.py
       - name: Build the existing website
@@ -62,6 +68,7 @@ jobs:
             assert '<main' in s and '</main>' in s, path+' missing main'
             assert 'css/showcase.css' in s, path+' missing showcase styling'
             assert 'MENTE' not in s, path+' leaked retired publication'
+            assert 'js/language.js' in s, path+' missing locale script'
             print(path,len(s))
           a=Path('gallery/index.html').read_text('utf-8')
           n=len(json.loads(Path('data/gallery.json').read_text('utf-8')))
@@ -110,6 +117,7 @@ jobs:
               assert 'href="'+permalink+'"' in html,route+' permalink missing'
               assert 'class="detail-share-linkedin"' in html,route+' LinkedIn share link missing'
               assert 'data-copy-link' in html,route+' copy button missing'
+              assert 'js/language.js' in html,route+' language script missing'
               assert permalink in locations,route+' missing from XML sitemap'
           print('Verified bilingual publication permalinks, LinkedIn sharing and SEO sitemap:',len(locations),'indexed URLs')
           PY
