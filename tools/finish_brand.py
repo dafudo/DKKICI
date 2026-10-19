@@ -35,6 +35,30 @@ def translate_publications(page,lang):
     }
     for old,new in variants.items():
         page=page.replace(old,new)
+    # Single set of author-library destinations, without repeating retailers under each work.
+    if 'class="gp-section" id="bookstores"' in page:
+        intro = ('Przeglądaj publikacje w bibliotekach autora i repozytorium Zenodo.' if pl else
+                 'Explore published works in the author’s libraries and Zenodo repository.')
+        title = 'Biblioteki cyfrowe' if pl else 'Digital editions'
+        destinations = (
+            ('Apple Books', 'https://books.apple.com/us/author/dawid-karol-ko%C5%82odziej/id1815567168'),
+            ('Google Play Books', 'https://play.google.com/store/search?q=Dawid%20Karol%20Kolodziej&c=books'),
+            ('Zenodo', 'https://zenodo.org/search?q=metadata.creators.person_or_org.name%3A%22Kolodziej%2C%20Dawid%20Karol%22&l=list&p=1&s=10&sort=bestmatch'),
+        )
+        from html import escape as esc
+        links = ''.join(
+            '<a href="'+esc(url, quote=True)+'" target="_blank" rel="noopener noreferrer">'+
+            esc(label)+' ↗</a>' for label,url in destinations
+        )
+        replacement = ('<section class="gp-section" id="bookstores"><div class="container">'+
+             '<div class="gp-section__top"><p class="eyebrow">'+esc(title)+'</p>'+
+             '<h2>'+esc(title)+'</h2><p>'+esc(intro)+'</p></div>'+
+             '<nav class="detail-actions" aria-label="'+esc(title)+'">'+links+'</nav>'+
+             '</div></section>')
+        page,count = re.subn(r'<section class="gp-section" id="bookstores">.*?</section>',
+                    lambda _:replacement,page,count=1,flags=re.S)
+        if count!=1:
+            raise RuntimeError('Digital-editions shelf replacement failed')
     # Editorial cover-stack caption is redundant; remove instead of leaving empty decoration.
     page=re.sub(r'<span class="pub-stack__caption">\s*</span>','',page)
     return page
