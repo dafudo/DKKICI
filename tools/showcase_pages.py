@@ -67,7 +67,7 @@ def leadership(lang):
  top+='<section class="showcase-section showcase-section--deep"><div class="container">'+section_head(lang,'02 / THE PROFESSIONAL JOURNEY' if not pl else '02 / DROGA ZAWODOWA',
    'From practice<br><em>to projects.</em>' if not pl else 'Od praktyki<br><em>do projektów.</em>',
    '2009 refers to early charity placements; professional counselling work developed from 2013.' if not pl else 'Rok 2009 oznacza pierwsze praktyki charytatywne; praca zawodowa w poradnictwie rozwijała się od 2013 roku.')
- top+='<div class="showcase-years">'+chips+'</div><div class="showcase-showcase" style="margin-top:65px"><img loading="lazy" width="1400" height="950" src="'+p+'assets/gallery/spotkanie_profesjonalna_korekta.webp" alt="{e('Spotkanie organizacyjne' if pl else 'Organisational meeting')}">'
+ top+='<div class="showcase-years">'+chips+'</div><div class="showcase-showcase" style="margin-top:65px"><img loading="lazy" width="1400" height="950" src="'+p+'assets/gallery/spotkanie_profesjonalna_korekta.webp" alt="'+e('Spotkanie organizacyjne' if pl else 'Organisational meeting')+'">'
  top+='<div><p class="showcase-eyebrow">'+('ZARZĄDZANIE / EDUKACJA' if pl else 'OPERATIONS / EDUCATION')+'</p><h2>'+('Ideas need<br>execution.' if not pl else 'Idee wymagają<br>działania.')+'</h2><p>'+('My work also includes project creation, organisational management and the development of competency-based learning programmes. DBA studies are ongoing, not a completed degree.' if not pl else 'Moja praca obejmuje tworzenie projektów, zarządzanie operacyjne oraz rozwój programów kształcenia kompetencyjnego. Studia DBA są w toku, nie są ukończonym stopniem.')+'</p><div class="showcase-cta"><a href="'+p+routes[lang]['media']+'">'+('Media archive ↗' if not pl else 'Archiwum mediów ↗')+'</a></div></div></div></div></section>'
  base(lang,'leadership','Leadership & Organisations' if not pl else 'Organizacje i przywództwo',
  ('Rozwój kompetencji, zarządzanie organizacjami, przedsiębiorczość i działalność w poradnictwie.' if pl else 'Competency development, organisational leadership, business development and counselling.'),top)
@@ -98,7 +98,7 @@ def media_page(lang):
 <p>{e(m['summary'][lang])}</p></div><span aria-hidden="true">↗</span></a>'''
  body+='<section class="showcase-section showcase-section--deep"><div class="container">'+section_head(lang,'02 / SOURCE ARCHIVE' if not pl else '02 / ARCHIWUM ŹRÓDEŁ',
    'Original<br><em>sources.</em>' if not pl else 'Oryginalne<br><em>źródła.</em>',f'{len(media)} '+('selected references' if not pl else 'wybranych odnośników'))
- body+='<div class="showcase-filterbar" role="group" aria-label="{e('Kategorie mediów' if pl else 'Media categories')}">'+filters+'</div><p class="showcase-eyebrow"><span data-media-counter>'+str(len(media)).zfill(2)+'</span> '+('references' if not pl else 'źródeł')+'</p>'
+ body+='<div class="showcase-filterbar" role="group" aria-label="'+e('Kategorie mediów' if pl else 'Media categories')+'">'+filters+'</div><p class="showcase-eyebrow"><span data-media-counter>'+str(len(media)).zfill(2)+'</span> '+('references' if not pl else 'źródeł')+'</p>'
  body+='<div class="showcase-archive">'+archive+'</div><p class="showcase-gallery-note">'+e(w[lang]['media_caption'])+'</p></div></section>'
  base(lang,'media','Media & Public Engagement' if not pl else 'Media i działalność publiczna',
  ('Wystąpienia telewizyjne i radiowe, wywiady, działalność edukacyjna oraz inicjatywy społeczne.' if pl else 'Television, radio, interviews, educational speaking and community projects.'),body)
@@ -123,7 +123,7 @@ def gallery_page(lang):
  body+='<section class="showcase-section" id="collection"><div class="container">'+section_head(lang,'01 / ARCHIVE' if not pl else '01 / ARCHIWUM',
   'A visual<br><em>record.</em>' if not pl else 'Zapisane<br><em>momenty.</em>',
   str(len(gallery))+(' photographs, grouped by context.' if not pl else ' zdjęć, uporządkowanych tematycznie.'))
- body+='<div class="showcase-filterbar" role="group" aria-label="{e('Kategorie zdjęć' if pl else 'Photo categories')}">'+filters+'</div><p class="showcase-eyebrow"><span data-gallery-count>'+str(len(gallery)).zfill(2)+'</span> '+('photographs' if not pl else 'zdjęć')+'</p>'
+ body+='<div class="showcase-filterbar" role="group" aria-label="'+e('Kategorie zdjęć' if pl else 'Photo categories')+'">'+filters+'</div><p class="showcase-eyebrow"><span data-gallery-count>'+str(len(gallery)).zfill(2)+'</span> '+('photographs' if not pl else 'zdjęć')+'</p>'
  body+='<div class="showcase-photo-grid" data-gallery-list>'+figures+'</div><p class="showcase-gallery-note">'+e(w[lang]['gallery_caption'])+'</p></div></section>'
  body+=f'''<dialog class="showcase-modal" id="photo-viewer" aria-labelledby="photo-view-title"><div class="showcase-modal__top">
 <strong id="photo-view-title" data-photo-title>{'Fotografia' if pl else 'Photograph'}</strong><button type="button" data-gallery-close aria-label="{'Zamknij' if pl else 'Close'}">×</button>
