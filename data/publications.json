@@ -1,5 +1,52 @@
 [
   {
+    "slug": "from-diagnostic-label-to-case-formulation",
+    "title": {
+      "en": "From Diagnostic Label to Case Formulation: Integrative Reasoning in Clinical Psychology",
+      "pl": "Od etykiety diagnostycznej do konceptualizacji przypadku: rozumowanie integracyjne w psychologii klinicznej"
+    },
+    "titleShort": {
+      "en": "From Diagnostic Label to Case Formulation",
+      "pl": "Od diagnozy do konceptualizacji przypadku"
+    },
+    "subtitle": {
+      "en": "Integrating diagnostic information into contextual clinical reasoning",
+      "pl": "Integracja informacji diagnostycznych w kontekstowym rozumowaniu klinicznym"
+    },
+    "description": {
+      "en": "An article on moving beyond diagnostic classification towards integrative case formulation in clinical psychology, examining how clinical reasoning can connect diagnostic information with an individualised understanding of a case. Deposited in Zenodo on 19 October 2026; publication in a peer-reviewed journal has not been independently established.",
+      "pl": "Artykuł dotyczący przejścia od klasyfikacji diagnostycznej do integracyjnej konceptualizacji przypadku w psychologii klinicznej, ze szczególnym uwzględnieniem łączenia danych diagnostycznych z indywidualnym rozumieniem sytuacji osoby. Udostępniony w Zenodo 19 października 2026 roku; nie potwierdzono niezależnie publikacji w recenzowanym czasopiśmie."
+    },
+    "year": "2026",
+    "date": "2026-10-19",
+    "kind": "article",
+    "category": "psychology",
+    "featured": true,
+    "status": "published",
+    "cover": "assets/cover-case-formulation.svg",
+    "coverSource": "editorial",
+    "coverNote": {
+      "en": "Temporary editorial website artwork; the official edition cover has not yet been verified.",
+      "pl": "Tymczasowa grafika redakcyjna strony; nie zweryfikowano jeszcze oficjalnej okładki wydania."
+    },
+    "links": [
+      {
+        "label": "Apple Books",
+        "url": "https://books.apple.com/us/author/dawid-karol-ko%C5%82odziej/id1815567168"
+      },
+      {
+        "label": "Google Play Books",
+        "url": "https://play.google.com/store/search?q=Dawid%20Karol%20Kolodziej&c=books"
+      },
+      {
+        "label": "Zenodo",
+        "url": "https://zenodo.org/search?q=metadata.creators.person_or_org.name%3A%22Kolodziej%2C%20Dawid%20Karol%22&l=list&p=1&s=10&sort=bestmatch"
+      }
+    ],
+    "readUrl": "https://zenodo.org/records/23460511",
+    "doi": "10.5281/zenodo.23460511"
+  },
+  {
     "slug": "support-needs",
     "title": {
       "en": "From Deficit Description to Support Needs: Functioning and Education of Students with Mild Intellectual Disability",
@@ -23,11 +70,15 @@
     "links": [
       {
         "label": "Apple Books",
-        "url": "https://books.apple.com/us/book/from-deficit-description-to-support-needs/id6824096092"
+        "url": "https://books.apple.com/us/author/dawid-karol-ko%C5%82odziej/id1815567168"
       },
       {
         "label": "Google Play Books",
-        "url": "https://play.google.com/store/books/details?id=C3ocEgAAQBAJ"
+        "url": "https://play.google.com/store/search?q=Dawid%20Karol%20Kolodziej&c=books"
+      },
+      {
+        "label": "Zenodo",
+        "url": "https://zenodo.org/search?q=metadata.creators.person_or_org.name%3A%22Kolodziej%2C%20Dawid%20Karol%22&l=list&p=1&s=10&sort=bestmatch"
       }
     ],
     "readUrl": "https://zenodo.org/records/23443068",
@@ -36,7 +87,18 @@
       "en": "From Deficit to Support Needs",
       "pl": "Od deficytów do potrzeb wsparcia"
     },
-    "googlePlayId": "C3ocEgAAQBAJ"
+    "googlePlayId": "C3ocEgAAQBAJ",
+    "editionLinks": [
+      {
+        "label": "Apple Books",
+        "url": "https://books.apple.com/us/book/from-deficit-description-to-support-needs/id6824096092"
+      },
+      {
+        "label": "Google Play Books",
+        "url": "https://play.google.com/store/books/details?id=C3ocEgAAQBAJ"
+      }
+    ],
+    "appleBooksId": "6824096092"
   },
   {
     "slug": "from-case-description-to-diagnostic-hypothesis",
@@ -62,11 +124,15 @@
     "links": [
       {
         "label": "Apple Books",
-        "url": "https://books.apple.com/us/book/from-case-description-to-diagnostic-hypothesis/id6823856702"
+        "url": "https://books.apple.com/us/author/dawid-karol-ko%C5%82odziej/id1815567168"
       },
       {
         "label": "Google Play Books",
-        "url": "https://play.google.com/store/books/details?id=Jh8cEgAAQBAJ"
+        "url": "https://play.google.com/store/search?q=Dawid%20Karol%20Kolodziej&c=books"
+      },
+      {
+        "label": "Zenodo",
+        "url": "https://zenodo.org/search?q=metadata.creators.person_or_org.name%3A%22Kolodziej%2C%20Dawid%20Karol%22&l=list&p=1&s=10&sort=bestmatch"
       }
     ],
     "readUrl": "https://zenodo.org/records/23426826",
@@ -81,7 +147,18 @@
     "coverNote": {
       "en": "Editorial presentation artwork for this website; not a verified retailer edition cover.",
       "pl": "Grafika redakcyjna na potrzeby strony; nie jest zweryfikowaną okładką wydania sklepowego."
-    }
+    },
+    "editionLinks": [
+      {
+        "label": "Apple Books",
+        "url": "https://books.apple.com/us/book/from-case-description-to-diagnostic-hypothesis/id6823856702"
+      },
+      {
+        "label": "Google Play Books",
+        "url": "https://play.google.com/store/books/details?id=Jh8cEgAAQBAJ"
+      }
+    ],
+    "appleBooksId": "6823856702"
   },
   {
     "slug": "family-context-risk-protection",
@@ -106,8 +183,16 @@
     "cover": "assets/cover-family.svg",
     "links": [
       {
+        "label": "Apple Books",
+        "url": "https://books.apple.com/us/author/dawid-karol-ko%C5%82odziej/id1815567168"
+      },
+      {
         "label": "Google Play Books",
-        "url": "https://play.google.com/store/books/details?id=rIMbEgAAQBAJ"
+        "url": "https://play.google.com/store/search?q=Dawid%20Karol%20Kolodziej&c=books"
+      },
+      {
+        "label": "Zenodo",
+        "url": "https://zenodo.org/search?q=metadata.creators.person_or_org.name%3A%22Kolodziej%2C%20Dawid%20Karol%22&l=list&p=1&s=10&sort=bestmatch"
       }
     ],
     "readUrl": "https://zenodo.org/records/23381111",
@@ -121,7 +206,13 @@
     "coverNote": {
       "en": "Editorial presentation artwork for this website; not a verified retailer edition cover.",
       "pl": "Grafika redakcyjna na potrzeby strony; nie jest zweryfikowaną okładką wydania sklepowego."
-    }
+    },
+    "editionLinks": [
+      {
+        "label": "Google Play Books",
+        "url": "https://play.google.com/store/books/details?id=rIMbEgAAQBAJ"
+      }
+    ]
   },
   {
     "slug": "open-assertiveness",
@@ -146,8 +237,16 @@
     "cover": "assets/cover-assertiveness.svg",
     "links": [
       {
+        "label": "Apple Books",
+        "url": "https://books.apple.com/us/author/dawid-karol-ko%C5%82odziej/id1815567168"
+      },
+      {
         "label": "Google Play Books",
-        "url": "https://play.google.com/store/books/details?id=mZMaEgAAQBAJ"
+        "url": "https://play.google.com/store/search?q=Dawid%20Karol%20Kolodziej&c=books"
+      },
+      {
+        "label": "Zenodo",
+        "url": "https://zenodo.org/search?q=metadata.creators.person_or_org.name%3A%22Kolodziej%2C%20Dawid%20Karol%22&l=list&p=1&s=10&sort=bestmatch"
       }
     ],
     "readUrl": "https://zenodo.org/records/23357448",
@@ -161,7 +260,13 @@
     "coverNote": {
       "en": "Editorial presentation artwork for this website; not a verified retailer edition cover.",
       "pl": "Grafika redakcyjna na potrzeby strony; nie jest zweryfikowaną okładką wydania sklepowego."
-    }
+    },
+    "editionLinks": [
+      {
+        "label": "Google Play Books",
+        "url": "https://play.google.com/store/books/details?id=mZMaEgAAQBAJ"
+      }
+    ]
   },
   {
     "slug": "authority-without-authoritarianism",
@@ -186,8 +291,16 @@
     "cover": "assets/cover-authority.svg",
     "links": [
       {
+        "label": "Apple Books",
+        "url": "https://books.apple.com/us/author/dawid-karol-ko%C5%82odziej/id1815567168"
+      },
+      {
         "label": "Google Play Books",
-        "url": "https://play.google.com/store/books/details?id=0voaEgAAQBAJ"
+        "url": "https://play.google.com/store/search?q=Dawid%20Karol%20Kolodziej&c=books"
+      },
+      {
+        "label": "Zenodo",
+        "url": "https://zenodo.org/search?q=metadata.creators.person_or_org.name%3A%22Kolodziej%2C%20Dawid%20Karol%22&l=list&p=1&s=10&sort=bestmatch"
       }
     ],
     "readUrl": "https://zenodo.org/records/23357877",
@@ -201,7 +314,13 @@
     "coverNote": {
       "en": "Editorial presentation artwork for this website; not a verified retailer edition cover.",
       "pl": "Grafika redakcyjna na potrzeby strony; nie jest zweryfikowaną okładką wydania sklepowego."
-    }
+    },
+    "editionLinks": [
+      {
+        "label": "Google Play Books",
+        "url": "https://play.google.com/store/books/details?id=0voaEgAAQBAJ"
+      }
+    ]
   },
   {
     "slug": "fundamenty-motywacji",
