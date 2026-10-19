@@ -173,14 +173,13 @@ def detail_page(pub,lang,prefix):
         url=l.get('url',''); name=l.get('label','')
         if url.startswith('https://'):
             links.append(f'<a rel="noopener noreferrer" target="_blank" href="{e(url)}">{e(name)} ↗</a>')
-    if pub.get('readUrl','').startswith('https://'): links.insert(0,f'<a rel="noopener noreferrer" target="_blank" href="{e(pub["readUrl"])}">{e(t["read"])} ↗</a>')
     if pub.get('doi'): links.append(f'<a rel="noopener noreferrer" target="_blank" href="https://doi.org/{e(pub["doi"])}">DOI: {e(pub["doi"])} ↗</a>')
     if not links: links.append(f'<p class="muted">{e(t["noLinks"])}</p>')
     others=[p for p in P if p['slug']!=pub['slug'] and p['status']=='published'][:2]
     extra=''.join(card(p,lang,prefix) for p in others)
     editorial = pub.get('coverSource') == 'editorial'
     cover_alt = e(title) + (' — editorial website artwork' if editorial else ' — publication cover')
-    cover_note = '<small class="detail-editorial-note">'+e(pub.get('coverNote',{}).get(lang, 'Editorial website artwork; not a retailer cover.'))+'</small>' if editorial else ''
+    cover_note = ''  # No editorial placeholder disclaimer is shown to visitors.
     preview=f'<p class="detail-note">{e(t["previewNote"])}</p>' if pub['status']!='published' else ''
     back=prefix+('pl/publikacje/' if lang=='pl' else 'publications/')
     # Stable canonical URL: keep this independent of book vendors and modal query parameters.
