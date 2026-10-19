@@ -52,7 +52,7 @@ def leadership(lang):
  pl=lang=='pl';p=prefix(lang)
  top=hero(lang,'DKK / ORGANISATIONS & STRATEGY' if not pl else 'DKK / ORGANIZACJE I STRATEGIA',
    'The work of<br><em>building.</em>' if not pl else 'Praca nad<br><em>rozwojem.</em>',
-   'Leading institutions, professional education and organisational projects alongside mental health practice.' if not pl else 'Kierowanie instytucjami, edukacją zawodową i projektami organizacyjnymi obok pracy w obszarze zdrowia psychicznego.','01 / 03')
+   'Leading organisations, competency development and educational initiatives alongside mental health practice.' if not pl else 'Kierowanie organizacjami, rozwojem kompetencji i inicjatywami edukacyjnymi obok pracy w obszarze zdrowia psychicznego.','01 / 03')
  cards=''
  for i,r in enumerate(roles,1):
   cards+=f'''<article class="showcase-leader"><span class="showcase-leader__index">{i:02}</span>
@@ -68,9 +68,9 @@ def leadership(lang):
    'From practice<br><em>to projects.</em>' if not pl else 'Od praktyki<br><em>do projektów.</em>',
    '2009 refers to early charity placements; professional counselling work developed from 2013.' if not pl else 'Rok 2009 oznacza pierwsze praktyki charytatywne; praca zawodowa w poradnictwie rozwijała się od 2013 roku.')
  top+='<div class="showcase-years">'+chips+'</div><div class="showcase-showcase" style="margin-top:65px"><img loading="lazy" width="1400" height="950" src="'+p+'assets/gallery/spotkanie_profesjonalna_korekta.webp" alt="Organisational meeting">'
- top+='<div><p class="showcase-eyebrow">OPERATIONS / EDUCATION</p><h2>'+('Ideas need<br>execution.' if not pl else 'Idee wymagają<br>działania.')+'</h2><p>'+('My work also includes project creation, operations and developing services and professional education. DBA studies are ongoing, not a completed degree.' if not pl else 'Moja praca obejmuje tworzenie projektów, zarządzanie operacyjne i rozwój usług oraz edukacji. Studia DBA są w toku, nie są ukończonym stopniem.')+'</p><div class="showcase-cta"><a href="'+p+routes[lang]['media']+'">'+('Media archive ↗' if not pl else 'Archiwum mediów ↗')+'</a></div></div></div></div></section>'
+ top+='<div><p class="showcase-eyebrow">OPERATIONS / EDUCATION</p><h2>'+('Ideas need<br>execution.' if not pl else 'Idee wymagają<br>działania.')+'</h2><p>'+('My work also includes project creation, organisational management and the development of competency-based learning programmes. DBA studies are ongoing, not a completed degree.' if not pl else 'Moja praca obejmuje tworzenie projektów, zarządzanie operacyjne oraz rozwój programów kształcenia kompetencyjnego. Studia DBA są w toku, nie są ukończonym stopniem.')+'</p><div class="showcase-cta"><a href="'+p+routes[lang]['media']+'">'+('Media archive ↗' if not pl else 'Archiwum mediów ↗')+'</a></div></div></div></div></section>'
  base(lang,'leadership','Leadership & Organisations' if not pl else 'Organizacje i przywództwo',
- 'Professional education, organisational leadership, business development and counselling.',top)
+ 'Competency development, organisational leadership, business development and counselling.',top)
 def media_page(lang):
  pl=lang=='pl';p=prefix(lang)
  body=hero(lang,'DKK / BROADCASTS · INTERVIEWS · PUBLIC ENGAGEMENT' if not pl else 'DKK / TELEWIZJA · WYWIADY · WYSTĄPIENIA',

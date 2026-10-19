@@ -127,6 +127,13 @@ jobs:
           assert Path('robots.txt').is_file()
           assert len(xml.findall('.//x:link',ns))==3*len(locations)
           assert len(xml.findall('.//img:loc',ns))>=52
+          for name in ('profile/index.html','pl/profil/index.html','leadership/index.html','pl/organizacje/index.html'):
+            content=Path(name).read_text('utf-8')
+            text='programów kształcenia kompetencyjnego' if name.startswith('pl/') else 'competency-based learning programmes'
+            assert text in content, name+' missing competency education wording'
+          for name in ('leadership/index.html','pl/organizacje/index.html'):
+            content=Path(name).read_text('utf-8')
+            assert 'edukacją zawodową' not in content, name+' misleading vocational education wording'
           for name in ('profile/index.html','pl/profil/index.html'):
             content=Path(name).read_text('utf-8')
             assert 'PACFA' in content and 'NDIS' in content and 'GAMBIT' in content

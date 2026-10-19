@@ -49,7 +49,7 @@ def roles_section(lang,pre):
  return f'''<section id="projects" class="chapter project-section"><div class="container">
 <div class="section-topline"><p class="eyebrow">06 / {'BUILDING ORGANISATIONS' if not pl else 'BUDOWANIE ORGANIZACJI'}</p><span class="section-index">LEADERSHIP / 03</span></div>
 <div class="chapter-header"><h2 class="chapter-title reveal">{'Building<br><em>institutions.</em>' if not pl else 'Budowanie<br><em>instytucji.</em>'}</h2>
-<p class="chapter-note reveal">{'Counselling and mental health practice are one part of my work. I also lead organisations, manage projects and develop professional learning.' if not pl else 'Poradnictwo i zdrowie psychiczne to część mojej działalności. Kieruję również organizacjami, zarządzam projektami i rozwijam edukację zawodową.'}</p></div>
+<p class="chapter-note reveal">{'Counselling and mental health practice are one part of my work. I also lead organisations, manage projects and develop competency-based education.' if not pl else 'Poradnictwo i zdrowie psychiczne to część mojej działalności. Kieruję również organizacjami, zarządzam projektami i rozwijam programy kształcenia kompetencyjnego.'}</p></div>
 <div class="dkk-home-roles">{cards}</div><div class="works-end"><span class="eyebrow">{'GOVERNANCE · STRATEGY · EDUCATION' if not pl else 'ZARZĄDZANIE · STRATEGIA · EDUKACJA'}</span>
 <a class="text-link" href="{pre+ROUTES[lang]['leader']}">{'Explore leadership' if not pl else 'Poznaj działalność organizacyjną'} <span class="arrow">↗</span></a></div></div></section>'''
 def gallery_section(lang,pre):
@@ -80,7 +80,7 @@ def timeline_section(lang):
  years=[
  ('2009','Early charity placements','Pierwsze praktyki charytatywne','Initial placements in community and charitable organisations, before later professional qualifications.','Praktyki w organizacjach charytatywnych i społecznych przed uzyskaniem późniejszych kwalifikacji.'),
  ('2013','Professional counselling practice','Praktyka zawodowa w poradnictwie','Counselling, psychotherapy and psychosocial support work develops as a professional practice.','Rozwój pracy w poradnictwie, psychoterapii i wsparciu psychospołecznym.'),
- ('2015','President — Psychopedagogical Association','Prezes — Towarzystwo Psychopedagogiczne','Leadership and development of professional education and support initiatives.','Kierowanie organizacją i rozwój edukacji zawodowej oraz inicjatyw pomocowych.'),
+ ('2015','President — Psychopedagogical Association','Prezes — Towarzystwo Psychopedagogiczne','Leadership and development of specialist education and support initiatives.','Kierowanie organizacją, rozwój inicjatyw edukacyjnych i pomocowych.'),
  ('2019','Business and operations','Biznes i zarządzanie','Additional operational and organisational work in business and technology.','Poszerzenie działalności o zarządzanie operacyjne i organizacyjne w biznesie oraz technologiach.'),
  ('2024','Australia & association leadership','Australia i kierowanie stowarzyszeniem','Mental health work in Queensland and leadership within the Psychology Counselling Association.','Praca w obszarze zdrowia psychicznego w Queensland i kierowanie Psychology Counselling Association.'),
  ('2025','Headspace Mackay & academic direction','Headspace Mackay i dyrekcja akademicka','Senior mental health role and academic direction of the International Counselling Institute.','Praca specjalistyczna oraz kierowanie sprawami akademickimi International Counselling Institute.'),
