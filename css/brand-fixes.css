@@ -1,0 +1,36 @@
+/* DKK brand refinements. Applies to EN/PL home, profiles and publication pages. */
+
+/* Timeline heading remains in normal document flow; the date note does not overlap text. */
+.journey-grid{align-items:start}
+.journey-grid h2,.journey-grid .chapter-title{position:static!important;top:auto!important;align-self:start}
+.journey-grid>div:first-child{min-width:0}
+.journey-grid .timeline{min-width:0}
+.dkk-timeline-context{margin:0;padding:0 0 25px;color:#6e756b;font-size:.83rem;line-height:1.65;border-bottom:1px solid #c6c8be}
+
+/* Evidence row: independent horizontal elements, suitable space to breathe. */
+.p-home-evidence{display:block;background:#e5e3d9;color:#28372e;border-top:1px solid #cbd0c4;border-bottom:1px solid #ccd0c3}
+.p-home-evidence__inner{display:flex;flex-direction:row;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px 30px;padding-top:23px;padding-bottom:23px}
+.p-home-evidence__inner>*{display:inline-flex;align-items:center;gap:6px;white-space:normal}
+.p-home-evidence__inner>span,.p-home-evidence__inner>a{font:600 .68rem/1.55 Arial,Helvetica,sans-serif!important;letter-spacing:.04em!important;text-transform:none!important;color:#34483a}
+.p-home-evidence__inner strong{color:#243b2c;font-weight:700}
+.p-home-evidence__inner>span:not(:last-of-type){padding-right:22px;border-right:1px solid #b7c0b0}
+.p-home-evidence__inner>a{border-bottom:1px solid #667e68;padding-bottom:4px;flex-shrink:0}
+.p-home-evidence__inner>a:hover{color:#8e754e}
+
+/* Keep titles and captions as separate elements: no overlapping on scroll. */
+.dkk-timeline-note{display:none}
+.journey-grid .timeline-row,.journey-grid .timeline-row>div{min-width:0}
+.hero-visual-note{bottom:25px;max-width:80%}
+.hero-visual-note span{letter-spacing:.13em;line-height:1.6}
+.pub-stack__caption{display:none}
+@media(max-width:1100px){
+ .p-home-evidence__inner{justify-content:flex-start}
+ .p-home-evidence__inner>span:not(:last-of-type){border-right:0;padding-right:0}
+}
+@media(max-width:730px){
+ .journey-grid{grid-template-columns:minmax(0,1fr)!important;gap:30px}
+ .journey-grid h2{max-width:100%;font-size:clamp(3.8rem,12vw,5.8rem);line-height:1.02}
+ .dkk-timeline-context{margin-top:0}
+ .p-home-evidence__inner{flex-direction:column;align-items:flex-start;gap:13px;padding-top:24px;padding-bottom:27px}
+ .p-home-evidence__inner>span,.p-home-evidence__inner>a{font-size:.75rem!important}
+}
