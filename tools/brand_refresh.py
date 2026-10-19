@@ -121,6 +121,29 @@ def add_proof_bar(src,lang,pre):
 def update_catalogue(src,lang,pre):
     valid=[x for x in PUBLICATIONS if x.get('status')=='published']
     valid.sort(key=lambda x:x.get('date',''),reverse=True)
+    # Never display empty category filters. Regenerate these from published records
+    # on every build so new categories appear automatically when populated.
+    category_labels={
+        'all':('All works','Wszystkie'),
+        'psychology':('Psychology','Psychologia'),
+        'education':('Education','Edukacja'),
+        'practice':('Practice','Praktyka'),
+        'ideas':('Ideas','Idee'),
+    }
+    active_categories={p['category'] for p in valid}
+    visible_categories=['all']+[x for x in ('psychology','education','practice','ideas') if x in active_categories]
+    buttons=''.join(
+        '<button type="button" class="pub-filter" data-category="'+cat+
+        '" aria-pressed="'+('true' if cat=='all' else 'false')+'">'+
+        h(category_labels[cat][lang=='pl'])+'</button>'
+        for cat in visible_categories
+    )
+    src,filter_count=re.subn(
+        r'(<div class="pub-filters" role="group" aria-label="Categories">).*?(</div>)',
+        lambda m:m.group(1)+buttons+m.group(2),
+        src,count=1,flags=re.S
+    )
+    if filter_count!=1: raise RuntimeError('Publication category filters missing from '+lang)
     tiles=[]
     for i,p in enumerate(valid):
         title=h(p.get('titleShort',p['title']).get(lang,p['title'][lang]))

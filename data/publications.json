@@ -27,6 +27,14 @@
     "coverSource": "author-provided",
     "links": [
       {
+        "label": "Apple Books",
+        "url": "https://books.apple.com/us/author/dawid-karol-ko%C5%82odziej/id1815567168"
+      },
+      {
+        "label": "Google Play Books",
+        "url": "https://play.google.com/store/search?q=Dawid%20Karol%20Kolodziej&c=books"
+      },
+      {
         "label": "Zenodo",
         "url": "https://doi.org/10.5281/zenodo.23484420"
       }
