@@ -1,5 +1,42 @@
 # DKK. — Personal Archive / osobista strona Dawida Karola Kołodzieja
 
+## DKK brand, covers and online consultations (October 2026)
+
+The canonical pages are `https://dkk.hqici.com/` and `https://dkk.hqici.com/pl/`. Professional enquiries use **dkk@hqici.com**. EN/PL copy refers to Australia-based psychotherapy practice with online consultations; this does not imply unrestricted provision across jurisdictions.
+
+The site does **not** market itself as an "independent archive". Editorial presentation styling is maintained by `tools/finish_brand.py` and `css/brand-fixes.css`; the oversized chronology heading is no longer sticky, and the experience/credential bar has responsive spacing.
+
+Favicon: `assets/favicon.svg` is the crisp DKK monogram. `tools/build_icons.py` generates `favicon-32x32.png`, `favicon-48x48.png` and `apple-touch-icon.png`. GitHub Actions commits these assets when the website is rebuilt.
+
+### Publication cover authenticity
+
+`data/publications.json` is authoritative for works and their preview artwork:
+
+- `cover` is the local visual shown on this website.
+- `coverSource: "editorial"` means the existing branded SVG is **not** presented as the official edition cover. The bilingual `coverNote` is displayed on the standalone work page.
+- `retailerCover` retains an earlier source-matched Google Books thumbnail. Do not remove provenance when improving the visuals.
+- `tools/improve_covers.py` attempts to find real, higher-quality, title-and-author-matched originals from confirmed Apple Books and Google Books item IDs. Unverified images and auto-generated white title pages are rejected. The separate workflow can also be run manually.
+- When the author supplies the genuine publication artwork, upload the approved image to `assets/`, update `cover`, replace `coverSource` with an accurate source name, and remove `coverNote`. Never pretend website editorial artwork is a publisher cover.
+
+The current digital-editions shelf shows **only confirmed Apple Books, Google Play Books and Amazon URLs** from each work's `links` array. New ICI blog or open-access publisher/aggregator URLs must be added to each corresponding publication record when verified; the website never invents them.
+
+Full build sequence (after standard site generators):
+
+```bash
+python tools/build.py
+python tools/showcase_pages.py
+python tools/enrich_home.py
+python tools/brand_refresh.py
+python tools/localize_english_name.py
+python tools/finish_brand.py
+python tools/generate_sitemap.py
+```
+
+The canonical production workflow also installs Pillow and runs `tools/build_icons.py`.
+
+---
+
+
 ## Current site — professional identity and publishing workflow (October 2026)
 
 **Public domain:** https://dkk.hqici.com/
