@@ -25,10 +25,6 @@
     "status": "published",
     "cover": "assets/cover-case-formulation.svg",
     "coverSource": "editorial",
-    "coverNote": {
-      "en": "Temporary editorial website artwork; the official edition cover has not yet been verified.",
-      "pl": "Tymczasowa grafika redakcyjna strony; nie zweryfikowano jeszcze oficjalnej okładki wydania."
-    },
     "links": [
       {
         "label": "Apple Books",
@@ -144,10 +140,6 @@
     "googlePlayId": "Jh8cEgAAQBAJ",
     "retailerCover": "assets/google-books/Jh8cEgAAQBAJ.jpg",
     "coverSource": "editorial",
-    "coverNote": {
-      "en": "Editorial presentation artwork for this website; not a verified retailer edition cover.",
-      "pl": "Grafika redakcyjna na potrzeby strony; nie jest zweryfikowaną okładką wydania sklepowego."
-    },
     "editionLinks": [
       {
         "label": "Apple Books",
@@ -203,10 +195,6 @@
     "googlePlayId": "rIMbEgAAQBAJ",
     "retailerCover": "assets/google-books/rIMbEgAAQBAJ.jpg",
     "coverSource": "editorial",
-    "coverNote": {
-      "en": "Editorial presentation artwork for this website; not a verified retailer edition cover.",
-      "pl": "Grafika redakcyjna na potrzeby strony; nie jest zweryfikowaną okładką wydania sklepowego."
-    },
     "editionLinks": [
       {
         "label": "Google Play Books",
@@ -257,10 +245,6 @@
     "googlePlayId": "mZMaEgAAQBAJ",
     "retailerCover": "assets/google-books/mZMaEgAAQBAJ.jpg",
     "coverSource": "editorial",
-    "coverNote": {
-      "en": "Editorial presentation artwork for this website; not a verified retailer edition cover.",
-      "pl": "Grafika redakcyjna na potrzeby strony; nie jest zweryfikowaną okładką wydania sklepowego."
-    },
     "editionLinks": [
       {
         "label": "Google Play Books",
@@ -311,10 +295,6 @@
     "googlePlayId": "0voaEgAAQBAJ",
     "retailerCover": "assets/google-books/0voaEgAAQBAJ.jpg",
     "coverSource": "editorial",
-    "coverNote": {
-      "en": "Editorial presentation artwork for this website; not a verified retailer edition cover.",
-      "pl": "Grafika redakcyjna na potrzeby strony; nie jest zweryfikowaną okładką wydania sklepowego."
-    },
     "editionLinks": [
       {
         "label": "Google Play Books",
