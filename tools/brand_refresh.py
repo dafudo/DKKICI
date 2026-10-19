@@ -196,7 +196,7 @@ def repair_metadata(src,path,lang):
         if token:
             if not re.fullmatch(r'[A-Za-z0-9_-]{20,120}',token):
                 raise ValueError('Invalid Google Search Console verification token')
-            s=re.sub(r'<meta\\s+name="google-site-verification"\\s+content="[^"]*"\\s*/?>','',s)
+            s=re.sub(r'<meta[^>]+name="google-site-verification"[^>]*>','',s)
             s=s.replace('</head>','<meta name="google-site-verification" content="'+h(token,quote=True)+'"></head>',1)
     # Blocking head script: switch on the homepage before first paint,
     # but NEVER change explicit deep links or direct /pl/ visits.
