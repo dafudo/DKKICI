@@ -99,7 +99,7 @@ def card(pub,lang,prefix,archive=False):
     t=I[lang]; label=e(pub.get('titleShort',pub['title']).get(lang,pub['title'][lang])); desc=e(pub['subtitle'][lang]); img=e(prefix+pub['cover']); url=e(prefix+href_for(pub,lang)); y=e(pub['year']); categ=e(pub['category']); search=e(' '.join([pub['title']['en'],pub['title']['pl'],pub['subtitle']['en'],pub['subtitle']['pl'],pub['description'][lang]]))
     attr = f' data-work-card data-category="{categ}" data-search="{search}"' if archive else ''
     status = ''  # Only verified published work is shown in the public collection.
-    return f'''<a class="work-card reveal" href="{url}"{attr} aria-label="{label}"><div class="work-image"><img src="{img}" alt="{label} — publication cover" loading="lazy" width="660" height="880"><span class="work-image-arrow" aria-hidden="true">↗</span></div><div class="work-meta"><span>{e(t['categoryLabels'][pub['category']])}</span><span>—</span><span>{y}</span>{status}</div><h3>{label}</h3><p class="work-sub">{desc}</p></a>'''
+    return f'''<a class="work-card reveal" href="{url}"{attr} aria-label="{label}"><div class="work-image"><img src="{img}" alt="{label} — {'editorial website artwork' if pub.get('coverSource') == 'editorial' else 'publication cover'}" loading="lazy" width="660" height="880"><span class="work-image-arrow" aria-hidden="true">↗</span></div><div class="work-meta"><span>{e(t['categoryLabels'][pub['category']])}</span><span>—</span><span>{y}</span>{status}</div><h3>{label}</h3><p class="work-sub">{desc}</p></a>'''
 
 def header(lang,prefix,detail=False):
     t=I[lang]; root=prefix; home=prefix+('pl/index.html' if lang=='pl' else 'index.html'); rootpl=prefix+'pl/index.html'
