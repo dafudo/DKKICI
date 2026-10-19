@@ -189,6 +189,10 @@ def repair_metadata(src,path,lang):
     s=re.sub(r'<script type="application/ld\+json">[\s\S]*?</script>','',s)
     if ld:s=s.replace('</head>','<script type="application/ld+json">'+js(ld)+'</script></head>',1)
     if 'name="twitter:card"' not in s:s=s.replace('</head>','<meta name="twitter:card" content="summary_large_image"></head>',1)
+    # Blocking head script: switch on the homepage before first paint,
+    # but NEVER change explicit deep links or direct /pl/ visits.
+    if 'js/language.js' not in s:
+        s=s.replace('</head>','<script src="'+h(relative(path)+'js/language.js',quote=True)+'"></script></head>',1)
     return s
 
 def update():
