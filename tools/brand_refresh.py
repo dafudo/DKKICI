@@ -45,7 +45,13 @@ def link(label,url,cls=''):
     return '<a'+(' class="'+cls+'"' if cls else '')+' href="'+h(url,quote=True)+'" target="_blank" rel="noopener noreferrer">'+h(label)+' <span aria-hidden="true">↗</span></a>'
 
 def block_list(items):
-    return ''.join('<article class="p-credential"><h3>'+h(x['heading'])+'</h3><p>'+h(x['detail'])+'</p></article>' for x in items)
+    blocks=[]
+    for x in items:
+        source=x.get('url','')
+        label=x.get('linkLabel','Source')
+        more=link(label,source,'p-credential__source') if source.startswith('https://') else ''
+        blocks.append('<article class="p-credential"><h3>'+h(x['heading'])+'</h3><p>'+h(x['detail'])+'</p>'+more+'</article>')
+    return ''.join(blocks)
 
 def profile_page(lang):
     d=PROFILE[lang];t=LANG[lang];pl=lang=='pl'
