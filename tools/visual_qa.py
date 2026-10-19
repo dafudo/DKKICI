@@ -37,8 +37,13 @@ with sync_playwright() as p:
               heading:getComputedStyle(heading).position};
     }""")
     if not layout['ok']: failures.append(f'Timeline layout {mode} {name}: {layout}')
-    page.evaluate('window.scrollTo(0,0)')
-    page.wait_for_timeout(120)
+    page.evaluate("""() => {
+      document.documentElement.style.scrollBehavior='auto';
+      document.body.style.scrollBehavior='auto';
+      window.scrollTo({top:0,behavior:'instant'});
+      document.querySelector('.dkk-consent__decline')?.click();
+    }""")
+    page.wait_for_timeout(550)
    if name in ('','pl/','profile/','pl/profil/','media/','gallery/','leadership/'):
     filename=(name.strip('/').replace('/','-') or 'home')
     page.screenshot(path=str(out/(mode+'-'+filename+'.jpg')),type='jpeg',quality=70)
