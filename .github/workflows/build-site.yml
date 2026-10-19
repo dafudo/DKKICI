@@ -7,6 +7,10 @@ on:
       - 'tools/showcase_pages.py'
       - 'tools/enrich_home.py'
       - 'tools/brand_refresh.py'
+      - 'tools/finish_brand.py'
+      - 'tools/build_icons.py'
+      - 'css/brand-fixes.css'
+      - 'assets/favicon.svg'
       - 'js/language.js'
       - 'js/analytics.js'
       - 'css/analytics.css'
@@ -39,8 +43,12 @@ jobs:
           node tools/test_language.cjs
           node --check js/analytics.js
           node tools/test_analytics.cjs
+      - name: Build DKK icon set
+        run: |
+          python -m pip install Pillow==11.3.0
+          python tools/build_icons.py
       - name: Validate generators
-        run: python -m py_compile tools/build.py tools/showcase_pages.py tools/enrich_home.py tools/brand_refresh.py tools/localize_english_name.py tools/generate_sitemap.py
+        run: python -m py_compile tools/build.py tools/showcase_pages.py tools/enrich_home.py tools/brand_refresh.py tools/localize_english_name.py tools/finish_brand.py tools/build_icons.py tools/generate_sitemap.py
       - name: Build the existing website
         run: python tools/build.py
       - name: Generate six standalone editorial pages
@@ -51,6 +59,8 @@ jobs:
         run: python tools/brand_refresh.py
       - name: Localise English personal name
         run: python tools/localize_english_name.py
+      - name: Apply final bilingual branding, layout and publishing copy
+        run: python tools/finish_brand.py
       - name: Generate bilingual XML sitemap, image references and canonical tags
         run: python tools/generate_sitemap.py
       - name: Validate generated pages
@@ -76,10 +86,14 @@ jobs:
             assert 'js/language.js' in s, path+' missing locale script'
             assert 'js/analytics.js' in s and 'css/analytics.css' in s, path+' missing GA4 opt-in assets'
             assert 'G-HF95H4P9VP' in s, path+' wrong measurement ID'
+            assert 'css/brand-fixes.css' in s, path+' missing brand polish CSS'
+            assert 'PERSONAL / ARCHIVE' not in s and 'INDEPENDENT ARCHIVE' not in s
             print(path,len(s))
           a=Path('gallery/index.html').read_text('utf-8')
           n=len(json.loads(Path('data/gallery.json').read_text('utf-8')))
           assert a.count('data-gallery-item=')==n, 'Photo coverage incomplete'
+          for img in ('assets/favicon-32x32.png','assets/favicon-48x48.png','assets/apple-touch-icon.png'):
+            assert Path(img).is_file() and Path(img).stat().st_size > 300
           for lang in ('en','pl'):
             file='index.html' if lang=='en' else 'pl/index.html'
             s=Path(file).read_text('utf-8')
@@ -88,6 +102,10 @@ jobs:
           assert 'Kołodziej' not in Path('index.html').read_text('utf-8')
           assert 'Dawid Karol Kolodziej' in Path('index.html').read_text('utf-8')
           assert 'Dawid Karol Kołodziej' in Path('pl/index.html').read_text('utf-8')
+          assert 'dkk@hqici.com' in Path('index.html').read_text('utf-8')
+          assert 'dkk@hqici.com' in Path('pl/index.html').read_text('utf-8')
+          assert 'dkk-timeline-context' in Path('pl/index.html').read_text('utf-8')
+          assert 'p-home-evidence' in Path('index.html').read_text('utf-8')
           from xml.etree import ElementTree as ET
           ns={'s':'http://www.sitemaps.org/schemas/sitemap/0.9','x':'http://www.w3.org/1999/xhtml','img':'http://www.google.com/schemas/sitemap-image/1.1'}
           xml=ET.parse('sitemap.xml')
@@ -137,7 +155,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A -- '*.html' sitemap.xml robots.txt
+          git add -A -- '*.html' sitemap.xml robots.txt assets/favicon-32x32.png assets/favicon-48x48.png assets/apple-touch-icon.png
           if git diff --cached --quiet; then
             echo "No generated HTML changes"
           else
