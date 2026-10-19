@@ -33,3 +33,12 @@
 @media(prefers-reduced-motion:reduce){
   .js .work-card.reveal {opacity:1!important;transform:none!important;transition:none!important}
 }
+
+
+/* Shareable publication permalink, visible even without JavaScript. */
+.detail-permalink{margin-top:20px;padding:18px 0;border-top:1px solid var(--line);display:flex;flex-direction:column;align-items:flex-start;gap:8px}
+.detail-permalink span{font-size:.65rem;letter-spacing:.11em;text-transform:uppercase;color:#777e73;font-weight:700}
+.detail-permalink a{font-size:.82rem;line-height:1.6;text-decoration:underline;text-decoration-color:#aeb6a9;text-underline-offset:4px;overflow-wrap:anywhere;word-break:break-word;color:#2d4335}
+.detail-permalink a:hover{color:#916f45}
+.detail-actions .detail-share-linkedin{background:transparent;color:var(--ink);border-color:#879b8c}
+.detail-actions .detail-share-linkedin:hover{background:#e2e0d9}
