@@ -67,13 +67,13 @@ with sync_playwright() as p:
    page.goto(base+'pl/publikacje/',wait_until='domcontentloaded')
    page.locator('[data-publication-search]').fill('Od rozpoznawania emocji')
    page.wait_for_function("document.querySelector('[data-publication-count]')?.textContent === '1'")
-   assert page.locator('[data-publication-word]').inner_text()=='publikacja'
+   assert page.locator('[data-publication-word]').text_content()=='publikacja'
    page.locator('[data-publication-search]').fill('niewystepujaca-zbitka-987')
    page.wait_for_function("document.querySelector('[data-publication-count]')?.textContent === '0'")
-   assert page.locator('[data-publication-word]').inner_text()=='publikacji'
+   assert page.locator('[data-publication-word]').text_content()=='publikacji'
    page.locator('[data-publication-search]').fill('')
    page.wait_for_function("document.querySelector('[data-publication-count]')?.textContent === '7'")
-   assert page.locator('[data-publication-word]').inner_text()=='publikacji'
+   assert page.locator('[data-publication-word]').text_content()=='publikacji'
   page.close()
  browser.close()
  if failures:
