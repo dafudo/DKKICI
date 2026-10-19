@@ -5,6 +5,8 @@ on:
     paths:
       - 'tools/visual_qa.py'
       - 'css/showcase.css'
+      - 'css/brand-fixes.css'
+      - 'tools/finish_brand.py'
       - 'css/profile.css'
       - 'tools/brand_refresh.py'
       - 'data/profile.json'
