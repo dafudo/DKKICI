@@ -59,7 +59,7 @@ def get_book_ids(p,platform):
         if platform=='Google Play Books' and parsed.hostname=='play.google.com':
             id=parse_qs(parsed.query).get('id',[''])[0]
             if re.fullmatch(r'[A-Za-z0-9_-]{8,20}',id):result.append(id)
-        if platform=='Apple Books' and parsed.hostname=='books.apple.com':
+        if platform=='Apple Books' and parsed.hostname=='books.apple.com' and '/author/' not in parsed.path:
             m=re.search(r'/id(\d{8,14})',parsed.path)
             if m:result.append(m.group(1))
     return list(dict.fromkeys(result))
