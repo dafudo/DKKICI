@@ -15,6 +15,8 @@ on:
       - 'css/showcase.css'
       - 'assets/favicon.svg'
       - 'js/language.js'
+      - 'js/publications.js'
+      - 'assets/author-covers/**'
       - 'js/analytics.js'
       - 'css/analytics.css'
       - 'tools/test_analytics.cjs'
@@ -43,6 +45,7 @@ jobs:
       - name: Test language routing and manual selection
         run: |
           node --check js/language.js
+          node --check js/publications.js
           node tools/test_language.cjs
           node --check js/analytics.js
           node tools/test_analytics.cjs
@@ -161,6 +164,10 @@ jobs:
           for name in ('publications/index.html','pl/publikacje/index.html'):
             content=Path(name).read_text('utf-8')
             assert content.count('class="publication-tile"')==published,(name,published)
+          # The JS modal must never reintroduce a redundant Read online / Czytaj online button.
+          pub_js=Path('js/publications.js').read_text('utf-8')
+          assert 'readUrl' not in pub_js
+          assert 'Read online' not in pub_js and 'Czytaj online' not in pub_js
           # Confirm no duplicate edition shelf or redundant read button.
           for folder in ('works','pl/publikacje'):
             for page in Path(folder).glob('*/index.html'):
