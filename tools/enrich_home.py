@@ -72,7 +72,7 @@ def about_section(lang,pre):
 <div class="about-caption"><span>ABOUT / DKK</span><strong>{'PRACTICE & INITIATIVE' if not pl else 'PRAKTYKA I INICJATYWA'}</strong></div></div>
 <div class="about-copy"><p class="eyebrow reveal">02 / {'PROFESSIONAL IDENTITY' if not pl else 'PROFIL ZAWODOWY'}</p>
 <h2 class="reveal">{'More than<br><em>one role.</em>' if not pl else 'Więcej niż<br><em>jedna rola.</em>'}</h2>
-<p class="lead reveal">{'Mental health clinician, counsellor, author and organisational leader.' if not pl else 'Specjalista zdrowia psychicznego, psychoterapeuta, autor i lider organizacji.'}</p>
+<p class="lead reveal">{'Australia-based psychotherapist offering online consultations, mental health clinician, author and organisational leader.' if not pl else 'Australijski psychoterapeuta prowadzący również konsultacje online, specjalista zdrowia psychicznego, autor i lider organizacji.'}</p>
 <p class="reveal">{e(a[0])}</p><p class="reveal">{e(a[1])}</p>
 <a class="text-link reveal" href="{pre+ROUTES[lang]['leader']}">{'Organisations and projects' if not pl else 'Organizacje i projekty'} <span class="arrow">↗</span></a></div></div></section>'''
 def timeline_section(lang):
