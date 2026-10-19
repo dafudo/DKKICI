@@ -1,5 +1,59 @@
 [
   {
+    "slug": "from-emotion-recognition-to-social-competence",
+    "title": {
+      "en": "From Emotion Recognition to Social Competence: Integrated Teaching of Communication, Friendship and Everyday Action for Students with Intellectual Disabilities",
+      "pl": "Od rozpoznawania emocji do kompetencji społecznych: zintegrowane nauczanie komunikacji, przyjaźni i codziennych działań uczniów z niepełnosprawnością intelektualną"
+    },
+    "titleShort": {
+      "en": "From Emotion Recognition to Social Competence",
+      "pl": "Od rozpoznawania emocji do kompetencji społecznych"
+    },
+    "subtitle": {
+      "en": "Integrated teaching of communication, friendship and everyday action",
+      "pl": "Zintegrowane rozwijanie komunikacji, relacji rówieśniczych i umiejętności codziennych"
+    },
+    "description": {
+      "en": "Expanded 2026 conceptual-practical working paper revisiting a classroom lesson devised in 2012. The paper links emotion recognition with communication, peer relationships, social-information processing and practical participation through picture stories, cooperative role-play and simulated shopping. It also considers loneliness, short-form social media and conversational AI, distinguishing established research from professional observations and open questions. It does not report an empirical trial or establish intervention effectiveness.",
+      "pl": "Rozszerzona w 2026 roku praca koncepcyjno-praktyczna, rozwijająca scenariusz zajęć szkolnych opracowany w 2012 roku. Łączy rozpoznawanie emocji z komunikacją, relacjami rówieśniczymi, przetwarzaniem informacji społecznych oraz praktycznym uczestnictwem. Omawia wykorzystanie historyjek obrazkowych, odgrywania ról i symulowanych zakupów, a także zagadnienia samotności, krótkich form w mediach społecznościowych i relacji z konwersacyjną AI. Rozróżnia ustalenia badawcze od obserwacji zawodowych i pytań otwartych; nie przedstawia wyników badania skuteczności interwencji."
+    },
+    "year": "2026",
+    "date": "2026-10-20",
+    "kind": "working_paper",
+    "category": "education",
+    "featured": false,
+    "status": "published",
+    "cover": "assets/author-covers/from-emotion-recognition-to-social-competence.jpg",
+    "coverSource": "author-provided",
+    "links": [
+      {
+        "label": "Zenodo (author-supplied link)",
+        "url": "https://doi.org/10.5281/zenodo.23484420"
+      }
+    ],
+    "readUrl": "https://doi.org/10.5281/zenodo.23484420",
+    "edition": "Expanded scholarly edition, 2026",
+    "language": "en",
+    "keywords": [
+      "intellectual disability",
+      "social competence",
+      "emotion recognition",
+      "friendship",
+      "peer relationships",
+      "empathy",
+      "social information processing",
+      "special education",
+      "functional learning",
+      "digital isolation",
+      "AI companions"
+    ],
+    "bisac": [
+      "EDU026030",
+      "EDU009000",
+      "PSY004000"
+    ]
+  },
+  {
     "slug": "from-diagnostic-label-to-case-formulation",
     "title": {
       "en": "From Diagnostic Label to Case Formulation: Integrative Reasoning in Clinical Psychology",
