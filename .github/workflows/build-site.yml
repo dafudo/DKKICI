@@ -108,6 +108,10 @@ jobs:
           for name in ('index.html','pl/index.html'):
             content=Path(name).read_text('utf-8')
             assert 'p-home-evidence' in content and 'schema.org' in content
+            verification=json.loads(Path('data/site.json').read_text('utf-8'))['googleSiteVerification']
+            tag='<meta name="google-site-verification" content="'+verification+'">'
+            assert tag in content, name+' missing Search Console ownership tag'
+            assert content.count('name="google-site-verification"')==1, name+' duplicate ownership tag'
           for name in ('publications/index.html','pl/publikacje/index.html'):
             content=Path(name).read_text('utf-8')
             assert content.count('class="publication-tile"')==published,(name,published)
