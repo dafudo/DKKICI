@@ -58,7 +58,7 @@
     "category": "psychology",
     "featured": true,
     "status": "published",
-    "cover": "assets/google-books/Jh8cEgAAQBAJ.jpg",
+    "cover": "assets/cover-diagnostic.svg",
     "links": [
       {
         "label": "Apple Books",
@@ -75,7 +75,13 @@
       "en": "From Case to Diagnostic Hypothesis",
       "pl": "Od przypadku do hipotezy diagnostycznej"
     },
-    "googlePlayId": "Jh8cEgAAQBAJ"
+    "googlePlayId": "Jh8cEgAAQBAJ",
+    "retailerCover": "assets/google-books/Jh8cEgAAQBAJ.jpg",
+    "coverSource": "editorial",
+    "coverNote": {
+      "en": "Editorial presentation artwork for this website; not a verified retailer edition cover.",
+      "pl": "Grafika redakcyjna na potrzeby strony; nie jest zweryfikowaną okładką wydania sklepowego."
+    }
   },
   {
     "slug": "family-context-risk-protection",
@@ -97,7 +103,7 @@
     "category": "psychology",
     "featured": true,
     "status": "published",
-    "cover": "assets/google-books/rIMbEgAAQBAJ.jpg",
+    "cover": "assets/cover-family.svg",
     "links": [
       {
         "label": "Google Play Books",
@@ -109,7 +115,13 @@
       "en": "Family, Risk & Protection",
       "pl": "Rodzina, ryzyko i ochrona"
     },
-    "googlePlayId": "rIMbEgAAQBAJ"
+    "googlePlayId": "rIMbEgAAQBAJ",
+    "retailerCover": "assets/google-books/rIMbEgAAQBAJ.jpg",
+    "coverSource": "editorial",
+    "coverNote": {
+      "en": "Editorial presentation artwork for this website; not a verified retailer edition cover.",
+      "pl": "Grafika redakcyjna na potrzeby strony; nie jest zweryfikowaną okładką wydania sklepowego."
+    }
   },
   {
     "slug": "open-assertiveness",
@@ -131,7 +143,7 @@
     "category": "psychology",
     "featured": false,
     "status": "published",
-    "cover": "assets/google-books/mZMaEgAAQBAJ.jpg",
+    "cover": "assets/cover-assertiveness.svg",
     "links": [
       {
         "label": "Google Play Books",
@@ -143,7 +155,13 @@
       "en": "Open Assertiveness",
       "pl": "Otwarta asertywność"
     },
-    "googlePlayId": "mZMaEgAAQBAJ"
+    "googlePlayId": "mZMaEgAAQBAJ",
+    "retailerCover": "assets/google-books/mZMaEgAAQBAJ.jpg",
+    "coverSource": "editorial",
+    "coverNote": {
+      "en": "Editorial presentation artwork for this website; not a verified retailer edition cover.",
+      "pl": "Grafika redakcyjna na potrzeby strony; nie jest zweryfikowaną okładką wydania sklepowego."
+    }
   },
   {
     "slug": "authority-without-authoritarianism",
@@ -165,7 +183,7 @@
     "category": "education",
     "featured": false,
     "status": "published",
-    "cover": "assets/google-books/0voaEgAAQBAJ.jpg",
+    "cover": "assets/cover-authority.svg",
     "links": [
       {
         "label": "Google Play Books",
@@ -177,7 +195,13 @@
       "en": "Authority Without Authoritarianism",
       "pl": "Autorytet bez autorytaryzmu"
     },
-    "googlePlayId": "0voaEgAAQBAJ"
+    "googlePlayId": "0voaEgAAQBAJ",
+    "retailerCover": "assets/google-books/0voaEgAAQBAJ.jpg",
+    "coverSource": "editorial",
+    "coverNote": {
+      "en": "Editorial presentation artwork for this website; not a verified retailer edition cover.",
+      "pl": "Grafika redakcyjna na potrzeby strony; nie jest zweryfikowaną okładką wydania sklepowego."
+    }
   },
   {
     "slug": "fundamenty-motywacji",
