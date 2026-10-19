@@ -64,6 +64,16 @@ with sync_playwright() as p:
    page.goto(base+'publications/',wait_until='domcontentloaded')
    page.locator('.publication-tile').first.click()
    assert page.locator('#publication-dialog').evaluate('(el)=>el.open')
+   page.goto(base+'pl/publikacje/',wait_until='domcontentloaded')
+   page.locator('[data-publication-search]').fill('Od rozpoznawania emocji')
+   page.wait_for_function("document.querySelector('[data-publication-count]')?.textContent === '1'")
+   assert page.locator('[data-publication-word]').inner_text()=='publikacja'
+   page.locator('[data-publication-search]').fill('niewystepujaca-zbitka-987')
+   page.wait_for_function("document.querySelector('[data-publication-count]')?.textContent === '0'")
+   assert page.locator('[data-publication-word]').inner_text()=='publikacji'
+   page.locator('[data-publication-search]').fill('')
+   page.wait_for_function("document.querySelector('[data-publication-count]')?.textContent === '7'")
+   assert page.locator('[data-publication-word]').inner_text()=='publikacji'
   page.close()
  browser.close()
  if failures:

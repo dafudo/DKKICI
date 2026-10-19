@@ -20,6 +20,7 @@
   const search = document.querySelector('[data-publication-search]');
   const chips = [...document.querySelectorAll('[data-category]')];
   const count = document.querySelector('[data-publication-count]');
+  const countWord = document.querySelector('[data-publication-word]');
   const empty = document.querySelector('[data-publication-empty]');
   const order = document.querySelector('[data-publication-sort]');
   const dialog = document.querySelector('#publication-dialog');
@@ -58,7 +59,7 @@
     frame.className='publication-tile__frame';
     const img=document.createElement('img');
     img.loading='lazy'; img.decoding='async'; img.src=root + p.cover;
-    img.alt=titleOf(p) + ' — cover'; img.width=660;img.height=880;
+    img.alt=titleOf(p) + (lang === 'pl' ? ' — okładka publikacji' : ' — cover'); img.width=660;img.height=880;
     const symbol=document.createElement('span');symbol.className='publication-tile__arrow';symbol.textContent='↗';symbol.setAttribute('aria-hidden','true');
     frame.append(img,symbol);
     const meta=document.createElement('div');meta.className='publication-tile__meta';
@@ -85,7 +86,8 @@
       return dir==='oldest' ? a.date.localeCompare(b.date) : dir==='title' ? titleOf(a).localeCompare(titleOf(b),lang) : b.date.localeCompare(a.date);
     });
     grid.replaceChildren(...matched.map(createCard));
-    asText(count, String(matched.length).padStart(2,'0'));
+    asText(count, String(matched.length));
+    asText(countWord, window.DKKPublicationWord(matched.length,lang));
     if(empty)empty.hidden=matched.length!==0;
   }
   function makeExternal(url,label) {
@@ -96,7 +98,7 @@
   function showPublication(p, push=true) {
     if(!dialog || !p)return;
     current=p;dialog.classList.toggle('is-long-title',titleOf(p).length>62);asText(title,titleOf(p));asText(subtitle,subtitleOf(p));asText(description,details(p));
-    cover.src=root+p.cover;cover.alt=titleOf(p) + ' — cover';
+    cover.src=root+p.cover;cover.alt=titleOf(p) + (lang === 'pl' ? ' — okładka publikacji' : ' — cover');
     facts.replaceChildren();
     [[tr.year,p.year],[tr.format,labelFor(null,p.kind)],[tr.topic,labelFor(null,p.category)]].forEach(([k,v])=>{
       const line=document.createElement('div');const label=document.createElement('span');label.textContent=k;

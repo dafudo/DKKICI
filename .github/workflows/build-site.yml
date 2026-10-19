@@ -47,6 +47,7 @@ jobs:
           node --check js/language.js
           node --check js/publications.js
           node tools/test_language.cjs
+          node tools/test_publication_counts.cjs
           node --check js/analytics.js
           node tools/test_analytics.cjs
       - name: Build DKK icon set

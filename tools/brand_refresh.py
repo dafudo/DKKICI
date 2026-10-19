@@ -100,7 +100,7 @@ def profile_page(lang):
 
 def add_proof_bar(src,lang,pre):
     d=PROFILE[lang];t=LANG[lang];pl=lang=='pl'
-    bar='<section class="p-home-evidence" aria-label="'+('Professional credentials' if not pl else 'Podstawowe informacje zawodowe')+'"><div class="container p-home-evidence__inner"><span><a class="p-home-evidence__pacfa" href="'+h(PACFA_PROFILE_URL,quote=True)+'" target="_blank" rel="noopener noreferrer"><strong>PACFA</strong> Clinical Registrant ↗</a></span><span><strong>NDIS PBS</strong> '+('Assessed suitable' if not pl else 'Ocena suitable')+'</span><span><strong>2013—</strong> '+('Professional practice' if not pl else 'Praktyka zawodowa')+'</span><a href="'+pre+t['profile']+'">'+h(t['link'])+' ↗</a></div></section>'
+    bar='<section class="p-home-evidence" aria-label="'+('Professional credentials' if not pl else 'Podstawowe informacje zawodowe')+'"><div class="container p-home-evidence__inner"><span><a class="p-home-evidence__pacfa" href="'+h(PACFA_PROFILE_URL,quote=True)+'" target="_blank" rel="noopener noreferrer"><strong>PACFA</strong> Clinical Registrant ↗</a></span><span><strong>NDIS PBS</strong> '+('Assessed suitable' if not pl else 'pozytywna ocena odpowiedniości')+'</span><span><strong>2013—</strong> '+('Professional practice' if not pl else 'Praktyka zawodowa')+'</span><a href="'+pre+t['profile']+'">'+h(t['link'])+' ↗</a></div></section>'
     src,n=re.subn(r'(</section>)(?=\s*<section id="selected")',lambda m:m.group(1)+bar,src,count=1,flags=re.S)
     if n!=1:raise RuntimeError('Homepage hero boundary not found')
     about='<section id="about"'
@@ -139,11 +139,14 @@ def update_catalogue(src,lang,pre):
         for cat in visible_categories
     )
     src,filter_count=re.subn(
-        r'(<div class="pub-filters" role="group" aria-label="Categories">).*?(</div>)',
+        r'(<div class="pub-filters" role="group" aria-label="(?:Categories|Kategorie)">).*?(</div>)',
         lambda m:m.group(1)+buttons+m.group(2),
         src,count=1,flags=re.S
     )
     if filter_count!=1: raise RuntimeError('Publication category filters missing from '+lang)
+    if lang=='pl':
+        src=src.replace('aria-label="Categories"','aria-label="Kategorie"')
+        src=src.replace('<span class="sr-only">Sort</span>','<span class="sr-only">Sortowanie</span>')
     tiles=[]
     for i,p in enumerate(valid):
         title=h(p.get('titleShort',p['title']).get(lang,p['title'][lang]))
@@ -151,12 +154,21 @@ def update_catalogue(src,lang,pre):
         srcimg=h(pre+p['cover'],quote=True)
         path=pre+('works/' if lang=='en' else 'pl/publikacje/')+p['slug']+'/'
         kind={'article':('Article','Artykuł'),'research':('Research paper','Opracowanie badawcze'),'working_paper':('Working paper','Opracowanie robocze'),'book':('Book','Książka')}.get(p['kind'],('Publication','Publikacja'))[lang=='pl']
-        tiles.append('<a class="publication-tile" style="--tile-index:'+str(min(i,11))+'" href="'+h(path,quote=True)+'" aria-label="'+full+'"><div class="publication-tile__frame"><img src="'+srcimg+'" loading="lazy" decoding="async" width="660" height="880" alt="'+full+' — cover"><span class="publication-tile__arrow" aria-hidden="true">↗</span></div><div class="publication-tile__meta">'+h(kind)+' / '+h(p['year'])+'</div><h3>'+title+'</h3><p>'+h(p['subtitle'][lang])+'</p></a>')
+        tiles.append('<a class="publication-tile" style="--tile-index:'+str(min(i,11))+'" href="'+h(path,quote=True)+'" aria-label="'+full+'"><div class="publication-tile__frame"><img src="'+srcimg+'" loading="lazy" decoding="async" width="660" height="880" alt="'+full+' — '+('okładka publikacji' if lang=='pl' else 'cover')+'"><span class="publication-tile__arrow" aria-hidden="true">↗</span></div><div class="publication-tile__meta">'+h(kind)+' / '+h(p['year'])+'</div><h3>'+title+'</h3><p>'+h(p['subtitle'][lang])+'</p></a>')
     start=src.find('<div class="pub-grid" data-publications-grid>')
     end=src.find('</div><p class="pub-empty"',start)
     if start<0 or end<0:raise RuntimeError('Publication listing missing from '+lang)
     src=src[:start]+'<div class="pub-grid" data-publications-grid>'+''.join(tiles)+src[end:]
-    src=re.sub(r'(<strong data-publication-count>)[^<]*(</strong>)',r'\g<1>'+str(len(valid)).zfill(2)+r'\g<2>',src)
+    # Pre-render grammatically correct count, then update when filtering.
+    n=len(valid)
+    label=('publication' if n==1 else 'publications') if lang=='en' else (
+        'publikacja' if n==1 else
+        'publikacje' if n%10 in (2,3,4) and n%100 not in (12,13,14) else 'publikacji')
+    src,n_count=re.subn(r'(<strong data-publication-count>)[^<]*(</strong>)',
+        lambda m:m.group(1)+str(n)+m.group(2),src,count=1)
+    src,n_word=re.subn(r'(<span data-publication-word>)[^<]*(</span>)',
+        lambda m:m.group(1)+label+m.group(2),src,count=1)
+    if n_count!=1 or n_word!=1: raise RuntimeError('Publication count markup missing')
     # Three featured covers are generated from the catalogue, not from static mockups.
     imgs=iter(valid[:3])
     def new_img(m):
