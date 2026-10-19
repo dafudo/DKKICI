@@ -193,6 +193,18 @@ def repair_metadata(src,path,lang):
     # but NEVER change explicit deep links or direct /pl/ visits.
     if 'js/language.js' not in s:
         s=s.replace('</head>','<script src="'+h(relative(path)+'js/language.js',quote=True)+'"></script></head>',1)
+    # Load only the local opt-in interface before consent. The Google script
+    # itself is injected after a visitor explicitly accepts measurement.
+    ga_id=SITE.get('googleAnalyticsMeasurementId','')
+    if ga_id:
+        if not re.fullmatch(r'G-[A-Z0-9]+',ga_id):
+            raise ValueError('Invalid Google Analytics measurement ID')
+        if 'data-dkk-analytics' not in s:
+            pre=h(relative(path),quote=True)
+            snippet=('<link rel="stylesheet" href="'+pre+'css/analytics.css">'
+                     '<script defer src="'+pre+'js/analytics.js"'
+                     ' data-dkk-analytics data-measurement-id="'+h(ga_id,quote=True)+'"></script>')
+            s=s.replace('</head>',snippet+'</head>',1)
     return s
 
 def update():
