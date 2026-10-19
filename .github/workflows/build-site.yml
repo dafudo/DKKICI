@@ -179,6 +179,7 @@ jobs:
           for path in ('publications/index.html','pl/publikacje/index.html'):
             html=Path(path).read_text('utf-8')
             assert 'data-google-shelf' not in html,path+' repeated retailer shelf still present'
+            assert 'js/publications.js?v=' in html,path+' stale modal script URL'
           for item in json.loads(Path('data/publications.json').read_text('utf-8')):
             if item['status']!='published':
               continue
