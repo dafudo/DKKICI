@@ -43,7 +43,7 @@
   };
   const labelFor = (kind, value) => ({
     book:{en:'Book',pl:'Książka'},journal:{en:'Journal',pl:'Czasopismo'},
-    article:{en:'Research article',pl:'Artykuł naukowy'},research:{en:'Research paper',pl:'Opracowanie badawcze'},working_paper:{en:'Working paper',pl:'Working paper'},resource:{en:'Resource',pl:'Materiał'},
+    article:{en:'Research article',pl:'Artykuł naukowy'},research:{en:'Research paper',pl:'Opracowanie badawcze'},working_paper:{en:'Working paper',pl:'Opracowanie robocze'},resource:{en:'Resource',pl:'Materiał'},
     psychology:{en:'Psychology',pl:'Psychologia'},education:{en:'Education',pl:'Edukacja'},
     practice:{en:'Practice',pl:'Praktyka'},ideas:{en:'Ideas',pl:'Idee'}
   }[value]?.[lang] || value || '');

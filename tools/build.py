@@ -79,7 +79,7 @@ I = {
  noLinks='Linki do publikacji zostaną uzupełnione po weryfikacji.', otherH='Odkryj więcej',
  filmModalK='FILM DO NAGRANIA', filmModalH='Portret w ruchu.', filmModalText='Scenariusz: spokojny kadr portretowy, sceny pisania i codziennej pracy, krótka wypowiedź do kamery oraz oszczędna plansza końcowa. Aby uruchomić film, dodaj adres pliku w data/site.json (videoUrl) i przebuduj strony.',
  filmClose='Zamknij', poster='MIEJSCE NA PORTRET', edit='TUTAJ DODAMY TWOJE ZDJĘCIE', view='Otwórz publikację', draft='Podgląd / dane do weryfikacji',
- typeLabels={'book':'Książka','journal':'Czasopismo','article':'Artykuł naukowy','research':'Opracowanie badawcze','working_paper':'Working paper','resource':'Materiał'},
+ typeLabels={'book':'Książka','journal':'Czasopismo','article':'Artykuł naukowy','research':'Opracowanie badawcze','working_paper':'Opracowanie robocze','resource':'Materiał'},
  categoryLabels={'psychology':'Psychologia','education':'Edukacja','practice':'Praktyka','ideas':'Idee'},
  events=[('2013','Początki poradnictwa','Pierwsze działania w obszarze poradnictwa oraz wsparcia psychologiczno-edukacyjnego.'),('2015','Budowanie organizacji','Początek kierowania Towarzystwem Psychopedagogicznym.'),('2024','Praca w Queensland','Praca z młodzieżą w usługach zdrowia psychicznego i poradnictwa.'),('2026','Publikacje i rozwój','Rozbudowa biblioteki publikacji i dalsze doskonalenie zawodowe.')],
  projects=[('01','Towarzystwo Psychopedagogiczne','Przywództwo, współpraca interdyscyplinarna i edukacja psychologiczna.'),('02','MENTE','Przestrzeń publikacji o psychologii, edukacji i współczesnym życiu.'),('03','ICI i projekty edukacyjne','Materiały i inicjatywy służące upowszechnianiu praktycznej wiedzy.')],

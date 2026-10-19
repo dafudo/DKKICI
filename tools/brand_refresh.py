@@ -150,7 +150,7 @@ def update_catalogue(src,lang,pre):
         full=h(p['title'][lang])
         srcimg=h(pre+p['cover'],quote=True)
         path=pre+('works/' if lang=='en' else 'pl/publikacje/')+p['slug']+'/'
-        kind={'article':('Article','Artykuł'),'research':('Research paper','Opracowanie badawcze'),'working_paper':('Working paper','Working paper'),'book':('Book','Książka')}.get(p['kind'],('Publication','Publikacja'))[lang=='pl']
+        kind={'article':('Article','Artykuł'),'research':('Research paper','Opracowanie badawcze'),'working_paper':('Working paper','Opracowanie robocze'),'book':('Book','Książka')}.get(p['kind'],('Publication','Publikacja'))[lang=='pl']
         tiles.append('<a class="publication-tile" style="--tile-index:'+str(min(i,11))+'" href="'+h(path,quote=True)+'" aria-label="'+full+'"><div class="publication-tile__frame"><img src="'+srcimg+'" loading="lazy" decoding="async" width="660" height="880" alt="'+full+' — cover"><span class="publication-tile__arrow" aria-hidden="true">↗</span></div><div class="publication-tile__meta">'+h(kind)+' / '+h(p['year'])+'</div><h3>'+title+'</h3><p>'+h(p['subtitle'][lang])+'</p></a>')
     start=src.find('<div class="pub-grid" data-publications-grid>')
     end=src.find('</div><p class="pub-empty"',start)
