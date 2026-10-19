@@ -100,7 +100,7 @@ def main():
         if rel.as_posix() in ('publications/index.html','pl/publikacje/index.html'):
             # Force refresh of the modal script after each JS change.
             version=hashlib.sha256((ROOT/'js/publications.js').read_bytes()).hexdigest()[:12]
-            source=re.sub(r'(src="[^"]*js/publications\\.js)(?:\\?[^"]*)?(")',
+            source=re.sub(r'(src="[^"]*js/publications\.js)(?:\?[^"]*)?(")',
                           lambda m:m.group(1)+'?v='+version+m.group(2), source)
         if rel.as_posix() in ('index.html','pl/index.html'):
             source=source.replace('QUEENSLAND · AUSTRALIA','POLSKA · AUSTRALIA' if pl else 'AUSTRALIA')
