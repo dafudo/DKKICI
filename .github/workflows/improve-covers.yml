@@ -4,6 +4,7 @@ on:
     branches: [main]
     paths:
       - 'tools/improve_covers.py'
+      - 'data/publications.json'
       - '.github/workflows/improve-covers.yml'
   workflow_dispatch:
 permissions:
