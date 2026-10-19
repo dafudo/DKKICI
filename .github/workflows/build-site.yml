@@ -144,7 +144,7 @@ jobs:
             assert content.count(alumni)==1, name+' missing original WSB alumni profile link'
             assert 'Krótkie kursy związane z University of Oxford' not in content
             assert 'University of Oxford–associated short courses' not in content
-            cpd='Certyfikaty CPD i kształcenie specjalistyczne' if name.startswith('pl/') else 'CPD Certificates & Specialist Education'
+            cpd='Certyfikaty CPD i kształcenie specjalistyczne' if name.startswith('pl/') else 'CPD Certificates &amp; Specialist Education'
             assert cpd in content, name+' missing specialist CPD presentation'
           for name in ('index.html','pl/index.html'):
             content=Path(name).read_text('utf-8')
