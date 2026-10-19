@@ -59,7 +59,7 @@ def profile_page(lang):
     pairs=tuple(zip(('profile','leadership','publications','media','gallery'),t['nav']))
     navigation=nav(prefix,lang)
     bio=''.join('<p>'+h(p)+'</p>' for p in d['biography'])
-    roles=''.join('<article class="p-role"><span>'+h(r['title'][lang])+' / '+h(r['from'])+'—</span><h3>'+h(r['name'])+'</h3><p>'+h(r['description'][lang])+'</p></article>' for r in ROLES)
+    roles=''.join('<article class="p-role"><span>'+h(r['title'][lang])+' / '+h(r['from'])+'—</span><h3>'+h(r['name'])+'</h3><p>'+h(r['description'][lang])+'</p>'+ (link('Organisation website' if lang=='en' else 'Strona organizacji',r['url'],'p-role__source') if r.get('url','').startswith('https://') else '') + '</article>' for r in ROLES)
     practice=''.join('<li>'+h(v)+'</li>' for v in d['scope'])
     externals=''.join(link(label,url,'p-source') for label,url in IDENTIFIERS)
     intro=(d['subtitle']+'. '+d['intro'])
