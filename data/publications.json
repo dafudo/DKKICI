@@ -200,7 +200,8 @@
         "label": "Google Play Books",
         "url": "https://play.google.com/store/books/details?id=rIMbEgAAQBAJ"
       }
-    ]
+    ],
+    "doi": "10.5281/zenodo.23381111"
   },
   {
     "slug": "open-assertiveness",
