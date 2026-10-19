@@ -189,6 +189,15 @@ def repair_metadata(src,path,lang):
     s=re.sub(r'<script type="application/ld\+json">[\s\S]*?</script>','',s)
     if ld:s=s.replace('</head>','<script type="application/ld+json">'+js(ld)+'</script></head>',1)
     if 'name="twitter:card"' not in s:s=s.replace('</head>','<meta name="twitter:card" content="summary_large_image"></head>',1)
+    # Search Console URL-prefix ownership: the token must be inside the
+    # main site's <head> and survive every generated rebuild.
+    if path.as_posix() in ('index.html','pl/index.html'):
+        token=SITE.get('googleSiteVerification','')
+        if token:
+            if not re.fullmatch(r'[A-Za-z0-9_-]{20,120}',token):
+                raise ValueError('Invalid Google Search Console verification token')
+            s=re.sub(r'<meta\\s+name="google-site-verification"\\s+content="[^"]*"\\s*/?>','',s)
+            s=s.replace('</head>','<meta name="google-site-verification" content="'+h(token,quote=True)+'"></head>',1)
     # Blocking head script: switch on the homepage before first paint,
     # but NEVER change explicit deep links or direct /pl/ visits.
     if 'js/language.js' not in s:
