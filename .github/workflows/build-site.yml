@@ -140,6 +140,12 @@ jobs:
             assert 'ORCID' in content and 'Google Scholar' in content and 'LinkedIn' in content
             assert content.count('https://www.pacfa.org.au/portal/TherapistProfile?Id=17249')>=2, name+' missing PACFA register in credentials and professional links'
             assert 'application/ld+json' in content
+            alumni='https://www.wsb.net.pl/nasi-absolwenci/kolodziej-dawid/'
+            assert content.count(alumni)==1, name+' missing original WSB alumni profile link'
+            assert 'Krótkie kursy związane z University of Oxford' not in content
+            assert 'University of Oxford–associated short courses' not in content
+            cpd='Certyfikaty CPD i kształcenie specjalistyczne' if name.startswith('pl/') else 'CPD Certificates & Specialist Education'
+            assert cpd in content, name+' missing specialist CPD presentation'
           for name in ('index.html','pl/index.html'):
             content=Path(name).read_text('utf-8')
             assert 'p-home-evidence' in content and 'schema.org' in content

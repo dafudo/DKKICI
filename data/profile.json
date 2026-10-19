@@ -14,7 +14,9 @@
     "qualifications": [
       {
         "heading": "Master's degree — Forensic and Penitentiary Psychology",
-        "detail": "Completed academic qualification in Poland."
+        "detail": "Master's degree completed at Wyższa Szkoła Bezpieczeństwa, specialising in forensic and penitentiary psychology.",
+        "url": "https://www.wsb.net.pl/nasi-absolwenci/kolodziej-dawid/",
+        "linkLabel": "View university alumni profile"
       },
       {
         "heading": "Master's degree — Pedagogy",
@@ -49,8 +51,8 @@
         "detail": "Currently undertaking the programme at GAMBIT Business School; qualification not yet completed."
       },
       {
-        "heading": "Continuing Professional Development (CPD)",
-        "detail": "Certificates of completion from professional development courses, including a University of Oxford course, University of Tasmania courses and programmes offered by other specialist education providers."
+        "heading": "CPD Certificates & Specialist Education",
+        "detail": "Professional development through certified courses in psychology, mental health and counselling. The portfolio includes personality theory training with the University of Oxford, University of Tasmania programmes in dementia prevention and brain injury, and specialist courses from other education providers."
       },
       {
         "heading": "Languages",
@@ -98,7 +100,9 @@
     "qualifications": [
       {
         "heading": "Magister — psychologia sądowa i penitencjarna",
-        "detail": "Ukończony kierunek studiów w Polsce."
+        "detail": "Studia magisterskie ukończone w Wyższej Szkole Bezpieczeństwa, ze specjalizacją w psychologii sądowej i penitencjarnej.",
+        "url": "https://www.wsb.net.pl/nasi-absolwenci/kolodziej-dawid/",
+        "linkLabel": "Profil absolwenta na stronie uczelni"
       },
       {
         "heading": "Magister — pedagogika",
@@ -133,8 +137,8 @@
         "detail": "Studia w GAMBIT Business School w toku; stopień nie został jeszcze uzyskany."
       },
       {
-        "heading": "Certyfikaty i doskonalenie zawodowe (CPD)",
-        "detail": "Certyfikaty ukończenia kursów doskonalenia zawodowego, w tym kursu University of Oxford, szkoleń University of Tasmania oraz programów innych dostawców kształcenia specjalistycznego."
+        "heading": "Certyfikaty CPD i kształcenie specjalistyczne",
+        "detail": "Rozwój kompetencji poprzez certyfikowane kursy z psychologii, zdrowia psychicznego i poradnictwa. Portfolio obejmuje m.in. kształcenie w zakresie teorii osobowości na University of Oxford, programy University of Tasmania dotyczące profilaktyki demencji i urazów mózgu oraz szkolenia innych instytucji edukacyjnych."
       },
       {
         "heading": "Języki",
