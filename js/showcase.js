@@ -44,6 +44,25 @@
      });
    }
  }
+
+ // Each publication has a canonical shareable URL, distinct from any retailer link.
+ // The button must copy that URL rather than the current browser URL containing query strings.
+ for (const button of document.querySelectorAll('[data-copy-link]')) {
+   button.addEventListener('click', async () => {
+     const canonical=document.querySelector('link[rel="canonical"]')?.href || location.href.split(/[?#]/)[0];
+     const original=button.dataset.labelOriginal || button.textContent;
+     button.dataset.labelOriginal=original;
+     try {
+       if (!navigator.clipboard?.writeText) throw new Error('Clipboard not available');
+       await navigator.clipboard.writeText(canonical);
+       button.textContent=button.dataset.copied || (lang==='pl'?'Skopiowano':'Copied');
+     } catch (_) {
+       button.textContent=button.dataset.failed || (lang==='pl'?'Skopiuj adres z przeglądarki':'Copy from address bar');
+     }
+     button.setAttribute('aria-live','polite');
+     window.setTimeout(()=>{button.textContent=original;},2000);
+   });
+ }
  const filters=[...document.querySelectorAll('[data-archive-filter]')];
  const entries=[...document.querySelectorAll('[data-archive-card]')];
  if(filters.length && entries.length){
