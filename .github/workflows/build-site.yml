@@ -8,6 +8,9 @@ on:
       - 'tools/enrich_home.py'
       - 'tools/brand_refresh.py'
       - 'js/language.js'
+      - 'js/analytics.js'
+      - 'css/analytics.css'
+      - 'tools/test_analytics.cjs'
       - 'tools/test_language.cjs'
       - 'css/profile.css'
       - 'data/profile.json'
@@ -34,6 +37,8 @@ jobs:
         run: |
           node --check js/language.js
           node tools/test_language.cjs
+          node --check js/analytics.js
+          node tools/test_analytics.cjs
       - name: Validate generators
         run: python -m py_compile tools/build.py tools/showcase_pages.py tools/enrich_home.py tools/brand_refresh.py tools/localize_english_name.py tools/generate_sitemap.py
       - name: Build the existing website
@@ -69,6 +74,8 @@ jobs:
             assert 'css/showcase.css' in s, path+' missing showcase styling'
             assert 'MENTE' not in s, path+' leaked retired publication'
             assert 'js/language.js' in s, path+' missing locale script'
+            assert 'js/analytics.js' in s and 'css/analytics.css' in s, path+' missing GA4 opt-in assets'
+            assert 'G-HF95H4P9VP' in s, path+' wrong measurement ID'
             print(path,len(s))
           a=Path('gallery/index.html').read_text('utf-8')
           n=len(json.loads(Path('data/gallery.json').read_text('utf-8')))
@@ -118,6 +125,7 @@ jobs:
               assert 'class="detail-share-linkedin"' in html,route+' LinkedIn share link missing'
               assert 'data-copy-link' in html,route+' copy button missing'
               assert 'js/language.js' in html,route+' language script missing'
+              assert 'js/analytics.js' in html and 'G-HF95H4P9VP' in html,route+' missing analytics'
               assert permalink in locations,route+' missing from XML sitemap'
           print('Verified bilingual publication permalinks, LinkedIn sharing and SEO sitemap:',len(locations),'indexed URLs')
           PY
