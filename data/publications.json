@@ -273,7 +273,7 @@
     "category": "education",
     "featured": false,
     "status": "published",
-    "cover": "assets/cover-authority.svg",
+    "cover": "assets/author-covers/authority-without-authoritarianism.jpg",
     "links": [
       {
         "label": "Apple Books",
@@ -295,7 +295,7 @@
     },
     "googlePlayId": "0voaEgAAQBAJ",
     "retailerCover": "assets/google-books/0voaEgAAQBAJ.jpg",
-    "coverSource": "editorial",
+    "coverSource": "author-provided",
     "editionLinks": [
       {
         "label": "Google Play Books",
