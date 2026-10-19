@@ -97,7 +97,21 @@ jobs:
           for name in ('publications/index.html','pl/publikacje/index.html'):
             content=Path(name).read_text('utf-8')
             assert content.count('class="publication-tile"')==published,(name,published)
-          print('Verified bilingual profiles, research identities, dynamic publications and SEO sitemap:',len(locations),'indexed URLs')
+          for item in json.loads(Path('data/publications.json').read_text('utf-8')):
+            if item['status']!='published':
+              continue
+            slug=item['slug']
+            for folder in ('works','pl/publikacje'):
+              route=folder+'/'+slug+'/'
+              permalink='https://dkk.hqici.com/'+route
+              page=Path(route+'index.html')
+              assert page.is_file(),route+' missing publication page'
+              html=page.read_text('utf-8')
+              assert 'href="'+permalink+'"' in html,route+' permalink missing'
+              assert 'class="detail-share-linkedin"' in html,route+' LinkedIn share link missing'
+              assert 'data-copy-link' in html,route+' copy button missing'
+              assert permalink in locations,route+' missing from XML sitemap'
+          print('Verified bilingual publication permalinks, LinkedIn sharing and SEO sitemap:',len(locations),'indexed URLs')
           PY
       - name: Commit generated pages to main
         run: |
