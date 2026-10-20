@@ -169,11 +169,18 @@ jobs:
             content=Path(name).read_text('utf-8')
             assert content.count('class="publication-tile')==published,(name,published)
             assert content.count('class="pub-highlight__item"')==len(spotlight),(name,'spotlight count')
+            assert 'css/publications.css?v=' in content,(name,'cache-busting stylesheet missing')
+            assert 'id="dkk-spotlight-critical"' in content,(name,'critical layout CSS missing')
+            assert 'max-height:265px' in content,(name,'compact featured cover limit missing')
+            assert 'max-width:min(100%,176px)' in content,(name,'featured cover width limit missing')
             assert ('id="featured-publications"' in content)==bool(spotlight),(name,'section visibility')
             assert content.count('class="publication-tile publication-tile--spotlight"')==len(spotlight),(name,'gold cards')
             for item in spotlight:
               assert item['cover'] in content and item['slug']+'/' in content,(name,item['slug'])
           assert "publication-tile--spotlight" in Path('js/publications.js').read_text('utf-8')
+          css=Path('css/publications.css').read_text('utf-8')
+          assert css.count('BEGIN DKK SPOTLIGHT COMPONENT')==1
+          assert css.count('END DKK SPOTLIGHT COMPONENT')==1
           # The JS modal must never reintroduce a redundant Read online / Czytaj online button.
           pub_js=Path('js/publications.js').read_text('utf-8')
           assert 'readUrl' not in pub_js

@@ -48,28 +48,38 @@
 .pub-results-line strong{font:400 1.8rem/1 var(--display,Georgia,serif);color:#263329}
 .pub-results-line span{font-size:.59rem;letter-spacing:.19em;text-transform:uppercase;font-weight:700}
 
-/* Gold-framed selected works, with natural cover proportions. */
-.pub-highlight{background:radial-gradient(ellipse at 88% 10%,#39423a 0%,transparent 42%),#18241f;color:#f6f0e5;padding:clamp(64px,8vw,112px) 0}
-.pub-highlight__heading{display:flex;flex-direction:column;gap:18px;border-bottom:1px solid #ad946a88;padding-bottom:30px;margin-bottom:30px}
-.pub-highlight__heading .eyebrow{margin:0;color:#caaa77;letter-spacing:.17em}
-.pub-highlight__heading h2{font:400 clamp(2.55rem,5.5vw,5.1rem)/1.03 var(--display,Georgia,serif);letter-spacing:-.035em;overflow-wrap:anywhere;margin:0}
-.pub-highlight__grid{display:grid;grid-template-columns:1fr;gap:22px}
-.pub-highlight__item{display:grid;grid-template-columns:minmax(170px,.72fr) minmax(0,1.35fr);gap:clamp(26px,5vw,80px);align-items:center;padding:clamp(26px,5vw,62px);border:1px solid #c1a06a88;background:linear-gradient(135deg,#26362d,#1c2822);color:inherit;transition:border-color .25s ease,background .25s ease}
-.pub-highlight__item:hover,.pub-highlight__item:focus-visible{border-color:#e7cb91;background:linear-gradient(135deg,#2b3a31,#213027)}
-.pub-highlight__visual{min-width:0;display:flex;justify-content:center;align-items:center;padding:9px}
-.pub-highlight__visual img{display:block;width:auto;height:auto;max-width:min(100%,340px);max-height:460px;aspect-ratio:auto;object-fit:contain;outline:3px solid #d0ad70;outline-offset:7px;box-shadow:16px 23px 36px #050b0970}
-.pub-highlight__copy{display:flex;flex-direction:column;min-width:0}
-.pub-highlight__meta{font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:#c8ac7f}
-.pub-highlight__title{font:400 clamp(1.9rem,3.3vw,3.6rem)/1.12 var(--display,Georgia,serif);overflow-wrap:break-word;margin:18px 0}
-.pub-highlight__subtitle{color:#cad1c8;font-size:clamp(.87rem,1.2vw,1.05rem);line-height:1.7}
-.pub-highlight__cta{align-self:flex-start;margin-top:32px;padding-bottom:10px;border-bottom:1px solid #c8a875;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:#f0d3a1}
-.pub-highlight__cta span{margin-left:10px}
-.publication-tile--spotlight .publication-tile__frame{background:#e1d8c5}
+/* BEGIN DKK SPOTLIGHT COMPONENT */
+/* Self-contained, cache-safe editorial showcase for selected publications. */
+.pub-highlight{display:block;position:relative;isolation:isolate;padding:clamp(44px,6vw,76px) 0;background:#1b2923;color:#f5f0e5}
+.pub-highlight .container{width:min(calc(100% - 9.2vw),1100px);margin-inline:auto}
+.pub-highlight__heading{display:flex;flex-direction:column;gap:10px;margin:0 0 25px;padding:0 0 22px;border-bottom:1px solid rgba(201,164,105,.45)}
+.pub-highlight__heading .eyebrow{font-size:.67rem;letter-spacing:.16em;color:#d5b882;margin:0}
+.pub-highlight__heading h2{font:400 clamp(2rem,4.2vw,3.25rem)/1.13 var(--display,Georgia,serif);letter-spacing:-.025em;color:#f5f0e5;margin:0;overflow-wrap:break-word}
+.pub-highlight__grid{display:grid;grid-template-columns:minmax(0,1fr);gap:20px}
+.pub-highlight__item{display:grid;grid-template-columns:minmax(0,185px) minmax(0,1fr);align-items:center;gap:clamp(22px,4.5vw,58px);max-width:980px;margin:0 auto;width:100%;padding:clamp(22px,3vw,34px);border:1px solid #aa8b54;background:#26362d;color:#f5f0e5;text-decoration:none;box-sizing:border-box;transition:border-color .2s ease,background .2s ease}
+.pub-highlight__item:hover,.pub-highlight__item:focus-visible{border-color:#efd29e;background:#2d4034;color:#fff}
+.pub-highlight__visual{display:flex;align-items:center;justify-content:center;min-width:0;max-width:100%;padding:6px}
+.pub-highlight__visual img{display:block;width:auto;height:auto;max-width:min(100%,176px);max-height:265px;aspect-ratio:auto;object-fit:contain;outline:3px solid #d3b476;outline-offset:5px;box-shadow:9px 14px 20px rgba(0,0,0,.27)}
+.pub-highlight__copy{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;min-width:0}
+.pub-highlight__meta{font-size:.65rem;letter-spacing:.12em;color:#d2b785;text-transform:uppercase}
+.pub-highlight__title{display:block;margin:11px 0 12px;font:400 clamp(1.5rem,2.6vw,2.35rem)/1.16 var(--display,Georgia,serif);color:#fff7e8;overflow-wrap:break-word}
+.pub-highlight__subtitle{font-size:.85rem;line-height:1.65;color:#cbd5ca}
+.pub-highlight__cta{display:inline-flex;gap:12px;align-items:center;margin-top:20px;padding-bottom:6px;border-bottom:1px solid #d3b476;font-size:.67rem;letter-spacing:.12em;text-transform:uppercase;color:#efd6a9}
+.publication-tile--spotlight .publication-tile__frame{background:#e6dfd0}
 .publication-tile--spotlight .publication-tile__frame img{outline:3px solid #c6a065;outline-offset:5px}
 .detail-cover--spotlight > img{outline:3px solid #c6a065;outline-offset:7px}
-@media(max-width:760px){.pub-highlight__item{grid-template-columns:minmax(0,1fr);gap:27px;padding:32px 30px}.pub-highlight__visual img{max-height:390px}}
-@media(max-width:520px){.pub-highlight__item{padding:26px 22px}.pub-highlight__visual img{max-height:310px;max-width:86%}.pub-highlight__title{font-size:clamp(1.85rem,8vw,2.6rem)}.pub-highlight__heading{margin-bottom:24px}}
-
+@media(max-width:680px){
+ .pub-highlight{padding:44px 0 55px}
+ .pub-highlight .container{width:calc(100% - 36px)}
+ .pub-highlight__item{grid-template-columns:minmax(0,1fr);justify-items:center;gap:22px;padding:23px 22px}
+ .pub-highlight__visual{padding:8px}
+ .pub-highlight__visual img{max-width:min(100%,152px);max-height:232px}
+ .pub-highlight__copy{align-items:center;text-align:center}
+ .pub-highlight__title{font-size:clamp(1.5rem,6vw,1.95rem)}
+ .pub-highlight__cta{margin-top:16px}
+}
+@media(prefers-reduced-motion:reduce){.pub-highlight__item{transition:none}}
+/* END DKK SPOTLIGHT COMPONENT */
 .pub-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:clamp(18px,3vw,45px);row-gap:65px}
 .publication-tile{display:block;min-width:0;animation:pub-tile-in .68s both;animation-delay:calc(var(--tile-index,0)*58ms)}
 @keyframes pub-tile-in{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}

@@ -165,7 +165,7 @@ def update_catalogue(src,lang,pre):
         cards=[]
         for item in highlighted:
             pl=lang=='pl'
-            name=h(item['title'][lang])
+            name=h(item.get('titleShort',item['title']).get(lang,item['title'][lang]))
             subtitle=h(item['subtitle'][lang])
             image=h(pre+item['cover'],quote=True)
             href=h(pre+('pl/publikacje/' if pl else 'works/')+item['slug']+'/',quote=True)

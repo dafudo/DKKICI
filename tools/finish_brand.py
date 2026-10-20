@@ -102,6 +102,23 @@ def main():
                                   'id="publication-dialog-title">Publikacja</h2>')
             source=source.replace('DKK. / PUBLICATIONS', 'DKK. / PUBLIKACJE')
         if rel.as_posix() in ('publications/index.html','pl/publikacje/index.html'):
+            # Version the publication stylesheet to invalidate cached pre-spotlight CSS.
+            css_file=ROOT/'css/publications.css'
+            css_source=css_file.read_text('utf-8')
+            css_version=hashlib.sha256(css_file.read_bytes()).hexdigest()[:12]
+            source,ncss=re.subn(r'(href="[^"]*css/publications\\.css)(?:\\?[^"]*)?(")',
+                lambda m:m.group(1)+'?v='+css_version+m.group(2),source,count=1)
+            if ncss!=1:raise RuntimeError('Publication stylesheet not linked')
+            # Critical component CSS is embedded, so a stale CDN asset can never
+            # cause a cover to expand to its full natural dimensions again.
+            start_marker='/* BEGIN DKK SPOTLIGHT COMPONENT */'
+            end_marker='/* END DKK SPOTLIGHT COMPONENT */'
+            if 'id="featured-publications"' in source:
+                if start_marker not in css_source or end_marker not in css_source:
+                    raise RuntimeError('Spotlight CSS markers missing')
+                critical=css_source.split(start_marker,1)[1].split(end_marker,1)[0].strip()
+                if 'id="dkk-spotlight-critical"' not in source:
+                    source=source.replace('</head>','<style id="dkk-spotlight-critical">'+critical+'</style></head>',1)
             # Force refresh of the modal script after each JS change.
             version=hashlib.sha256((ROOT/'js/publications.js').read_bytes()).hexdigest()[:12]
             source=re.sub(r'(src="[^"]*js/publications\.js)(?:\?[^"]*)?(")',
