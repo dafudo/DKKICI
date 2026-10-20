@@ -106,7 +106,7 @@ def main():
             css_file=ROOT/'css/publications.css'
             css_source=css_file.read_text('utf-8')
             css_version=hashlib.sha256(css_file.read_bytes()).hexdigest()[:12]
-            source,ncss=re.subn(r'(href="[^"]*css/publications\\.css)(?:\\?[^"]*)?(")',
+            source,ncss=re.subn(r'(href="[^"]*css/publications\.css)(?:\?[^"]*)?(")',
                 lambda m:m.group(1)+'?v='+css_version+m.group(2),source,count=1)
             if ncss!=1:raise RuntimeError('Publication stylesheet not linked')
             # Critical component CSS is embedded, so a stale CDN asset can never
