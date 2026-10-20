@@ -167,7 +167,7 @@ jobs:
           spotlight=[p for p in catalogue if p.get('status')=='published' and p.get('spotlight')]
           for name in ('publications/index.html','pl/publikacje/index.html'):
             content=Path(name).read_text('utf-8')
-            assert content.count('class="publication-tile')==published,(name,published)
+            assert content.count('<a class="publication-tile')==published,(name,published)
             assert content.count('class="pub-highlight__item"')==len(spotlight),(name,'spotlight count')
             assert 'css/publications.css?v=' in content,(name,'cache-busting stylesheet missing')
             assert 'id="dkk-spotlight-critical"' in content,(name,'critical layout CSS missing')
