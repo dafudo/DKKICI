@@ -173,7 +173,7 @@ def detail_page(pub,lang,prefix):
         url=l.get('url',''); name=l.get('label','')
         if url.startswith('https://'):
             links.append(f'<a rel="noopener noreferrer" target="_blank" href="{e(url)}">{e(name)} ↗</a>')
-    if pub.get('doi'): links.append(f'<a rel="noopener noreferrer" target="_blank" href="https://doi.org/{e(pub["doi"])}">DOI: {e(pub["doi"])} ↗</a>')
+    if pub.get('doi') and pub.get('doiStatus','active') == 'active': links.append(f'<a rel="noopener noreferrer" target="_blank" href="https://doi.org/{e(pub["doi"])}">DOI: {e(pub["doi"])} ↗</a>')
     if not links: links.append(f'<p class="muted">{e(t["noLinks"])}</p>')
     others=[p for p in P if p['slug']!=pub['slug'] and p['status']=='published'][:2]
     extra=''.join(card(p,lang,prefix) for p in others)

@@ -1,5 +1,57 @@
 [
   {
+    "slug": "from-media-audience-to-critical-citizen",
+    "title": {
+      "en": "From Media Audience to Critical Citizen: Media Evolution, Psychological Vulnerability and the Crisis of Information Trust in the Age of Artificial Intelligence",
+      "pl": "Od odbiorcy mediów do krytycznego obywatela: ewolucja mediów, podatność psychologiczna i kryzys zaufania do informacji w epoce sztucznej inteligencji"
+    },
+    "titleShort": {
+      "en": "From Media Audience to Critical Citizen",
+      "pl": "Od odbiorcy mediów do krytycznego obywatela"
+    },
+    "subtitle": {
+      "en": "Media evolution, misinformation, deepfakes and information responsibility",
+      "pl": "Ewolucja mediów, dezinformacja, deepfake’i i odpowiedzialność informacyjna"
+    },
+    "description": {
+      "en": "A contemporary 2026 conceptual scholarly paper examining why information abundance does not ensure reliable understanding. Integrating media theory with research on cognitive biases, repetition, deepfake detection and generative AI, it explores how beliefs are formed and why verification cannot rest exclusively on individual audiences. The author develops a five-dimensional educational framework and discusses the unequal burden of information verification and editorial responsibility. The paper is not an empirical study or a peer-reviewed journal article.",
+      "pl": "Współczesne opracowanie koncepcyjno-naukowe z 2026 roku o tym, dlaczego nadmiar informacji nie zapewnia trafniejszego rozumienia rzeczywistości. Łączy teorię mediów z badaniami nad błędami poznawczymi, powtarzaniem przekazów, deepfake’ami i generatywną AI. Wyjaśnia, jak powstają przekonania, oraz dlaczego obowiązek weryfikacji nie może spoczywać wyłącznie na odbiorcach. Rozwija pięciowymiarowy model edukacji medialnej i omawia asymetrię odpowiedzialności informacyjnej oraz rolę redakcji. Praca nie przedstawia wyników nowego badania empirycznego ani recenzowanego artykułu czasopismowego."
+    },
+    "year": "2026",
+    "date": "2026-10-21",
+    "kind": "working_paper",
+    "category": "education",
+    "featured": true,
+    "spotlight": true,
+    "status": "published",
+    "cover": "assets/cover-support.svg",
+    "coverSource": "editorial",
+    "doi": "10.5281/zenodo.23513807",
+    "doiStatus": "pending",
+    "links": [],
+    "readUrl": "",
+    "edition": "Contemporary expanded scholarly edition, 2026",
+    "language": "en",
+    "keywords": [
+      "media literacy",
+      "artificial intelligence",
+      "critical thinking",
+      "misinformation",
+      "disinformation",
+      "deepfakes",
+      "social psychology",
+      "information credibility",
+      "digital citizenship",
+      "fact-checking",
+      "information accountability"
+    ],
+    "bisac": [
+      "SOC052000",
+      "PSY031000",
+      "LAN004000"
+    ]
+  },
+  {
     "slug": "from-emotion-recognition-to-social-competence",
     "title": {
       "en": "From Emotion Recognition to Social Competence: Integrated Teaching of Communication, Friendship and Everyday Action for Students with Intellectual Disabilities",
@@ -60,7 +112,7 @@
       "EDU009000",
       "PSY004000"
     ],
-    "spotlight": true
+    "spotlight": false
   },
   {
     "slug": "from-diagnostic-label-to-case-formulation",
@@ -103,7 +155,8 @@
       }
     ],
     "readUrl": "https://zenodo.org/records/23460511",
-    "doi": "10.5281/zenodo.23460511"
+    "doi": "10.5281/zenodo.23460511",
+    "spotlight": false
   },
   {
     "slug": "support-needs",
@@ -157,7 +210,8 @@
         "url": "https://play.google.com/store/books/details?id=C3ocEgAAQBAJ"
       }
     ],
-    "appleBooksId": "6824096092"
+    "appleBooksId": "6824096092",
+    "spotlight": false
   },
   {
     "slug": "from-case-description-to-diagnostic-hypothesis",
@@ -213,7 +267,8 @@
         "url": "https://play.google.com/store/books/details?id=Jh8cEgAAQBAJ"
       }
     ],
-    "appleBooksId": "6823856702"
+    "appleBooksId": "6823856702",
+    "spotlight": false
   },
   {
     "slug": "family-context-risk-protection",
@@ -264,7 +319,8 @@
         "url": "https://play.google.com/store/books/details?id=rIMbEgAAQBAJ"
       }
     ],
-    "doi": "10.5281/zenodo.23381111"
+    "doi": "10.5281/zenodo.23381111",
+    "spotlight": false
   },
   {
     "slug": "open-assertiveness",
@@ -314,7 +370,8 @@
         "label": "Google Play Books",
         "url": "https://play.google.com/store/books/details?id=mZMaEgAAQBAJ"
       }
-    ]
+    ],
+    "spotlight": false
   },
   {
     "slug": "authority-without-authoritarianism",
@@ -364,7 +421,8 @@
         "label": "Google Play Books",
         "url": "https://play.google.com/store/books/details?id=0voaEgAAQBAJ"
       }
-    ]
+    ],
+    "spotlight": false
   },
   {
     "slug": "fundamenty-motywacji",
@@ -388,6 +446,7 @@
     "status": "preview",
     "cover": "assets/cover-motivation.svg",
     "links": [],
-    "readUrl": ""
+    "readUrl": "",
+    "spotlight": false
   }
 ]
