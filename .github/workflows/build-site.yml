@@ -169,6 +169,10 @@ jobs:
             content=Path(name).read_text('utf-8')
             assert content.count('<a class="publication-tile')==published,(name,published)
             assert content.count('class="pub-highlight__item"')==len(spotlight),(name,'spotlight count')
+            assert content.count('id="featured-publications"')==(1 if spotlight else 0),(name,'duplicate featured section')
+            assert content.count('id="dkk-spotlight-critical"')==(1 if spotlight else 0),(name,'duplicate critical CSS')
+            if spotlight:
+              assert 'linear-gradient(111deg,#10272b' in content,(name,'new teal spotlight theme missing')
             assert 'css/publications.css?v=' in content,(name,'cache-busting stylesheet missing')
             assert 'id="dkk-spotlight-critical"' in content,(name,'critical layout CSS missing')
             assert 'max-height:265px' in content,(name,'compact featured cover limit missing')

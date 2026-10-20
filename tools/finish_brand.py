@@ -117,8 +117,15 @@ def main():
                 if start_marker not in css_source or end_marker not in css_source:
                     raise RuntimeError('Spotlight CSS markers missing')
                 critical=css_source.split(start_marker,1)[1].split(end_marker,1)[0].strip()
-                if 'id="dkk-spotlight-critical"' not in source:
-                    source=source.replace('</head>','<style id="dkk-spotlight-critical">'+critical+'</style></head>',1)
+                # Replace stale inline critical CSS on every regeneration.
+                # Old embedded rules otherwise override the cache-busted stylesheet.
+                source,previous_critical=re.subn(
+                    r'<style id="dkk-spotlight-critical">[\s\S]*?</style>',
+                    '',source,flags=re.S
+                )
+                if previous_critical>1:
+                    raise RuntimeError('Duplicate critical spotlight style blocks')
+                source=source.replace('</head>','<style id="dkk-spotlight-critical">'+critical+'</style></head>',1)
             # Force refresh of the modal script after each JS change.
             version=hashlib.sha256((ROOT/'js/publications.js').read_bytes()).hexdigest()[:12]
             source=re.sub(r'(src="[^"]*js/publications\.js)(?:\?[^"]*)?(")',

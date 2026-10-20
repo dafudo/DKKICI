@@ -159,6 +159,15 @@ def update_catalogue(src,lang,pre):
     end=src.find('</div><p class="pub-empty"',start)
     if start<0 or end<0:raise RuntimeError('Publication listing missing from '+lang)
     src=src[:start]+'<div class="pub-grid" data-publications-grid>'+''.join(tiles)+src[end:]
+    # Catalogue HTML is carried forward between builds. Remove the previously
+    # generated featured section before inserting the current data-driven one.
+    # Without this, each publication update duplicates the entire spotlight.
+    src,old_featured_count=re.subn(
+        r'<section class="pub-highlight" id="featured-publications"[^>]*>[\s\S]*?</section>',
+        '',src,flags=re.S
+    )
+    if old_featured_count>1:
+        raise RuntimeError('Multiple featured sections found in source catalogue')
     # Curated section: data-driven, independent of the existing homepage featured flag.
     highlighted=[p for p in valid if p.get('spotlight')]
     if highlighted:
