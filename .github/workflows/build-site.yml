@@ -55,6 +55,57 @@ jobs:
         run: |
           python -m pip install Pillow==11.3.0
           python tools/build_icons.py
+      - name: Import seven Canva covers where source quality is sufficient
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from urllib.request import Request, urlopen
+          from io import BytesIO
+          from PIL import Image,ImageOps
+          import json
+          root=Path('.')
+          covers=json.loads('''[["authority-without-authoritarianism","https://media.canva.com/v2/document-image/hash:1113965558/height:564/id:DAHYfT9BGLY/type:B/width:354?brand=BACTybnsdig&csig=AAAAAAAAAAAAAAAAAAAAAB9BzIoCi6DkfRCmRCsatr5kt3zMISxNbbG7m_Dtdz5N&exp=1792479091&fallback=https%3A%2F%2Fs3.amazonaws.com%2Fdocument-export.canva.com%2F9BGLY%2FDAHYfT9BGLY%2F19%2Fthumbnail%2F0001.png%3FX-Amz-Algorithm%3DAWS4-HMAC-SHA256%26X-Amz-Credential%3DAKIAQYCGKMUHTDF2ZFFQ%252F20261020%252Fus-east-1%252Fs3%252Faws4_request%26X-Amz-Date%3D20261020T043337Z%26X-Amz-Expires%3D10974%26X-Amz-Signature%3De13d034891a2386524ab9557f91b5bf98dc28762e684d13191dae1a0f981013b%26X-Amz-SignedHeaders%3Dhost%26response-expires%3DTue%252C%252020%2520Oct%25202026%252007%253A36%253A31%2520GMT&osig=AAAAAAAAAAAAAAAAAAAAADvD9cp5UFYToa3NVh8eyF6rgt8UT6_AMyCwThzIQbOw&page=1&signed=brand%2Cfallback%2Cpage%2Cversion&signer=document-rpc&version=25"],["family-context-risk-protection","https://media.canva.com/v2/document-image/hash:-776891873/height:564/id:DAHYfT9BGLY/type:B/width:354?brand=BACTybnsdig&csig=AAAAAAAAAAAAAAAAAAAAAO61Ph068YLEI-Z6r_zX1nZ9HY3IFcDeOesM6o23uKMh&exp=1792479091&fallback=https%3A%2F%2Fs3.amazonaws.com%2Fdocument-export.canva.com%2F9BGLY%2FDAHYfT9BGLY%2F21%2Fthumbnail%2F0002.png%3FX-Amz-Algorithm%3DAWS4-HMAC-SHA256%26X-Amz-Credential%3DAKIAQYCGKMUHTDF2ZFFQ%252F20261019%252Fus-east-1%252Fs3%252Faws4_request%26X-Amz-Date%3D20261019T165942Z%26X-Amz-Expires%3D52609%26X-Amz-Signature%3D8eb5d53928664252abf5c9ef6afb7c9f7bee94bd6df6452b849e9e41b8a14ab2%26X-Amz-SignedHeaders%3Dhost%26response-expires%3DTue%252C%252020%2520Oct%25202026%252007%253A36%253A31%2520GMT&osig=AAAAAAAAAAAAAAAAAAAAAFEHHG4cvmY-j8F2U_fe0DqOkxnp-F9uSgj2S-DMuOr6&page=2&signed=brand%2Cfallback%2Cpage%2Cversion&signer=document-rpc&version=25"],["open-assertiveness","https://media.canva.com/v2/document-image/hash:1156081991/height:564/id:DAHYfT9BGLY/type:B/width:354?brand=BACTybnsdig&csig=AAAAAAAAAAAAAAAAAAAAABtHUWFRnNs-ujmpFGyeTMNYkEv0FQ03i-CWSIMRFA24&exp=1792479091&fallback=https%3A%2F%2Fs3.amazonaws.com%2Fdocument-export.canva.com%2F9BGLY%2FDAHYfT9BGLY%2F21%2Fthumbnail%2F0003.png%3FX-Amz-Algorithm%3DAWS4-HMAC-SHA256%26X-Amz-Credential%3DAKIAQYCGKMUHTDF2ZFFQ%252F20261019%252Fus-east-1%252Fs3%252Faws4_request%26X-Amz-Date%3D20261019T123546Z%26X-Amz-Expires%3D68445%26X-Amz-Signature%3D655edeb3b502ea245a9034118e9e50eeaeed89dc3046051b92ec7a49aed441ec%26X-Amz-SignedHeaders%3Dhost%26response-expires%3DTue%252C%252020%2520Oct%25202026%252007%253A36%253A31%2520GMT&osig=AAAAAAAAAAAAAAAAAAAAAFw8pyUINLQhMM4blbDt2QQ5utWXmGN2E_ov-6YuAcq5&page=3&signed=brand%2Cfallback%2Cpage%2Cversion&signer=document-rpc&version=25"],["from-case-description-to-diagnostic-hypothesis","https://media.canva.com/v2/document-image/hash:-1158324723/height:564/id:DAHYfT9BGLY/type:B/width:354?brand=BACTybnsdig&csig=AAAAAAAAAAAAAAAAAAAAALAHr---tZW4PKaeFu020PFiW7WfJHnLIQlFjjoAM_6C&exp=1792479091&fallback=https%3A%2F%2Fs3.amazonaws.com%2Fdocument-export.canva.com%2F9BGLY%2FDAHYfT9BGLY%2F22%2Fthumbnail%2F0004.png%3FX-Amz-Algorithm%3DAWS4-HMAC-SHA256%26X-Amz-Credential%3DAKIAQYCGKMUHTDF2ZFFQ%252F20261019%252Fus-east-1%252Fs3%252Faws4_request%26X-Amz-Date%3D20261019T204201Z%26X-Amz-Expires%3D39270%26X-Amz-Signature%3Dcb71ca48b42eeef33eff41c7c560ca1f6bc55c83305aa7f9f3f603b21bb1eec0%26X-Amz-SignedHeaders%3Dhost%26response-expires%3DTue%252C%252020%2520Oct%25202026%252007%253A36%253A31%2520GMT&osig=AAAAAAAAAAAAAAAAAAAAAJ94WyknBbnKrk-0MOYmYtdUp0XlNEKK4cwhBfLW6boH&page=4&signed=brand%2Cfallback%2Cpage%2Cversion&signer=document-rpc&version=25"],["support-needs","https://media.canva.com/v2/document-image/hash:-495741285/height:564/id:DAHYfT9BGLY/type:B/width:354?brand=BACTybnsdig&csig=AAAAAAAAAAAAAAAAAAAAACpKL0AOmk-2ZZ2kgS1ndxzJwD51r313hi6zWgKi5_1Y&exp=1792479091&fallback=https%3A%2F%2Fs3.amazonaws.com%2Fdocument-export.canva.com%2F9BGLY%2FDAHYfT9BGLY%2F25%2Fthumbnail%2F0005.png%3FX-Amz-Algorithm%3DAWS4-HMAC-SHA256%26X-Amz-Credential%3DAKIAQYCGKMUHTDF2ZFFQ%252F20261019%252Fus-east-1%252Fs3%252Faws4_request%26X-Amz-Date%3D20261019T202050Z%26X-Amz-Expires%3D40541%26X-Amz-Signature%3Db6dd5d82905798b77ba9b4efbab22a0b507e686d55eabfe923b91b90339161d2%26X-Amz-SignedHeaders%3Dhost%26response-expires%3DTue%252C%252020%2520Oct%25202026%252007%253A36%253A31%2520GMT&osig=AAAAAAAAAAAAAAAAAAAAAI0f_iFBxotPEQrKZ4fqNo0bqmbZBYEb1YZgSnWpwdlq&page=5&signed=brand%2Cfallback%2Cpage%2Cversion&signer=document-rpc&version=25"],["from-diagnostic-label-to-case-formulation","https://media.canva.com/v2/document-image/hash:-1503002754/height:564/id:DAHYfT9BGLY/type:B/width:354?brand=BACTybnsdig&csig=AAAAAAAAAAAAAAAAAAAAAOSOlTf8h67I1hFwBORagPNTRrh8yVfiWHQc5eayMvEm&exp=1792479091&fallback=https%3A%2F%2Fs3.amazonaws.com%2Fdocument-export.canva.com%2F9BGLY%2FDAHYfT9BGLY%2F25%2Fthumbnail%2F0006.png%3FX-Amz-Algorithm%3DAWS4-HMAC-SHA256%26X-Amz-Credential%3DAKIAQYCGKMUHTDF2ZFFQ%252F20261019%252Fus-east-1%252Fs3%252Faws4_request%26X-Amz-Date%3D20261019T113453Z%26X-Amz-Expires%3D72098%26X-Amz-Signature%3D0ad1b97d4a6c0136e5be030d9387a197b2135fb9ccf6cb4966b84ce0a86468b1%26X-Amz-SignedHeaders%3Dhost%26response-expires%3DTue%252C%252020%2520Oct%25202026%252007%253A36%253A31%2520GMT&osig=AAAAAAAAAAAAAAAAAAAAAD6LJgg7fPmJeDnzNKaxl9frscr5iKCGXxB-sla80Zdq&page=6&signed=brand%2Cfallback%2Cpage%2Cversion&signer=document-rpc&version=25"],["from-emotion-recognition-to-social-competence","https://media.canva.com/v2/document-image/hash:-517797753/height:564/id:DAHYfT9BGLY/type:B/width:354?brand=BACTybnsdig&csig=AAAAAAAAAAAAAAAAAAAAANxdqnJ3yj84B_w67mPhivyigbI4brcC1GXTwLMyjIBT&exp=1792479091&fallback=https%3A%2F%2Fs3.amazonaws.com%2Fdocument-export.canva.com%2F9BGLY%2FDAHYfT9BGLY%2F25%2Fthumbnail%2F0007.png%3FX-Amz-Algorithm%3DAWS4-HMAC-SHA256%26X-Amz-Credential%3DAKIAQYCGKMUHTDF2ZFFQ%252F20261019%252Fus-east-1%252Fs3%252Faws4_request%26X-Amz-Date%3D20261019T145149Z%26X-Amz-Expires%3D60282%26X-Amz-Signature%3Dd8be6b062598041d900a714f6a5b14ce112a116a78b2adf6db9fefd50e75611f%26X-Amz-SignedHeaders%3Dhost%26response-expires%3DTue%252C%252020%2520Oct%25202026%252007%253A36%253A31%2520GMT&osig=AAAAAAAAAAAAAAAAAAAAAIyvPIK6haBBIllgsLxyEa99BA5irtlCM_gBCMqk98vY&page=7&signed=brand%2Cfallback%2Cpage%2Cversion&signer=document-rpc&version=25"]]''')
+          pubfile=root/'data/publications.json'
+          pubs=json.loads(pubfile.read_text('utf-8'))
+          byslug={p['slug']:p for p in pubs}
+          for slug,url in covers:
+              p=byslug[slug]
+              target=root/'assets/author-covers'/f'{slug}.jpg'
+              if slug.replace('-',' ') not in p['title']['en'].lower() and slug!='support-needs':
+                  print('Verified catalogue title is different but matched by slug:',slug)
+              high=url.replace('/height:564/','/height:2250/').replace('/width:354?','/width:1410?')
+              img=None
+              for candidate in (high,url):
+                  try:
+                      req=Request(candidate,headers={'User-Agent':'Mozilla/5.0'})
+                      with urlopen(req,timeout=20) as response: blob=response.read(6_000_001)
+                      if len(blob)>6_000_000: raise ValueError('Image exceeds limit')
+                      with Image.open(BytesIO(blob)) as im:
+                          im.load()
+                          source=ImageOps.exif_transpose(im).convert('RGB')
+                      if abs(source.width/source.height-1410/2250)>.035: raise ValueError('Unexpected aspect ratio')
+                      img=source
+                      print('Canva image:',slug,img.size,'highres requested:',candidate==high)
+                      break
+                  except Exception as exc:
+                      print('Canva link failed:',slug,'highres:',candidate==high,type(exc).__name__,str(exc)[:70])
+              if img is None:
+                  print('MISSING -- no change:',slug)
+                  continue
+              old=(0,0)
+              try:
+                  with Image.open(root/p['cover']) as previous: old=previous.size
+              except Exception: pass
+              if img.width < max(350,old[0]) or img.height < max(550,old[1]):
+                  print('SKIP image quality downgrade:',slug,'old:',old,'new:',img.size)
+                  continue
+              target.parent.mkdir(parents=True,exist_ok=True)
+              img.save(target,'JPEG',quality=91,optimize=True,progressive=True)
+              p['cover']=target.as_posix()
+              p['coverSource']='author-provided'
+              print('IMPORTED COVER:',slug,target,img.size)
+          pubfile.write_text(json.dumps(pubs,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          PY
       - name: Validate generators
         run: python -m py_compile tools/build.py tools/showcase_pages.py tools/enrich_home.py tools/brand_refresh.py tools/localize_english_name.py tools/finish_brand.py tools/build_icons.py tools/improve_covers.py tools/generate_sitemap.py
       - name: Refresh verified Google Books and Apple Books covers
@@ -256,7 +307,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A -- '*.html' sitemap.xml robots.txt assets/favicon-32x32.png assets/favicon-48x48.png assets/apple-touch-icon.png assets/verified-covers/ data/publications.json
+          git add -A -- '*.html' sitemap.xml robots.txt assets/favicon-32x32.png assets/favicon-48x48.png assets/apple-touch-icon.png assets/verified-covers/ assets/author-covers/ data/publications.json
           if git diff --cached --quiet; then
             echo "No generated HTML changes"
           else
