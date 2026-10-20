@@ -12,6 +12,7 @@ on:
       - 'tools/finish_brand.py'
       - 'tools/build_icons.py'
       - 'css/brand-fixes.css'
+      - 'css/publications.css'
       - 'css/showcase.css'
       - 'assets/favicon.svg'
       - 'js/language.js'
@@ -169,6 +170,30 @@ jobs:
           pub_js=Path('js/publications.js').read_text('utf-8')
           assert 'readUrl' not in pub_js
           assert 'Read online' not in pub_js and 'Czytaj online' not in pub_js
+          # Publication covers use intrinsic image proportions, not the old 660x880 hint.
+          from html.parser import HTMLParser
+          css=Path('css/publications.css').read_text('utf-8')
+          assert '.detail-page .detail-cover > img{' in css
+          cover_rule=css.split('.detail-page .detail-cover > img{',1)[1].split('}',1)[0]
+          assert 'height:auto' in cover_rule and 'aspect-ratio:auto' in cover_rule
+          class CoverParser(HTMLParser):
+            def __init__(self):
+              super().__init__();self.in_cover=False;self.cover_images=[]
+            def handle_starttag(self,tag,attrs):
+              values=dict(attrs)
+              if tag=='div' and 'detail-cover' in values.get('class','').split():
+                self.in_cover=True
+              elif self.in_cover and tag=='img':
+                self.cover_images.append(values)
+            def handle_endtag(self,tag):
+              if tag=='div' and self.in_cover:self.in_cover=False
+          for folder in ('works','pl/publikacje'):
+            for page in Path(folder).glob('*/index.html'):
+              html=page.read_text('utf-8')
+              parser=CoverParser();parser.feed(html)
+              assert len(parser.cover_images)==1,page
+              img=parser.cover_images[0]
+              assert 'width' not in img and 'height' not in img,page+' false cover dimensions'
           # Confirm no duplicate edition shelf or redundant read button.
           for folder in ('works','pl/publikacje'):
             for page in Path(folder).glob('*/index.html'):
