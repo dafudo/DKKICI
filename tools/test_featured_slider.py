@@ -2,6 +2,7 @@
 """Regression tests for the bilingual featured carousel: 0, 1, 2, 6, 7+ works."""
 from pathlib import Path
 from copy import deepcopy
+import re
 import tools.brand_refresh as brand
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -28,7 +29,7 @@ for lang, page, prefix in (
             brand.PUBLICATIONS = old
 
         count = min(n, 6)
-        assert html.count('data-featured-slide') == count, (lang, n, 'slides')
+        assert len(re.findall(r'\sdata-featured-slide(?=\s|>)', html)) == count, (lang, n, 'slides')
         assert html.count('class="pub-highlight__item"') == count, (lang, n, 'cards')
         assert html.count('id="featured-publications"') == int(n > 0), (lang, n, 'visibility')
         assert html.count('data-featured-prev') == int(n > 1), (lang, n, 'prev')
