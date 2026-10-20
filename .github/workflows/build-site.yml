@@ -6,6 +6,7 @@ on:
       - 'tools/build.py'
       - 'tools/improve_covers.py'
       - 'tools/normalise_publication_covers.py'
+      - 'tools/test_featured_slider.py'
       - 'assets/book_covers/**'
       - 'assets/verified-covers/**'
       - 'tools/showcase_pages.py'
@@ -59,8 +60,10 @@ jobs:
           python tools/build_icons.py
       - name: Convert and match author-supplied covers
         run: |
-          sudo apt-get update -qq
-          sudo apt-get install -y -qq tesseract-ocr
+          if compgen -G 'assets/book_covers/*.png' >/dev/null; then
+            sudo apt-get update -qq
+            sudo apt-get install -y -qq tesseract-ocr
+          fi
           python tools/normalise_publication_covers.py
       - name: Validate generators
         run: python -m py_compile tools/build.py tools/showcase_pages.py tools/enrich_home.py tools/brand_refresh.py tools/localize_english_name.py tools/finish_brand.py tools/build_icons.py tools/improve_covers.py tools/normalise_publication_covers.py tools/generate_sitemap.py
