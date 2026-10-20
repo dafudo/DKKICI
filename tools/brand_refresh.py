@@ -171,9 +171,13 @@ def update_catalogue(src,lang,pre):
     # Curated section: data-driven, independent of the existing homepage featured flag.
     highlighted=[p for p in valid if p.get('spotlight')]
     if highlighted:
-        cards=[]
-        for item in highlighted:
-            pl=lang=='pl'
+        # Only the first six editorial selections appear in the compact slider;
+        # the complete collection remains available in an accessible modal.
+        slides=[]
+        all_cards=[]
+        pl=lang=='pl'
+        total=len(highlighted)
+        for i,item in enumerate(highlighted):
             name=h(item.get('titleShort',item['title']).get(lang,item['title'][lang]))
             subtitle=h(item['subtitle'][lang])
             image=h(pre+item['cover'],quote=True)
@@ -184,24 +188,81 @@ def update_catalogue(src,lang,pre):
             type_name={'article':('Article','Artykuł'),'research':('Research paper','Opracowanie badawcze'),
                        'working_paper':('Working paper','Opracowanie robocze'),'book':('Book','Książka')}.get(
                        item['kind'],('Publication','Publikacja'))[pl]
+            meta=h(type_name)+' · '+h(display_date)
             label='Otwórz publikację' if pl else 'Explore publication'
             alt=name+' — '+('okładka publikacji' if pl else 'publication cover')
-            cards.append(
-                '<a class="pub-highlight__item" href="'+href+'" aria-label="'+name+'">'
-                '<span class="pub-highlight__visual"><img src="'+image+'" alt="'+alt+'" loading="lazy" decoding="async"></span>'
-                '<span class="pub-highlight__copy"><span class="pub-highlight__meta">'+h(type_name)+' · '+h(display_date)+'</span>'
-                '<span class="pub-highlight__title">'+name+'</span>'
-                '<span class="pub-highlight__subtitle">'+subtitle+'</span>'
-                '<span class="pub-highlight__cta">'+h(label)+' <span aria-hidden="true">↗</span></span>'
-                '</span></a>'
+            if i<6:
+                slides.append(
+                    '<div class="pub-highlight__slide'+(' is-active' if i==0 else '')+
+                    '" data-featured-slide'+(' hidden' if i>0 else '')+'>'
+                    '<a class="pub-highlight__item" href="'+href+'" aria-label="'+name+'">'
+                    '<span class="pub-highlight__visual"><img src="'+image+'" alt="'+alt+'" loading="lazy" decoding="async"></span>'
+                    '<span class="pub-highlight__copy"><span class="pub-highlight__meta">'+meta+'</span>'
+                    '<span class="pub-highlight__title">'+name+'</span>'
+                    '<span class="pub-highlight__subtitle">'+subtitle+'</span>'
+                    '<span class="pub-highlight__cta">'+h(label)+' <span aria-hidden="true">↗</span></span>'
+                    '</span></a></div>'
+                )
+            if total>6:
+                all_cards.append(
+                    '<a class="pub-featured-dialog__item" href="'+href+'" aria-label="'+name+'">'
+                    '<span class="pub-featured-dialog__visual"><img src="'+image+'" alt="'+alt+'" loading="lazy" decoding="async"></span>'
+                    '<span class="pub-featured-dialog__meta">'+meta+'</span>'
+                    '<span class="pub-featured-dialog__title">'+name+'</span>'
+                    '<span class="pub-featured-dialog__subtitle">'+subtitle+'</span>'
+                    '</a>'
+                )
+        shown=min(total,6)
+        controls=''
+        if shown>1:
+            previous_label='Poprzednia publikacja' if pl else 'Previous publication'
+            next_label='Następna publikacja' if pl else 'Next publication'
+            dots_label='Przejdź do publikacji' if pl else 'Go to publication'
+            dots=''.join(
+                '<button type="button" class="pub-highlight__dot" data-featured-dot aria-label="'+
+                h(dots_label)+' '+str(i+1)+'" aria-current="'+('true' if i==0 else 'false')+'"></button>'
+                for i in range(shown)
             )
-        title='Wyróżnione publikacje' if lang=='pl' else 'Featured publications'
-        label='WYBRANE Z KOLEKCJI' if lang=='pl' else 'SELECTED FROM THE COLLECTION'
+            controls=(
+                '<nav class="pub-highlight__navigation" aria-label="'+
+                ('Nawigacja wyróżnionych publikacji' if pl else 'Featured publication navigation')+'">'
+                '<button type="button" class="pub-highlight__arrow" data-featured-prev aria-label="'+previous_label+'">‹</button>'
+                '<span class="pub-highlight__counter"><span data-featured-current>01</span> / '+f'{shown:02d}'+'</span>'
+                '<button type="button" class="pub-highlight__arrow" data-featured-next aria-label="'+next_label+'">›</button>'
+                '<span class="pub-highlight__dots">'+dots+'</span></nav>'
+            )
+        expand=''
+        dialog=''
+        if total>6:
+            expand_label='Zobacz wszystkie wyróżnione' if pl else 'View all featured'
+            all_title='Wszystkie wyróżnione publikacje' if pl else 'All featured publications'
+            close_label='Zamknij listę' if pl else 'Close collection'
+            expand=(
+                '<button type="button" class="pub-highlight__expand" data-featured-expand aria-haspopup="dialog"'
+                ' aria-controls="featured-collection-dialog">'+h(expand_label)+' ('+str(total)+') ↗</button>'
+                '<noscript><a href="#catalog">'+('Przeglądaj katalog' if pl else 'Browse the catalogue')+'</a></noscript>'
+            )
+            dialog=(
+                '<dialog class="pub-featured-dialog" id="featured-collection-dialog" data-featured-dialog'
+                ' aria-labelledby="featured-all-title">'
+                '<div class="pub-featured-dialog__inner">'
+                '<div class="pub-featured-dialog__header"><div><p class="eyebrow">'+
+                ('WYBRANE Z KOLEKCJI' if pl else 'SELECTED FROM THE COLLECTION')+
+                '</p><h2 id="featured-all-title">'+h(all_title)+' ('+str(total)+')</h2></div>'
+                '<button type="button" class="pub-featured-dialog__close" data-featured-close aria-label="'+
+                h(close_label)+'">×</button></div>'
+                '<div class="pub-featured-dialog__grid">'+''.join(all_cards)+'</div></div></dialog>'
+            )
+        footer=('<div class="pub-highlight__footer">'+controls+expand+'</div>') if (controls or expand) else ''
+        title='Wyróżnione publikacje' if pl else 'Featured publications'
+        eyebrow='WYBRANE Z KOLEKCJI' if pl else 'SELECTED FROM THE COLLECTION'
         featured=(
             '<section class="pub-highlight" id="featured-publications" aria-labelledby="featured-publications-title">'
-            '<div class="container"><div class="pub-highlight__heading"><p class="eyebrow">'+h(label)+'</p>'
-            '<h2 id="featured-publications-title">'+h(title)+'</h2></div>'
-            '<div class="pub-highlight__grid">'+''.join(cards)+'</div></div></section>'
+            '<div class="container"><div class="pub-highlight__heading"><div><p class="eyebrow">'+
+            h(eyebrow)+'</p><h2 id="featured-publications-title">'+h(title)+'</h2></div></div>'
+            '<div class="pub-highlight__slider" data-featured-slider>'
+            '<div class="pub-highlight__slides" aria-live="polite" aria-atomic="true">'+
+            ''.join(slides)+'</div>'+footer+'</div></div>'+dialog+'</section>'
         )
         if '<section id="catalog"' not in src:raise RuntimeError('Publication catalogue insertion point is missing')
         src=src.replace('<section id="catalog"',featured+'<section id="catalog"',1)

@@ -113,18 +113,17 @@ def main():
             # cause a cover to expand to its full natural dimensions again.
             start_marker='/* BEGIN DKK SPOTLIGHT COMPONENT */'
             end_marker='/* END DKK SPOTLIGHT COMPONENT */'
+            # Remove stale critical rules even if there are no spotlight works.
+            source,previous_critical=re.subn(
+                r'<style id="dkk-spotlight-critical">[\s\S]*?</style>',
+                '',source,flags=re.S
+            )
+            if previous_critical>1:
+                raise RuntimeError('Duplicate critical spotlight style blocks')
             if 'id="featured-publications"' in source:
                 if start_marker not in css_source or end_marker not in css_source:
                     raise RuntimeError('Spotlight CSS markers missing')
                 critical=css_source.split(start_marker,1)[1].split(end_marker,1)[0].strip()
-                # Replace stale inline critical CSS on every regeneration.
-                # Old embedded rules otherwise override the cache-busted stylesheet.
-                source,previous_critical=re.subn(
-                    r'<style id="dkk-spotlight-critical">[\s\S]*?</style>',
-                    '',source,flags=re.S
-                )
-                if previous_critical>1:
-                    raise RuntimeError('Duplicate critical spotlight style blocks')
                 source=source.replace('</head>','<style id="dkk-spotlight-critical">'+critical+'</style></head>',1)
             # Force refresh of the modal script after each JS change.
             version=hashlib.sha256((ROOT/'js/publications.js').read_bytes()).hexdigest()[:12]

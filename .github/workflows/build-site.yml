@@ -71,6 +71,8 @@ jobs:
         run: python tools/localize_english_name.py
       - name: Apply final bilingual branding, layout and publishing copy
         run: python tools/finish_brand.py
+      - name: Test featured slider edge cases in both languages
+        run: python tools/test_featured_slider.py
       - name: Generate bilingual XML sitemap, image references and canonical tags
         run: python tools/generate_sitemap.py
       - name: Validate generated pages
@@ -165,20 +167,27 @@ jobs:
             assert content.count('name="google-site-verification"')==1, name+' duplicate ownership tag'
           catalogue=json.loads(Path('data/publications.json').read_text('utf-8'))
           spotlight=[p for p in catalogue if p.get('status')=='published' and p.get('spotlight')]
+          slide_count=min(len(spotlight),6)
           for name in ('publications/index.html','pl/publikacje/index.html'):
             content=Path(name).read_text('utf-8')
             assert content.count('<a class="publication-tile')==published,(name,published)
-            assert content.count('class="pub-highlight__item"')==len(spotlight),(name,'spotlight count')
-            assert content.count('id="featured-publications"')==(1 if spotlight else 0),(name,'duplicate featured section')
-            assert content.count('id="dkk-spotlight-critical"')==(1 if spotlight else 0),(name,'duplicate critical CSS')
+            assert content.count('data-featured-slide')==slide_count,(name,'six-slide cap')
+            assert content.count('class="pub-highlight__item"')==slide_count,(name,'visible slider cards')
+            assert content.count('id="featured-publications"')==int(bool(spotlight)),(name,'featured section')
+            assert content.count('id="dkk-spotlight-critical"')==int(bool(spotlight)),(name,'critical CSS')
+            assert content.count('data-featured-prev')==int(slide_count>1),(name,'previous control')
+            assert content.count('data-featured-next')==int(slide_count>1),(name,'next control')
+            assert content.count('data-featured-dot')==slide_count if slide_count>1 else content.count('data-featured-dot')==0,(name,'dot navigation')
+            assert content.count('data-featured-expand')==int(len(spotlight)>6),(name,'full collection button')
+            assert content.count('class="pub-featured-dialog__item"')==(len(spotlight) if len(spotlight)>6 else 0),(name,'modal cards')
+            assert content.count('data-featured-dialog')==int(len(spotlight)>6),(name,'modal')
+            assert 'css/publications.css?v=' in content,(name,'cache-busting stylesheet')
+            assert 'js/publications.js?v=' in content,(name,'cache-busting script')
             if spotlight:
-              assert 'linear-gradient(111deg,#10272b' in content,(name,'new teal spotlight theme missing')
-            assert 'css/publications.css?v=' in content,(name,'cache-busting stylesheet missing')
-            assert 'id="dkk-spotlight-critical"' in content,(name,'critical layout CSS missing')
-            assert 'max-height:265px' in content,(name,'compact featured cover limit missing')
-            assert 'max-width:min(100%,176px)' in content,(name,'featured cover width limit missing')
-            assert ('id="featured-publications"' in content)==bool(spotlight),(name,'section visibility')
-            assert content.count('class="publication-tile publication-tile--spotlight"')==len(spotlight),(name,'gold cards')
+              assert 'background:#f3f0e9' in content,(name,'quiet editorial background')
+              assert 'max-height:156px' in content,(name,'compact cover dimensions')
+              assert 'max-width:104px' in content,(name,'compact cover dimensions')
+            assert content.count('class="publication-tile publication-tile--spotlight"')==len(spotlight),(name,'spotlight tile')
             for item in spotlight:
               assert item['cover'] in content and item['slug']+'/' in content,(name,item['slug'])
           assert "publication-tile--spotlight" in Path('js/publications.js').read_text('utf-8')

@@ -145,6 +145,75 @@
     const target=items.find(p=>p.slug===slug && p.status==='published');
     if(target)showPublication(target,false);else if(dialog?.open)dialog.close();
   });
+
+  // Featured collection is pre-rendered from publications.json by the generator.
+  // The catalogue remains readable without JavaScript; JS adds navigation and the modal.
+  function initFeaturedSlider() {
+    const slider = document.querySelector('[data-featured-slider]');
+    if (!slider) return;
+    const slides = [...slider.querySelectorAll('[data-featured-slide]')];
+    if (!slides.length) return;
+    const prev = document.querySelector('[data-featured-prev]');
+    const next = document.querySelector('[data-featured-next]');
+    const current = document.querySelector('[data-featured-current]');
+    const dots = [...document.querySelectorAll('[data-featured-dot]')];
+    let active = 0, startX = null, startY = null;
+
+    function goTo(index) {
+      active = (index + slides.length) % slides.length;
+      slides.forEach((slide, i) => {
+        const selected = i === active;
+        slide.hidden = !selected;
+        slide.classList.toggle('is-active', selected);
+      });
+      dots.forEach((dot, i) => dot.setAttribute('aria-current', String(i === active)));
+      if (current) current.textContent = String(active + 1).padStart(2, '0');
+    }
+    prev?.addEventListener('click', () => goTo(active - 1));
+    next?.addEventListener('click', () => goTo(active + 1));
+    dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
+    slider.addEventListener('keydown', event => {
+      if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+        event.preventDefault();
+        goTo(active + (event.key === 'ArrowRight' ? 1 : -1));
+      }
+    });
+    slider.addEventListener('touchstart', event => {
+      if (event.touches.length !== 1) return;
+      startX = event.touches[0].clientX;
+      startY = event.touches[0].clientY;
+    }, {passive:true});
+    slider.addEventListener('touchend', event => {
+      if (startX === null || !event.changedTouches.length) return;
+      const dx = event.changedTouches[0].clientX - startX;
+      const dy = event.changedTouches[0].clientY - startY;
+      startX = startY = null;
+      if (slides.length > 1 && Math.abs(dx) >= 50 && Math.abs(dx) > Math.abs(dy) * 1.3) {
+        goTo(active + (dx < 0 ? 1 : -1));
+      }
+    }, {passive:true});
+    slider.addEventListener('touchcancel', () => { startX = startY = null; });
+    goTo(0);
+
+    const more = document.querySelector('[data-featured-expand]');
+    const modal = document.querySelector('[data-featured-dialog]');
+    if (more && modal && typeof modal.showModal === 'function') {
+      more.addEventListener('click', () => {
+        modal.showModal();
+        document.body.classList.add('modal-open');
+      });
+      modal.querySelector('[data-featured-close]')?.addEventListener('click', () => modal.close());
+      modal.addEventListener('click', event => {
+        if (event.target === modal) modal.close();
+      });
+      modal.addEventListener('close', () => {
+        document.body.classList.remove('modal-open');
+        more.focus({preventScroll:true});
+      });
+    }
+  }
+  initFeaturedSlider();
+
   fetch(root+'data/publications.json',{cache:'no-cache'})
     .then(r=>{if(!r.ok)throw new Error('Publication data unavailable');return r.json();})
     .then(data=>{
