@@ -107,6 +107,28 @@
 .detail-page .detail-copy{animation:pub-rise .65s both}
 .detail-page .detail-cover img{animation:pub-cover-arrive .75s .1s both}
 
+/* Preserve each publication cover's own dimensions (e.g. 1280x2048).
+   Older templates used a false 660x880 size hint. Width AND height must
+   be allowed to scale together at every breakpoint. */
+.detail-page .detail-cover > img{
+  display:block;
+  width:auto;
+  height:auto;
+  max-width:min(100%,385px);
+  max-height:min(76vh,700px);
+  aspect-ratio:auto;
+  object-fit:contain;
+}
+/* Related publication covers should also keep the source aspect ratio. */
+.detail-page .detail-other .work-image img{
+  width:auto;
+  height:auto;
+  max-width:78%;
+  max-height:85%;
+  aspect-ratio:auto;
+  object-fit:contain;
+}
+
 /* Google Play Books editorial shelf */
 .gp-section{padding:85px 0 110px;background:#dde0d6;color:#223329}
 .gp-section__top{border-top:1px solid #aeb5a8;padding-top:23px;margin-bottom:42px;display:grid;grid-template-columns:1fr 1.5fr;gap:25px;align-items:end}
