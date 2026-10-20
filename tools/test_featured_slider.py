@@ -42,5 +42,5 @@ for lang, page, prefix in (
             assert html.count('data-featured-current') == int(n > 1), (lang, n, 'counter')
         if n > 1:
             assert html.count('hidden>') == count - 1, (lang, n, 'inactive cards hidden')
-        assert html.count('class="publication-tile') == len(published), (lang, n, 'original catalogue unchanged')
+        assert html.count('<a class="publication-tile') == len(published), (lang, n, 'original catalogue unchanged')
     print(lang, 'featured carousel 0/1/2/6/7: OK')
