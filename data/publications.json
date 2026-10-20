@@ -24,8 +24,8 @@
     "featured": true,
     "spotlight": true,
     "status": "published",
-    "cover": "assets/cover-support.svg",
-    "coverSource": "editorial",
+    "cover": "assets/book_covers/from-media-audience-to-critical-citizen.webp",
+    "coverSource": "author-provided",
     "doi": "10.5281/zenodo.23513807",
     "doiStatus": "pending",
     "links": [],
@@ -75,7 +75,7 @@
     "category": "education",
     "featured": false,
     "status": "published",
-    "cover": "assets/author-covers/from-emotion-recognition-to-social-competence.jpg",
+    "cover": "assets/book_covers/from-emotion-recognition-to-social-competence.webp",
     "coverSource": "author-provided",
     "links": [
       {
@@ -138,7 +138,7 @@
     "category": "psychology",
     "featured": true,
     "status": "published",
-    "cover": "assets/author-covers/from-diagnostic-label-to-case-formulation.jpg",
+    "cover": "assets/book_covers/from-diagnostic-label-to-case-formulation.webp",
     "coverSource": "author-provided",
     "links": [
       {
@@ -178,7 +178,7 @@
     "category": "education",
     "featured": true,
     "status": "published",
-    "cover": "assets/google-books/C3ocEgAAQBAJ.jpg",
+    "cover": "assets/book_covers/support-needs.webp",
     "links": [
       {
         "label": "Apple Books",
@@ -211,7 +211,8 @@
       }
     ],
     "appleBooksId": "6824096092",
-    "spotlight": false
+    "spotlight": false,
+    "coverSource": "author-provided"
   },
   {
     "slug": "from-case-description-to-diagnostic-hypothesis",
@@ -233,7 +234,7 @@
     "category": "psychology",
     "featured": true,
     "status": "published",
-    "cover": "assets/author-covers/from-case-description-to-diagnostic-hypothesis.jpg",
+    "cover": "assets/book_covers/from-case-description-to-diagnostic-hypothesis.webp",
     "links": [
       {
         "label": "Apple Books",
@@ -290,7 +291,7 @@
     "category": "psychology",
     "featured": true,
     "status": "published",
-    "cover": "assets/author-covers/family-context-risk-protection.jpg",
+    "cover": "assets/book_covers/family-context-risk-protection.webp",
     "links": [
       {
         "label": "Apple Books",
@@ -342,7 +343,7 @@
     "category": "psychology",
     "featured": false,
     "status": "published",
-    "cover": "assets/author-covers/open-assertiveness.jpg",
+    "cover": "assets/book_covers/open-assertiveness.webp",
     "links": [
       {
         "label": "Apple Books",
@@ -393,7 +394,7 @@
     "category": "education",
     "featured": false,
     "status": "published",
-    "cover": "assets/author-covers/authority-without-authoritarianism.jpg",
+    "cover": "assets/book_covers/authority-without-authoritarianism.webp",
     "links": [
       {
         "label": "Apple Books",
