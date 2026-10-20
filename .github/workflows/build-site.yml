@@ -79,7 +79,7 @@ jobs:
       - name: Apply final bilingual branding, layout and publishing copy
         run: python tools/finish_brand.py
       - name: Test featured slider edge cases in both languages
-        run: python tools/test_featured_slider.py
+        run: python -m tools.test_featured_slider
       - name: Generate bilingual XML sitemap, image references and canonical tags
         run: python tools/generate_sitemap.py
       - name: Validate generated pages
