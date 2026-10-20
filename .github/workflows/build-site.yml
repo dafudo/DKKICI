@@ -163,9 +163,17 @@ jobs:
             tag='<meta name="google-site-verification" content="'+verification+'">'
             assert tag in content, name+' missing Search Console ownership tag'
             assert content.count('name="google-site-verification"')==1, name+' duplicate ownership tag'
+          catalogue=json.loads(Path('data/publications.json').read_text('utf-8'))
+          spotlight=[p for p in catalogue if p.get('status')=='published' and p.get('spotlight')]
           for name in ('publications/index.html','pl/publikacje/index.html'):
             content=Path(name).read_text('utf-8')
-            assert content.count('class="publication-tile"')==published,(name,published)
+            assert content.count('class="publication-tile')==published,(name,published)
+            assert content.count('class="pub-highlight__item"')==len(spotlight),(name,'spotlight count')
+            assert ('id="featured-publications"' in content)==bool(spotlight),(name,'section visibility')
+            assert content.count('class="publication-tile publication-tile--spotlight"')==len(spotlight),(name,'gold cards')
+            for item in spotlight:
+              assert item['cover'] in content and item['slug']+'/' in content,(name,item['slug'])
+          assert "publication-tile--spotlight" in Path('js/publications.js').read_text('utf-8')
           # The JS modal must never reintroduce a redundant Read online / Czytaj online button.
           pub_js=Path('js/publications.js').read_text('utf-8')
           assert 'readUrl' not in pub_js

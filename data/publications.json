@@ -59,7 +59,8 @@
       "EDU026030",
       "EDU009000",
       "PSY004000"
-    ]
+    ],
+    "spotlight": true
   },
   {
     "slug": "from-diagnostic-label-to-case-formulation",

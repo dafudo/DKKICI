@@ -154,11 +154,48 @@ def update_catalogue(src,lang,pre):
         srcimg=h(pre+p['cover'],quote=True)
         path=pre+('works/' if lang=='en' else 'pl/publikacje/')+p['slug']+'/'
         kind={'article':('Article','Artykuł'),'research':('Research paper','Opracowanie badawcze'),'working_paper':('Working paper','Opracowanie robocze'),'book':('Book','Książka')}.get(p['kind'],('Publication','Publikacja'))[lang=='pl']
-        tiles.append('<a class="publication-tile" style="--tile-index:'+str(min(i,11))+'" href="'+h(path,quote=True)+'" aria-label="'+full+'"><div class="publication-tile__frame"><img src="'+srcimg+'" loading="lazy" decoding="async" width="660" height="880" alt="'+full+' — '+('okładka publikacji' if lang=='pl' else 'cover')+'"><span class="publication-tile__arrow" aria-hidden="true">↗</span></div><div class="publication-tile__meta">'+h(kind)+' / '+h(p['year'])+'</div><h3>'+title+'</h3><p>'+h(p['subtitle'][lang])+'</p></a>')
+        tiles.append('<a class="publication-tile'+(' publication-tile--spotlight' if p.get('spotlight') else '')+'" style="--tile-index:'+str(min(i,11))+'" href="'+h(path,quote=True)+'" aria-label="'+full+'"><div class="publication-tile__frame"><img src="'+srcimg+'" loading="lazy" decoding="async" width="660" height="880" alt="'+full+' — '+('okładka publikacji' if lang=='pl' else 'cover')+'"><span class="publication-tile__arrow" aria-hidden="true">↗</span></div><div class="publication-tile__meta">'+h(kind)+' / '+h(p['year'])+'</div><h3>'+title+'</h3><p>'+h(p['subtitle'][lang])+'</p></a>')
     start=src.find('<div class="pub-grid" data-publications-grid>')
     end=src.find('</div><p class="pub-empty"',start)
     if start<0 or end<0:raise RuntimeError('Publication listing missing from '+lang)
     src=src[:start]+'<div class="pub-grid" data-publications-grid>'+''.join(tiles)+src[end:]
+    # Curated section: data-driven, independent of the existing homepage featured flag.
+    highlighted=[p for p in valid if p.get('spotlight')]
+    if highlighted:
+        cards=[]
+        for item in highlighted:
+            pl=lang=='pl'
+            name=h(item['title'][lang])
+            subtitle=h(item['subtitle'][lang])
+            image=h(pre+item['cover'],quote=True)
+            href=h(pre+('pl/publikacje/' if pl else 'works/')+item['slug']+'/',quote=True)
+            raw_date=item.get('date','')
+            display_date=(raw_date[8:10]+'.'+raw_date[5:7]+'.'+raw_date[:4]
+                          if re.fullmatch('[0-9]{4}-[0-9]{2}-[0-9]{2}',raw_date) else item['year'])
+            type_name={'article':('Article','Artykuł'),'research':('Research paper','Opracowanie badawcze'),
+                       'working_paper':('Working paper','Opracowanie robocze'),'book':('Book','Książka')}.get(
+                       item['kind'],('Publication','Publikacja'))[pl]
+            label='Otwórz publikację' if pl else 'Explore publication'
+            alt=name+' — '+('okładka publikacji' if pl else 'publication cover')
+            cards.append(
+                '<a class="pub-highlight__item" href="'+href+'" aria-label="'+name+'">'
+                '<span class="pub-highlight__visual"><img src="'+image+'" alt="'+alt+'" loading="lazy" decoding="async"></span>'
+                '<span class="pub-highlight__copy"><span class="pub-highlight__meta">'+h(type_name)+' · '+h(display_date)+'</span>'
+                '<span class="pub-highlight__title">'+name+'</span>'
+                '<span class="pub-highlight__subtitle">'+subtitle+'</span>'
+                '<span class="pub-highlight__cta">'+h(label)+' <span aria-hidden="true">↗</span></span>'
+                '</span></a>'
+            )
+        title='Wyróżnione publikacje' if lang=='pl' else 'Featured publications'
+        label='WYBRANE Z KOLEKCJI' if lang=='pl' else 'SELECTED FROM THE COLLECTION'
+        featured=(
+            '<section class="pub-highlight" id="featured-publications" aria-labelledby="featured-publications-title">'
+            '<div class="container"><div class="pub-highlight__heading"><p class="eyebrow">'+h(label)+'</p>'
+            '<h2 id="featured-publications-title">'+h(title)+'</h2></div>'
+            '<div class="pub-highlight__grid">'+''.join(cards)+'</div></div></section>'
+        )
+        if '<section id="catalog"' not in src:raise RuntimeError('Publication catalogue insertion point is missing')
+        src=src.replace('<section id="catalog"',featured+'<section id="catalog"',1)
     # Pre-render grammatically correct count, then update when filtering.
     n=len(valid)
     label=('publication' if n==1 else 'publications') if lang=='en' else (

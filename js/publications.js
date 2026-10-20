@@ -51,7 +51,7 @@
 
   function createCard(p,i) {
     const card = document.createElement('a');
-    card.className = 'publication-tile';
+    card.className = 'publication-tile' + (p.spotlight ? ' publication-tile--spotlight' : '');
     card.href = detailPath(p);
     card.setAttribute('aria-label', tr.open + ': ' + titleOf(p));
     card.style.setProperty('--tile-index', String(Math.min(i,11)));
