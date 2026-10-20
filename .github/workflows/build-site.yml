@@ -90,6 +90,7 @@ jobs:
           python - <<'PY'
           from pathlib import Path
           import json
+          import re
           pages=[
             'index.html','pl/index.html',
             'profile/index.html','pl/profil/index.html',
@@ -181,7 +182,7 @@ jobs:
           for name in ('publications/index.html','pl/publikacje/index.html'):
             content=Path(name).read_text('utf-8')
             assert content.count('<a class="publication-tile')==published,(name,published)
-            assert content.count('data-featured-slide')==slide_count,(name,'six-slide cap')
+            assert len(re.findall(r'\sdata-featured-slide(?=\s|>)', content))==slide_count,(name,'six-slide cap')
             assert content.count('class="pub-highlight__item"')==slide_count,(name,'visible slider cards')
             assert content.count('id="featured-publications"')==int(bool(spotlight)),(name,'featured section')
             assert content.count('id="dkk-spotlight-critical"')==int(bool(spotlight)),(name,'critical CSS')
