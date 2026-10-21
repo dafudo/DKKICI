@@ -30,6 +30,7 @@ on:
       - 'data/site.json'
       - 'tools/localize_english_name.py'
       - 'tools/generate_sitemap.py'
+      - 'tools/generate_social_og.py'
       - 'data/leadership.json'
       - 'data/media.json'
       - 'data/gallery.json'
@@ -66,7 +67,7 @@ jobs:
           fi
           python tools/normalise_publication_covers.py
       - name: Validate generators
-        run: python -m py_compile tools/build.py tools/showcase_pages.py tools/enrich_home.py tools/brand_refresh.py tools/localize_english_name.py tools/finish_brand.py tools/build_icons.py tools/improve_covers.py tools/normalise_publication_covers.py tools/generate_sitemap.py
+        run: python -m py_compile tools/build.py tools/showcase_pages.py tools/enrich_home.py tools/brand_refresh.py tools/localize_english_name.py tools/finish_brand.py tools/build_icons.py tools/improve_covers.py tools/normalise_publication_covers.py tools/generate_sitemap.py tools/generate_social_og.py
       - name: Refresh verified Google Books and Apple Books covers
         run: python tools/improve_covers.py
       - name: Build the existing website
@@ -85,6 +86,8 @@ jobs:
         run: python -m tools.test_featured_slider
       - name: Generate bilingual XML sitemap, image references and canonical tags
         run: python tools/generate_sitemap.py
+      - name: Generate the one personal social preview for all pages
+        run: python tools/generate_social_og.py
       - name: Validate generated pages
         run: |
           python - <<'PY'
@@ -267,7 +270,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A -- '*.html' sitemap.xml robots.txt assets/book_covers/ assets/author-covers/ assets/favicon-32x32.png assets/favicon-48x48.png assets/apple-touch-icon.png assets/verified-covers/ data/publications.json
+          git add -A -- '*.html' assets/social/dawid-kolodziej-og.jpg sitemap.xml robots.txt assets/book_covers/ assets/author-covers/ assets/favicon-32x32.png assets/favicon-48x48.png assets/apple-touch-icon.png assets/verified-covers/ data/publications.json
           if git diff --cached --quiet; then
             echo "No generated HTML changes"
           else
