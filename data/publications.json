@@ -28,7 +28,23 @@
     "coverSource": "author-provided",
     "doi": "10.5281/zenodo.23513807",
     "doiStatus": "pending",
-    "links": [],
+    "links": [
+      {
+        "label": "Zenodo",
+        "url": "https://zenodo.org/records/23513807",
+        "scope": "record"
+      },
+      {
+        "label": "Apple Books",
+        "url": "https://books.apple.com/us/author/dawid-karol-ko%C5%82odziej/id1815567168",
+        "scope": "author"
+      },
+      {
+        "label": "Google Play Books",
+        "url": "https://play.google.com/store/search?q=Dawid%20Karol%20Kolodziej&c=books",
+        "scope": "author"
+      }
+    ],
     "readUrl": "",
     "edition": "Contemporary expanded scholarly edition, 2026",
     "language": "en",
@@ -80,16 +96,19 @@
     "coverSource": "author-provided",
     "links": [
       {
+        "label": "Zenodo",
+        "url": "https://zenodo.org/records/23484420",
+        "scope": "record"
+      },
+      {
         "label": "Apple Books",
-        "url": "https://books.apple.com/us/author/dawid-karol-ko%C5%82odziej/id1815567168"
+        "url": "https://books.apple.com/us/author/dawid-karol-ko%C5%82odziej/id1815567168",
+        "scope": "author"
       },
       {
         "label": "Google Play Books",
-        "url": "https://play.google.com/store/search?q=Dawid%20Karol%20Kolodziej&c=books"
-      },
-      {
-        "label": "Zenodo",
-        "url": "https://doi.org/10.5281/zenodo.23484420"
+        "url": "https://play.google.com/store/search?q=Dawid%20Karol%20Kolodziej&c=books",
+        "scope": "author"
       }
     ],
     "readUrl": "https://doi.org/10.5281/zenodo.23484420",
@@ -143,16 +162,19 @@
     "coverSource": "author-provided",
     "links": [
       {
+        "label": "Zenodo",
+        "url": "https://zenodo.org/records/23460511",
+        "scope": "record"
+      },
+      {
         "label": "Apple Books",
-        "url": "https://books.apple.com/us/author/dawid-karol-ko%C5%82odziej/id1815567168"
+        "url": "https://books.apple.com/us/author/dawid-karol-ko%C5%82odziej/id1815567168",
+        "scope": "author"
       },
       {
         "label": "Google Play Books",
-        "url": "https://play.google.com/store/search?q=Dawid%20Karol%20Kolodziej&c=books"
-      },
-      {
-        "label": "Zenodo",
-        "url": "https://zenodo.org/search?q=metadata.creators.person_or_org.name%3A%22Kolodziej%2C%20Dawid%20Karol%22&l=list&p=1&s=10&sort=bestmatch"
+        "url": "https://play.google.com/store/search?q=Dawid%20Karol%20Kolodziej&c=books",
+        "scope": "author"
       }
     ],
     "readUrl": "https://zenodo.org/records/23460511",
@@ -182,16 +204,19 @@
     "cover": "assets/book_covers/support-needs.webp",
     "links": [
       {
+        "label": "Zenodo",
+        "url": "https://zenodo.org/records/23443068",
+        "scope": "record"
+      },
+      {
         "label": "Apple Books",
-        "url": "https://books.apple.com/us/author/dawid-karol-ko%C5%82odziej/id1815567168"
+        "url": "https://books.apple.com/us/book/from-deficit-description-to-support-needs/id6824096092",
+        "scope": "edition"
       },
       {
         "label": "Google Play Books",
-        "url": "https://play.google.com/store/search?q=Dawid%20Karol%20Kolodziej&c=books"
-      },
-      {
-        "label": "Zenodo",
-        "url": "https://zenodo.org/search?q=metadata.creators.person_or_org.name%3A%22Kolodziej%2C%20Dawid%20Karol%22&l=list&p=1&s=10&sort=bestmatch"
+        "url": "https://play.google.com/store/books/details?id=C3ocEgAAQBAJ",
+        "scope": "edition"
       }
     ],
     "readUrl": "https://zenodo.org/records/23443068",
@@ -238,16 +263,19 @@
     "cover": "assets/book_covers/from-case-description-to-diagnostic-hypothesis.webp",
     "links": [
       {
+        "label": "Zenodo",
+        "url": "https://zenodo.org/records/23426826",
+        "scope": "record"
+      },
+      {
         "label": "Apple Books",
-        "url": "https://books.apple.com/us/author/dawid-karol-ko%C5%82odziej/id1815567168"
+        "url": "https://books.apple.com/us/book/from-case-description-to-diagnostic-hypothesis/id6823856702",
+        "scope": "edition"
       },
       {
         "label": "Google Play Books",
-        "url": "https://play.google.com/store/search?q=Dawid%20Karol%20Kolodziej&c=books"
-      },
-      {
-        "label": "Zenodo",
-        "url": "https://zenodo.org/search?q=metadata.creators.person_or_org.name%3A%22Kolodziej%2C%20Dawid%20Karol%22&l=list&p=1&s=10&sort=bestmatch"
+        "url": "https://play.google.com/store/books/details?id=Jh8cEgAAQBAJ",
+        "scope": "edition"
       }
     ],
     "readUrl": "https://zenodo.org/records/23426826",
@@ -295,16 +323,19 @@
     "cover": "assets/book_covers/family-context-risk-protection.webp",
     "links": [
       {
+        "label": "Zenodo",
+        "url": "https://zenodo.org/records/23381111",
+        "scope": "record"
+      },
+      {
         "label": "Apple Books",
-        "url": "https://books.apple.com/us/author/dawid-karol-ko%C5%82odziej/id1815567168"
+        "url": "https://books.apple.com/us/author/dawid-karol-ko%C5%82odziej/id1815567168",
+        "scope": "author"
       },
       {
         "label": "Google Play Books",
-        "url": "https://play.google.com/store/search?q=Dawid%20Karol%20Kolodziej&c=books"
-      },
-      {
-        "label": "Zenodo",
-        "url": "https://zenodo.org/search?q=metadata.creators.person_or_org.name%3A%22Kolodziej%2C%20Dawid%20Karol%22&l=list&p=1&s=10&sort=bestmatch"
+        "url": "https://play.google.com/store/books/details?id=rIMbEgAAQBAJ",
+        "scope": "edition"
       }
     ],
     "readUrl": "https://zenodo.org/records/23381111",
@@ -347,16 +378,19 @@
     "cover": "assets/book_covers/open-assertiveness.webp",
     "links": [
       {
+        "label": "Zenodo",
+        "url": "https://zenodo.org/records/23357448",
+        "scope": "record"
+      },
+      {
         "label": "Apple Books",
-        "url": "https://books.apple.com/us/author/dawid-karol-ko%C5%82odziej/id1815567168"
+        "url": "https://books.apple.com/us/author/dawid-karol-ko%C5%82odziej/id1815567168",
+        "scope": "author"
       },
       {
         "label": "Google Play Books",
-        "url": "https://play.google.com/store/search?q=Dawid%20Karol%20Kolodziej&c=books"
-      },
-      {
-        "label": "Zenodo",
-        "url": "https://zenodo.org/search?q=metadata.creators.person_or_org.name%3A%22Kolodziej%2C%20Dawid%20Karol%22&l=list&p=1&s=10&sort=bestmatch"
+        "url": "https://play.google.com/store/books/details?id=mZMaEgAAQBAJ",
+        "scope": "edition"
       }
     ],
     "readUrl": "https://zenodo.org/records/23357448",
@@ -398,16 +432,19 @@
     "cover": "assets/book_covers/authority-without-authoritarianism.webp",
     "links": [
       {
+        "label": "Zenodo",
+        "url": "https://zenodo.org/records/23357877",
+        "scope": "record"
+      },
+      {
         "label": "Apple Books",
-        "url": "https://books.apple.com/us/author/dawid-karol-ko%C5%82odziej/id1815567168"
+        "url": "https://books.apple.com/us/author/dawid-karol-ko%C5%82odziej/id1815567168",
+        "scope": "author"
       },
       {
         "label": "Google Play Books",
-        "url": "https://play.google.com/store/search?q=Dawid%20Karol%20Kolodziej&c=books"
-      },
-      {
-        "label": "Zenodo",
-        "url": "https://zenodo.org/search?q=metadata.creators.person_or_org.name%3A%22Kolodziej%2C%20Dawid%20Karol%22&l=list&p=1&s=10&sort=bestmatch"
+        "url": "https://play.google.com/store/books/details?id=0voaEgAAQBAJ",
+        "scope": "edition"
       }
     ],
     "readUrl": "https://zenodo.org/records/23357877",
