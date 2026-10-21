@@ -99,7 +99,7 @@ def update_html():
                           '<meta property="og:image" content="'+URL+'">', html)
         else:
             html = html.replace('</head>', '<meta property="og:image" content="'+URL+'"></head>', 1)
-        html = html.replace('</head>', metadata+'</head>', 1)
+        html = html.replace('</head>', (metadata if page.relative_to(ROOT).as_posix().startswith('pl/') else metadata.replace('Kołodziej', 'Kolodziej'))+'</head>', 1)
         if html != original:
             page.write_text(html, 'utf-8')
             count += 1
