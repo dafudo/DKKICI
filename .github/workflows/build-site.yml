@@ -270,7 +270,10 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A -- '*.html' assets/social/dawid-kolodziej-og.jpg sitemap.xml robots.txt assets/book_covers/ assets/author-covers/ assets/favicon-32x32.png assets/favicon-48x48.png assets/apple-touch-icon.png assets/verified-covers/ data/publications.json
+          git add -A -- '*.html' assets/social/dawid-kolodziej-og.jpg sitemap.xml robots.txt assets/book_covers/ assets/favicon-32x32.png assets/favicon-48x48.png assets/apple-touch-icon.png data/publications.json
+          for extra in assets/author-covers assets/verified-covers; do
+            if test -d "$extra"; then git add -A -- "$extra"; fi
+          done
           if git diff --cached --quiet; then
             echo "No generated HTML changes"
           else
