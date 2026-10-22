@@ -62,21 +62,6 @@
         "label": "Google Play Books",
         "url": "https://play.google.com/store/search?q=Dawid%20Karol%20Kolodziej&c=books",
         "scope": "author"
-      },
-      {
-        "label": "Download PDF",
-        "url": "https://dkk.hqici.com/assets/publications/the-price-of-play.pdf",
-        "scope": "edition"
-      },
-      {
-        "label": "Download EPUB",
-        "url": "https://dkk.hqici.com/assets/publications/the-price-of-play.epub",
-        "scope": "edition"
-      },
-      {
-        "label": "DOI — 10.5281/zenodo.23552129",
-        "url": "https://doi.org/10.5281/zenodo.23552129",
-        "scope": "author-provided-unverified"
       }
     ],
     "readUrl": "",
