@@ -17,7 +17,7 @@ for x in P:
     assert x['slug'].replace('-','').isalnum() and x['slug'] == x['slug'].lower(), 'Invalid slug'
     assert x['status'] in ('preview', 'published', 'archived')
     assert x['kind'] in ('book','journal','article','research','working_paper','resource')
-    assert x['category'] in ('psychology','education','practice','ideas')
+    assert x['category'] in ('psychology','education','business','practice','ideas')
     assert len(x['date']) in (4,10)
     assert all(isinstance(x[k],dict) and x[k].get('en') and x[k].get('pl') for k in ['title','subtitle','description'])
     assert x['cover'].startswith('assets/') and (ROOT / x['cover']).is_file(), f'Missing cover: {x["cover"]}'
@@ -40,7 +40,7 @@ I = {
  journeyK='05 — EXPERIENCE', journeyH='How the work<br><em>developed.</em>',
  projK='06 — INITIATIVES', projH='Work that<br><em>keeps growing.</em>', projNote='A few of the organisations and initiatives connected to this story.',
  archiveK='07 — THE LIBRARY', archiveH='The publication<br><em>archive.</em>', archiveNote='Browse current articles, research papers, working papers and books. Each publication has its own page and source links.',
- filterAll='All', filterPsych='Psychology', filterEdu='Education', filterPractice='Practice', filterIdeas='Ideas', search='Search the archive…', countLabel='WORKS IN VIEW', empty='No works match your search. Try another keyword or filter.',
+ filterAll='All', filterPsych='Psychology', filterEdu='Education', filterBusiness='Business', filterPractice='Practice', filterIdeas='Ideas', search='Search the archive…', countLabel='WORKS IN VIEW', empty='No works match your search. Try another keyword or filter.',
  connectK='08 — CONTACT', connectH='Interested in<br><em>working together?</em>', connectP='For professional enquiries, writing, educational projects and potential collaboration, please use the contact details below.', connectBtn='Send an email', connectPending='CONTACT CHANNEL — TO BE ADDED',
  footerSub='Personal archive · psychotherapy · writing · education', made='INDEPENDENT DIGITAL ARCHIVE', top='Back to top',
  preview='Editorial preview', detailBack='Back to the library', published='Year', type='Format', subject='Subject',
@@ -50,7 +50,7 @@ I = {
  filmModalK='A FILM TO BE MADE', filmModalH='A portrait in motion.', filmModalText='Storyboard: a quiet opening portrait, scenes from writing and everyday work, a short direct-to-camera introduction, followed by an understated end title. To activate the film, add a video URL in data/site.json (videoUrl) and rebuild the pages.',
  filmClose='Close', poster='PORTRAIT PLACEHOLDER', edit='REPLACE WITH YOUR PHOTO', view='Open publication', draft='Preview / details to verify',
  typeLabels={'book':'Book','journal':'Journal','article':'Research article','research':'Research paper','working_paper':'Working paper','resource':'Resource'},
- categoryLabels={'psychology':'Psychology','education':'Education','practice':'Practice','ideas':'Ideas'},
+ categoryLabels={'psychology':'Psychology','education':'Education','business':'Business','practice':'Practice','ideas':'Ideas'},
  events=[('2013','Beginning in counselling','Early work in counselling, psychological and educational support.'),('2015','Building an organisation','Beginning of leadership at Towarzystwo Psychopedagogiczne.'),('2024','Mental health practice in Queensland','Work with young people in community mental health and counselling services.'),('2026','Writing and learning','An expanding catalogue of publications and continuing professional development.')],
  projects=[('01','Towarzystwo Psychopedagogiczne','Leadership, interdisciplinary collaboration and psychological education.'),('02','MENTE','A publication space for ideas about psychology, education and contemporary life.'),('03','ICI and educational projects','Learning resources and initiatives designed to bring practical knowledge closer to people.')],
  ),
@@ -70,7 +70,7 @@ I = {
  journeyK='05 — DOŚWIADCZENIE', journeyH='Jak rozwijała się<br><em>moja praca.</em>',
  projK='06 — INICJATYWY', projH='Projekty, które<br><em>rosną.</em>', projNote='Wybrane organizacje i inicjatywy związane z moją działalnością.',
  archiveK='07 — BIBLIOTEKA', archiveH='Biblioteka<br><em>publikacji.</em>', archiveNote='Przeglądaj artykuły, opracowania badawcze, opracowania robocze i książki. Każda pozycja ma własną stronę i odnośniki do źródeł.',
- filterAll='Wszystkie', filterPsych='Psychologia', filterEdu='Edukacja', filterPractice='Praktyka', filterIdeas='Idee', search='Szukaj w bibliotece…', countLabel='WIDOCZNE POZYCJE', empty='Brak publikacji spełniających kryteria. Zmień wyszukiwanie lub filtr.',
+ filterAll='Wszystkie', filterPsych='Psychologia', filterEdu='Edukacja', filterBusiness='Biznes', filterPractice='Praktyka', filterIdeas='Idee', search='Szukaj w bibliotece…', countLabel='WIDOCZNE POZYCJE', empty='Brak publikacji spełniających kryteria. Zmień wyszukiwanie lub filtr.',
  connectK='08 — KONTAKT', connectH='Porozmawiajmy<br><em>o współpracy.</em>', connectP='W sprawach zawodowych, publikacji, projektów edukacyjnych i możliwej współpracy zapraszam do kontaktu.', connectBtn='Napisz wiadomość', connectPending='KANAŁ KONTAKTOWY — DO UZUPEŁNIENIA',
  footerSub='Archiwum osobiste · psychoterapia · pisanie · edukacja', made='NIEZALEŻNE ARCHIWUM CYFROWE', top='Do góry',
  preview='Wersja demonstracyjna', detailBack='Wróć do biblioteki', published='Rok', type='Forma', subject='Tematyka',
@@ -80,7 +80,7 @@ I = {
  filmModalK='FILM DO NAGRANIA', filmModalH='Portret w ruchu.', filmModalText='Scenariusz: spokojny kadr portretowy, sceny pisania i codziennej pracy, krótka wypowiedź do kamery oraz oszczędna plansza końcowa. Aby uruchomić film, dodaj adres pliku w data/site.json (videoUrl) i przebuduj strony.',
  filmClose='Zamknij', poster='MIEJSCE NA PORTRET', edit='TUTAJ DODAMY TWOJE ZDJĘCIE', view='Otwórz publikację', draft='Podgląd / dane do weryfikacji',
  typeLabels={'book':'Książka','journal':'Czasopismo','article':'Artykuł naukowy','research':'Opracowanie badawcze','working_paper':'Opracowanie robocze','resource':'Materiał'},
- categoryLabels={'psychology':'Psychologia','education':'Edukacja','practice':'Praktyka','ideas':'Idee'},
+ categoryLabels={'psychology':'Psychologia','education':'Edukacja','business':'Biznes','practice':'Praktyka','ideas':'Idee'},
  events=[('2013','Początki poradnictwa','Pierwsze działania w obszarze poradnictwa oraz wsparcia psychologiczno-edukacyjnego.'),('2015','Budowanie organizacji','Początek kierowania Towarzystwem Psychopedagogicznym.'),('2024','Praca w Queensland','Praca z młodzieżą w usługach zdrowia psychicznego i poradnictwa.'),('2026','Publikacje i rozwój','Rozbudowa biblioteki publikacji i dalsze doskonalenie zawodowe.')],
  projects=[('01','Towarzystwo Psychopedagogiczne','Przywództwo, współpraca interdyscyplinarna i edukacja psychologiczna.'),('02','MENTE','Przestrzeń publikacji o psychologii, edukacji i współczesnym życiu.'),('03','ICI i projekty edukacyjne','Materiały i inicjatywy służące upowszechnianiu praktycznej wiedzy.')],
  )}
@@ -135,7 +135,7 @@ def home_page(lang,prefix):
     filmUrl=S.get('videoUrl','').strip()
     hero_cards=''.join(card(p,lang,prefix) for p in [p for p in P if p.get('featured') and p['status']=='published'][:3])
     all_cards=''.join(card(p,lang,prefix) for p in [p for p in P if p['status']=='published'][:3])
-    options=''.join(f'<button class="filter" type="button" data-filter="{v}" aria-pressed="{str(i==0).lower()}">{e(t[k])}</button>' for i,(v,k) in enumerate([('all','filterAll'),('psychology','filterPsych'),('education','filterEdu'),('practice','filterPractice'),('ideas','filterIdeas')]))
+    options=''.join(f'<button class="filter" type="button" data-filter="{v}" aria-pressed="{str(i==0).lower()}">{e(t[k])}</button>' for i,(v,k) in enumerate([('all','filterAll'),('psychology','filterPsych'),('education','filterEdu'),('business','filterBusiness'),('practice','filterPractice'),('ideas','filterIdeas')]))
     timeline=''.join(f'<div class="timeline-row reveal"><span class="timeline-year">{e(year)}</span><div><h3>{e(h)}</h3><p>{e(d)}</p></div></div>' for year,h,d in t['events'])
     projects=''.join(f'<article class="project-item reveal"><span class="project-no">PROJECT / {e(n)}</span><div><h3>{e(h)}</h3><p>{e(d)}</p></div></article>' for n,h,d in t['projects'])
     bio=RESEARCH_SECTIONS[lang]

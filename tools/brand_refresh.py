@@ -127,11 +127,12 @@ def update_catalogue(src,lang,pre):
         'all':('All works','Wszystkie'),
         'psychology':('Psychology','Psychologia'),
         'education':('Education','Edukacja'),
+        'business':('Business','Biznes'),
         'practice':('Practice','Praktyka'),
         'ideas':('Ideas','Idee'),
     }
     active_categories={p['category'] for p in valid}
-    visible_categories=['all']+[x for x in ('psychology','education','practice','ideas') if x in active_categories]
+    visible_categories=['all']+[x for x in ('psychology','education','business','practice','ideas') if x in active_categories]
     buttons=''.join(
         '<button type="button" class="pub-filter" data-category="'+cat+
         '" aria-pressed="'+('true' if cat=='all' else 'false')+'">'+
