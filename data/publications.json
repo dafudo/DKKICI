@@ -1,5 +1,77 @@
 [
   {
+    "slug": "the-price-of-play",
+    "title": {
+      "en": "The Price of Play: Psychology, Business Ethics and the Changing Value of Digital Gaming (2013–2026)",
+      "pl": "Cena grania: psychologia, etyka biznesu i zmieniająca się wartość gier cyfrowych (2013–2026)"
+    },
+    "titleShort": {
+      "en": "The Price of Play",
+      "pl": "Cena grania"
+    },
+    "subtitle": {
+      "en": "Psychology, Business Ethics and the Changing Value of Digital Gaming (2013–2026)",
+      "pl": "Psychologia, etyka biznesu i zmieniająca się wartość gier cyfrowych (2013–2026)"
+    },
+    "description": {
+      "en": "A 2026 interdisciplinary conceptual working paper examining player motivation, reward systems, monetisation and commercial responsibility in video games. Drawing on psychology and business ethics, it distinguishes transparent optional purchases from manipulation, FOMO and misleading pressure. Historical cases include Diablo III and Fallout 2. The paper proposes a player-centred ethical game design framework and a Creative Integrity Agreement; it reports no original empirical study or external peer review.",
+      "pl": "Interdyscyplinarna praca koncepcyjna z 2026 roku poświęcona psychologii graczy, nagrodom, monetyzacji i odpowiedzialności biznesowej w grach cyfrowych. Rozróżnia uczciwe, dobrowolne zakupy od manipulacji, FOMO i ukrytej presji. Omawia m.in. Diablo III i Fallout 2 oraz proponuje ramy etycznego projektowania gier i porozumienie o integralności twórczej. To opracowanie w języku angielskim, bez nowych badań empirycznych ani niezależnej recenzji czasopismowej."
+    },
+    "year": "2026",
+    "date": "2026-10-22",
+    "kind": "working_paper",
+    "category": "psychology",
+    "featured": false,
+    "spotlight": false,
+    "status": "published",
+    "cover": "assets/book_covers/the-price-of-play.webp",
+    "coverSource": "author-provided",
+    "edition": "Contemporary English-language conceptual working paper (2026), developed from an unpublished Polish manuscript dated 2013",
+    "language": "en",
+    "keywords": [
+      "video game psychology",
+      "gaming motivation",
+      "business ethics",
+      "microtransactions",
+      "loot boxes",
+      "dark patterns",
+      "FOMO",
+      "player autonomy",
+      "creative integrity",
+      "Diablo III",
+      "consumer trust",
+      "game monetisation"
+    ],
+    "bisac": [
+      "PSY067000",
+      "BUS008000",
+      "GAM013000"
+    ],
+    "links": [
+      {
+        "label": "Apple Books",
+        "url": "https://books.apple.com/us/author/dawid-karol-ko%C5%82odziej/id1815567168",
+        "scope": "author"
+      },
+      {
+        "label": "Google Play Books",
+        "url": "https://play.google.com/store/search?q=Dawid%20Karol%20Kolodziej&c=books",
+        "scope": "author"
+      },
+      {
+        "label": "Download PDF",
+        "url": "https://dkk.hqici.com/assets/publications/the-price-of-play.pdf",
+        "scope": "edition"
+      },
+      {
+        "label": "Download EPUB",
+        "url": "https://dkk.hqici.com/assets/publications/the-price-of-play.epub",
+        "scope": "edition"
+      }
+    ],
+    "readUrl": ""
+  },
+  {
     "slug": "from-media-audience-to-critical-citizen",
     "title": {
       "en": "From Media Audience to Critical Citizen: Media Evolution, Psychological Vulnerability and the Crisis of Information Trust in the Age of Artificial Intelligence",

@@ -4,6 +4,7 @@ Run last in the site build so subsequent regeneration preserves the universal OG
 from pathlib import Path
 from PIL import Image, ImageOps, ImageDraw, ImageFont, ImageEnhance, ImageFilter
 import re
+import json
 
 ROOT = Path(__file__).resolve().parent.parent
 W, H = 1200, 630
@@ -100,10 +101,113 @@ def update_html():
         else:
             html = html.replace('</head>', '<meta property="og:image" content="'+URL+'"></head>', 1)
         html = html.replace('</head>', (metadata if page.relative_to(ROOT).as_posix().startswith('pl/') else metadata.replace('Kołodziej', 'Kolodziej'))+'</head>', 1)
+        # Cover-specific SEO for the author's 2026 paper; general pages retain
+        # the established portrait social card. Idempotent on each rebuild.
+        route = page.relative_to(ROOT).as_posix()
+        if route in ("works/the-price-of-play/index.html",
+                     "pl/publikacje/the-price-of-play/index.html"):
+            pl = route.startswith("pl/")
+            paper_cover = "https://dkk.hqici.com/assets/book_covers/the-price-of-play.webp"
+            canonical = "https://dkk.hqici.com/" + route.removesuffix("index.html")
+            seo_summary = (
+                "Analiza psychologii gier, monetyzacji, FOMO i etyki biznesu. "
+                "Praca koncepcyjna Dawida Karola Kolodzieja (2026)."
+                if pl else
+                "Explore gaming psychology, monetisation, FOMO and business ethics "
+                "in Dawid Karol Kolodziej's 2026 conceptual working paper."
+            )
+            paper_title = ("Cena grania — psychologia i etyka monetyzacji gier"
+                           if pl else "The Price of Play — Gaming Psychology and Business Ethics")
+            html = html.replace(
+                '<meta property="og:image" content="'+URL+'">',
+                '<meta property="og:image" content="'+paper_cover+'">'
+            )
+            for prop in ("og:image:secure_url",):
+                html = html.replace(
+                    '<meta property="'+prop+'" content="'+URL+'">',
+                    '<meta property="'+prop+'" content="'+paper_cover+'">'
+                )
+            html = html.replace(
+                '<meta name="twitter:image" content="'+URL+'">',
+                '<meta name="twitter:image" content="'+paper_cover+'">'
+            )
+            html = html.replace(
+                '<meta property="og:image:type" content="image/jpeg">',
+                '<meta property="og:image:type" content="image/webp">'
+            )
+            html = html.replace(
+                '<meta property="og:image:width" content="1200">',
+                '<meta property="og:image:width" content="700">'
+            ).replace(
+                '<meta property="og:image:height" content="630">',
+                '<meta property="og:image:height" content="1117">'
+            )
+            html = re.sub(
+                r'<meta property="og:image:alt" content="[^"]*">',
+                '<meta property="og:image:alt" content="The Price of Play — official book cover">',
+                html
+            )
+            html = re.sub(
+                r'<meta name="twitter:image:alt" content="[^"]*">',
+                '<meta name="twitter:image:alt" content="The Price of Play — official book cover">',
+                html
+            )
+            html = re.sub(
+                r'<meta name="description" content="[^"]*">',
+                '<meta name="description" content="'+seo_summary+'">',
+                html, count=1
+            )
+            html = re.sub(
+                r'<meta property="og:description" content="[^"]*">',
+                '<meta property="og:description" content="'+seo_summary+'">',
+                html, count=1
+            )
+            html = re.sub(
+                r'<meta property="og:title" content="[^"]*">',
+                '<meta property="og:title" content="'+paper_title+'">',
+                html, count=1
+            )
+            schema = {
+                "@context": "https://schema.org",
+                "@type": "ScholarlyArticle",
+                "@id": canonical + "#publication",
+                "headline": "The Price of Play: Psychology, Business Ethics and the Changing Value of Digital Gaming (2013–2026)",
+                "name": "The Price of Play",
+                "description": seo_summary,
+                "author": {"@type": "Person", "name": "Dawid Karol Kolodziej",
+                           "url": "https://dkk.hqici.com/"},
+                "datePublished": "2026-10-22",
+                "inLanguage": "en",
+                "creativeWorkStatus": "Working paper (not peer reviewed)",
+                "isAccessibleForFree": True,
+                "image": paper_cover,
+                "url": canonical,
+                "mainEntityOfPage": {"@type": "WebPage", "@id": canonical},
+                "keywords": "gaming psychology, player motivation, microtransactions, FOMO, business ethics, game design, consumer trust",
+                "isBasedOn": {"@type": "CreativeWork", "name": "Świat oczami gracza",
+                              "inLanguage": "pl", "dateCreated": "2013"},
+                "encoding": [
+                    {"@type": "MediaObject", "encodingFormat": "application/pdf",
+                     "contentUrl": "https://dkk.hqici.com/assets/publications/the-price-of-play.pdf"},
+                    {"@type": "MediaObject", "encodingFormat": "application/epub+zip",
+                     "contentUrl": "https://dkk.hqici.com/assets/publications/the-price-of-play.epub"}
+                ]
+            }
+            extra = (
+                '<meta property="og:url" content="'+canonical+'">'
+                '<meta property="article:published_time" content="2026-10-22">'
+                '<meta name="twitter:card" content="summary_large_image">'
+                '<meta name="twitter:title" content="'+paper_title+'">'
+                '<meta name="twitter:description" content="'+seo_summary+'">'
+                '<script type="application/ld+json">'+
+                json.dumps(schema, ensure_ascii=False).replace("</", "<\\/")+'</script>'
+            )
+            html = html.replace("</head>", extra + "</head>", 1)
         if html != original:
             page.write_text(html, 'utf-8')
             count += 1
-        assert html.count('<meta property="og:image" content="'+URL+'">') == 1, page
+        expected_og = (paper_cover if route in ("works/the-price-of-play/index.html", "pl/publikacje/the-price-of-play/index.html") else URL)
+        assert html.count('<meta property="og:image" content="'+expected_og+'">') == 1, page
         assert html.count('name="twitter:image"') == 1, page
     assert count >= 20, f'Expected all bilingual main and publication pages, got {count}'
     print(f'Universal personal OG image applied to {count} pages')
