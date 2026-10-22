@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 """Responsive smoke test against a static server; screenshots for editorial review."""
 import os
+import json
 from pathlib import Path
 from playwright.sync_api import sync_playwright
 root=Path(__file__).resolve().parents[1]
+published_count=sum(1 for item in json.loads((root/'data/publications.json').read_text('utf-8')) if item.get('status')=='published')
 out=root/'qa/screens'
 out.mkdir(parents=True,exist_ok=True)
 base="http://127.0.0.1:8000/DKKICI/"
@@ -72,7 +74,7 @@ with sync_playwright() as p:
    page.wait_for_function("document.querySelector('[data-publication-count]')?.textContent === '0'")
    assert page.locator('[data-publication-word]').text_content()=='publikacji'
    page.locator('[data-publication-search]').fill('')
-   page.wait_for_function("document.querySelector('[data-publication-count]')?.textContent === '7'")
+   page.wait_for_function("(expected) => document.querySelector('[data-publication-count]')?.textContent === String(expected)", arg=published_count)
    assert page.locator('[data-publication-word]').text_content()=='publikacji'
   page.close()
  browser.close()
