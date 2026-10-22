@@ -72,9 +72,16 @@
         "label": "Download EPUB",
         "url": "https://dkk.hqici.com/assets/publications/the-price-of-play.epub",
         "scope": "edition"
+      },
+      {
+        "label": "DOI — 10.5281/zenodo.23552129",
+        "url": "https://doi.org/10.5281/zenodo.23552129",
+        "scope": "author-provided-unverified"
       }
     ],
-    "readUrl": ""
+    "readUrl": "",
+    "doi": "10.5281/zenodo.23552129",
+    "doiStatus": "author-provided-unverified"
   },
   {
     "slug": "from-media-audience-to-critical-citizen",
