@@ -49,6 +49,11 @@
     ],
     "links": [
       {
+        "label": "Zenodo",
+        "url": "https://zenodo.org/search?q=metadata.creators.person_or_org.name%3A%22Kolodziej%2C%20Dawid%20Karol%22&l=list&p=1&s=10&sort=bestmatch",
+        "scope": "author"
+      },
+      {
         "label": "Apple Books",
         "url": "https://books.apple.com/us/author/dawid-karol-ko%C5%82odziej/id1815567168",
         "scope": "author"
