@@ -105,6 +105,9 @@ jobs:
             'media/index.html','pl/media/index.html',
             'gallery/index.html','pl/galeria/index.html'
           ]
+          for html_file in Path('.').rglob('*.html'):
+            html_text=html_file.read_text('utf-8')
+            assert not re.search(r'\b(?:DBA|GAMBIT)\b', html_text, re.I), str(html_file)+' contains outdated DBA/GAMBIT reference'
           for path in pages:
             p=Path(path)
             assert p.is_file(), path+' missing'
@@ -164,7 +167,7 @@ jobs:
             assert 'edukacją zawodową' not in content, name+' misleading vocational education wording'
           for name in ('profile/index.html','pl/profil/index.html'):
             content=Path(name).read_text('utf-8')
-            assert 'PACFA' in content and 'NDIS' in content and 'GAMBIT' in content
+            assert 'PACFA' in content and 'NDIS' in content and 'GAMBIT' not in content and 'DBA' not in content
             assert 'ORCID' in content and 'Google Scholar' in content and 'LinkedIn' in content
             assert content.count('https://www.pacfa.org.au/portal/TherapistProfile?Id=17249')>=2, name+' missing PACFA register in credentials and professional links'
             assert 'application/ld+json' in content

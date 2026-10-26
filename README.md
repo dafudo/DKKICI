@@ -45,7 +45,7 @@ The canonical production workflow also installs Pillow and runs `tools/build_ico
 
 **Publications:** https://dkk.hqici.com/publications/ · https://dkk.hqici.com/pl/publikacje/
 
-The active source for professional biographical facts, qualifications, PACFA registration, NDIS PBS suitable-practitioner wording, ongoing DBA studies and both languages is **`data/profile.json`**. Do not alter generated HTML to change these facts. The English public name is **Dawid Karol Kolodziej**; the Polish public name is **Dawid Karol Kołodziej**. Periods are intentionally distinguished: charity placements beginning in 2009 and professional counselling practice from 2013.
+The active source for professional biographical facts, qualifications, PACFA registration, NDIS PBS suitable-practitioner wording and both languages is **`data/profile.json`**. Do not alter generated HTML to change these facts. The English public name is **Dawid Karol Kolodziej**; the Polish public name is **Dawid Karol Kołodziej**. Periods are intentionally distinguished: charity placements beginning in 2009 and professional counselling practice from 2013.
 
 ### Adding a new publication
 
@@ -70,7 +70,7 @@ python3 tools/generate_sitemap.py
 
 The GitHub workflow `.github/workflows/build-site.yml` is the authoritative publishing process. Earlier instructions in this README describing a three-stage build, project-path URLs or removing `noindex` globally are historical and should not be followed for the current live site.
 
-Professional certification, professional registration, assessed suitability, completed degrees, short courses and ongoing DBA studies are distinct categories. English and Polish descriptions should not suggest these are equivalent. Do not publish confidential case details or images as clinical testimonials.
+Professional certification, professional registration, assessed suitability, completed degrees and short courses are distinct categories. English and Polish descriptions should not suggest these are equivalent. Do not publish confidential case details or images as clinical testimonials.
 
 ---
 
@@ -239,7 +239,7 @@ python3 tools/enrich_home.py
 
 The GitHub Actions workflow `.github/workflows/build-site.yml` runs these commands and publishes static HTML changes to `main` whenever the source data or generators change. The optional `.github/workflows/visual-qa.yml` performs responsive browser checks.
 
-**Editorial standards:** 2009 denotes first charity placements; professional counselling practice dates from 2013. Current qualifications must not be retroactively attributed to earlier years. DBA is ongoing. Media reports involving sensitive family matters are linked in context, and known historical title misattributions are not reproduced as professional credentials. Two stylised compositions are labelled editorial, not event documentation. The MENTE mockup is retired. All 26 photographs supplied in `photos` are retained in the gallery; the older hand-picked portrait set was removed.
+**Editorial standards:** 2009 denotes first charity placements; professional counselling practice dates from 2013. Current qualifications must not be retroactively attributed to earlier years. Media reports involving sensitive family matters are linked in context, and known historical title misattributions are not reproduced as professional credentials. Two stylised compositions are labelled editorial, not event documentation. The MENTE mockup is retired. All 26 photographs supplied in `photos` are retained in the gallery; the older hand-picked portrait set was removed.
 
 
 ## Canonical domain, sitemap and Google Search Console
